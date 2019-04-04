@@ -138,8 +138,24 @@ class ViewController: UIViewController {
                         imageNode.addChildNode(collageNode0)
                         imageNode.opacity = 1
                     }
+                } else if (name == "note") {
                     
-                    
+                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 0) {
+                        imageNode.addChildNode(collageNode0)
+                        imageNode.opacity = 1
+                    }
+                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 1) {
+                        imageNode.addChildNode(collageNode0)
+                        imageNode.opacity = 1
+                    }
+                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 2) {
+                        imageNode.addChildNode(collageNode0)
+                        imageNode.opacity = 1
+                    }
+                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 5) {
+                        imageNode.addChildNode(collageNode0)
+                        imageNode.opacity = 1
+                    }
                 }
                 
             } else {
@@ -150,10 +166,7 @@ class ViewController: UIViewController {
                 tempShape.firstMaterial?.lightingModel = .constant
                 node.addChildNode(tempNode)
                 print("'size' var width: \(size.width) height: \(size.height)")
- 
             }
-            
-            
         } //handleFoundImage()
         
         
