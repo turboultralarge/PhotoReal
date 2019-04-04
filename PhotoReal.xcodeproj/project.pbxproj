@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		24D0965B225556D900AFA230 /* PhotoRealTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoRealTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		24D0965B225556D900AFA230 /* PhotoReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24D0965E225556D900AFA230 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24D09660225556D900AFA230 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		24D09662225556D900AFA230 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,10 +43,10 @@
 		24D09667225556DA00AFA230 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24D0966A225556DA00AFA230 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24D0966C225556DA00AFA230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24D09671225556DA00AFA230 /* PhotoRealTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoRealTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24D09671225556DA00AFA230 /* PhotoRealTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoRealTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24D09675225556DA00AFA230 /* PhotoRealTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRealTestTests.swift; sourceTree = "<group>"; };
 		24D09677225556DA00AFA230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24D0967C225556DA00AFA230 /* PhotoRealTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoRealTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		24D0967C225556DA00AFA230 /* PhotoRealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoRealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24D09680225556DA00AFA230 /* PhotoRealTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRealTestUITests.swift; sourceTree = "<group>"; };
 		24D09682225556DA00AFA230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,9 +89,9 @@
 		24D0965C225556D900AFA230 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24D0965B225556D900AFA230 /* PhotoRealTest.app */,
-				24D09671225556DA00AFA230 /* PhotoRealTestTests.xctest */,
-				24D0967C225556DA00AFA230 /* PhotoRealTestUITests.xctest */,
+				24D0965B225556D900AFA230 /* PhotoReal.app */,
+				24D09671225556DA00AFA230 /* PhotoRealTests.xctest */,
+				24D0967C225556DA00AFA230 /* PhotoRealUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -131,9 +131,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24D0965A225556D900AFA230 /* PhotoRealTest */ = {
+		24D0965A225556D900AFA230 /* PhotoReal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24D09685225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealTest" */;
+			buildConfigurationList = 24D09685225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoReal" */;
 			buildPhases = (
 				24D09657225556D900AFA230 /* Sources */,
 				24D09658225556D900AFA230 /* Frameworks */,
@@ -143,14 +143,14 @@
 			);
 			dependencies = (
 			);
-			name = PhotoRealTest;
+			name = PhotoReal;
 			productName = PhotoRealTest;
-			productReference = 24D0965B225556D900AFA230 /* PhotoRealTest.app */;
+			productReference = 24D0965B225556D900AFA230 /* PhotoReal.app */;
 			productType = "com.apple.product-type.application";
 		};
-		24D09670225556DA00AFA230 /* PhotoRealTestTests */ = {
+		24D09670225556DA00AFA230 /* PhotoRealTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24D09688225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealTestTests" */;
+			buildConfigurationList = 24D09688225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealTests" */;
 			buildPhases = (
 				24D0966D225556DA00AFA230 /* Sources */,
 				24D0966E225556DA00AFA230 /* Frameworks */,
@@ -161,14 +161,14 @@
 			dependencies = (
 				24D09673225556DA00AFA230 /* PBXTargetDependency */,
 			);
-			name = PhotoRealTestTests;
+			name = PhotoRealTests;
 			productName = PhotoRealTestTests;
-			productReference = 24D09671225556DA00AFA230 /* PhotoRealTestTests.xctest */;
+			productReference = 24D09671225556DA00AFA230 /* PhotoRealTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		24D0967B225556DA00AFA230 /* PhotoRealTestUITests */ = {
+		24D0967B225556DA00AFA230 /* PhotoRealUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24D0968B225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealTestUITests" */;
+			buildConfigurationList = 24D0968B225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealUITests" */;
 			buildPhases = (
 				24D09678225556DA00AFA230 /* Sources */,
 				24D09679225556DA00AFA230 /* Frameworks */,
@@ -179,9 +179,9 @@
 			dependencies = (
 				24D0967E225556DA00AFA230 /* PBXTargetDependency */,
 			);
-			name = PhotoRealTestUITests;
+			name = PhotoRealUITests;
 			productName = PhotoRealTestUITests;
-			productReference = 24D0967C225556DA00AFA230 /* PhotoRealTestUITests.xctest */;
+			productReference = 24D0967C225556DA00AFA230 /* PhotoRealUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +207,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 24D09656225556D900AFA230 /* Build configuration list for PBXProject "PhotoRealTest" */;
+			buildConfigurationList = 24D09656225556D900AFA230 /* Build configuration list for PBXProject "PhotoReal" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -220,9 +220,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24D0965A225556D900AFA230 /* PhotoRealTest */,
-				24D09670225556DA00AFA230 /* PhotoRealTestTests */,
-				24D0967B225556DA00AFA230 /* PhotoRealTestUITests */,
+				24D0965A225556D900AFA230 /* PhotoReal */,
+				24D09670225556DA00AFA230 /* PhotoRealTests */,
+				24D0967B225556DA00AFA230 /* PhotoRealUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -286,12 +286,12 @@
 /* Begin PBXTargetDependency section */
 		24D09673225556DA00AFA230 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 24D0965A225556D900AFA230 /* PhotoRealTest */;
+			target = 24D0965A225556D900AFA230 /* PhotoReal */;
 			targetProxy = 24D09672225556DA00AFA230 /* PBXContainerItemProxy */;
 		};
 		24D0967E225556DA00AFA230 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 24D0965A225556D900AFA230 /* PhotoRealTest */;
+			target = 24D0965A225556D900AFA230 /* PhotoReal */;
 			targetProxy = 24D0967D225556DA00AFA230 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -437,7 +437,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47KAJSV75C;
 				INFOPLIST_FILE = PhotoRealTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,7 +456,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 47KAJSV75C;
 				INFOPLIST_FILE = PhotoRealTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,7 +486,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoRealTest.app/PhotoRealTest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoReal.app/PhotoReal";
 			};
 			name = Debug;
 		};
@@ -502,7 +506,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoRealTest.app/PhotoRealTest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoReal.app/PhotoReal";
 			};
 			name = Release;
 		};
@@ -547,7 +551,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24D09656225556D900AFA230 /* Build configuration list for PBXProject "PhotoRealTest" */ = {
+		24D09656225556D900AFA230 /* Build configuration list for PBXProject "PhotoReal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24D09683225556DA00AFA230 /* Debug */,
@@ -556,7 +560,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24D09685225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealTest" */ = {
+		24D09685225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoReal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24D09686225556DA00AFA230 /* Debug */,
@@ -565,7 +569,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24D09688225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealTestTests" */ = {
+		24D09688225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24D09689225556DA00AFA230 /* Debug */,
@@ -574,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24D0968B225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealTestUITests" */ = {
+		24D0968B225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				24D0968C225556DA00AFA230 /* Debug */,
