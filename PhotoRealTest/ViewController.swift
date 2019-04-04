@@ -98,17 +98,36 @@ class ViewController: UIViewController {
             if let imageNode = makeImage(size: size) { //NOTE: This implemtation is really sloppy right now
                 node.addChildNode(imageNode)
                 node.opacity = 1
-                print("Image matches size")
+                //print("Image matches size")
+                
+                //Displays collage images
+                if (name == "gabe_newell") {
+                    
+                    //These should be checked for to avoid a cyan case, same as above
+                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 0) {
+                        imageNode.addChildNode(collageNode0)
+                        imageNode.opacity = 1
+                    }
+                    
+                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 1) {
+                        imageNode.addChildNode(collageNode0)
+                        imageNode.opacity = 1
+                    }
+                    
+                    
+                }
+                
             } else {
                 print("Image does NOT match size")
                 let tempShape = SCNBox(width: size.width, height: 0.0, length: size.height, chamferRadius: 0)
                 let tempNode = SCNNode(geometry: tempShape)
-                tempShape.firstMaterial?.diffuse.contents = UIImage(named: "highlight_green.png")
+                tempShape.firstMaterial?.diffuse.contents = UIImage(named: "highlight_cyan.png")
                 tempShape.firstMaterial?.lightingModel = .constant
                 node.addChildNode(tempNode)
                 print("'size' var width: \(size.width) height: \(size.height)")
  
             }
+            
             
         } //handleFoundImage()
         
@@ -116,12 +135,45 @@ class ViewController: UIViewController {
         private func makeImage(size: CGSize) -> SCNNode? {
             //guard let imagePath = Bundle.main.url(forResource: "gabe_newell", withExtension: "jpg") else { return nil }
             
-            print("Preparing size: width: \(size.width) height: \(size.height)")
+            //print("Preparing size: width: \(size.width) height: \(size.height)")
             let newImage = SCNPlane(width: size.width, height: size.height) //size    CGSize    (width = 0.10159999877214432, height = 0.1269999984651804)
             newImage.firstMaterial?.diffuse.contents = UIImage(named: "highlight_green.png")
             newImage.firstMaterial?.lightingModel = .constant
             let newImageNode = SCNNode(geometry: newImage)
             newImageNode.eulerAngles.x = -.pi / 2
+            
+            return newImageNode
+            
+        }
+        
+        private func makeCollageImage(size: CGSize, name: String, index: Int) -> SCNNode? {
+            
+            //print("Preparing size: width: \(size.width) height: \(size.height)")
+            let newImage = SCNPlane(width: size.width, height: size.height)
+            newImage.firstMaterial?.diffuse.contents = UIImage(named: name + "_" + String(index))
+            print("Adding Collage Image: \(name + "_" + String(index))")
+            newImage.firstMaterial?.lightingModel = .constant
+            let newImageNode = SCNNode(geometry: newImage)
+            newImageNode.eulerAngles.x = -.pi / 2
+            
+            //Based on the index, find the relative offset position
+            switch index {
+            case 0:
+                newImageNode.rotation.w = 0.0
+                newImageNode.position.x += Float(size.width)
+                newImageNode.position.y += Float(size.height)
+                newImageNode.position.z = 0.0
+            case 1:
+                newImageNode.rotation.w = 0.0
+                newImageNode.position.x = 0.0
+                newImageNode.position.y += Float(size.height)
+                newImageNode.position.z = 0.0
+            default:
+                newImageNode.rotation.w = 0.0
+                newImageNode.position.x = 0.0
+                newImageNode.position.y = 0.0
+                newImageNode.position.z = 0.0
+            }
             
             return newImageNode
             
