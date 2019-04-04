@@ -47,9 +47,13 @@ class ViewController: UIViewController {
         //let configuration = ARImageTrackingConfiguration()
 
         // Run the view's session
+        
         if let configuration = imageConfiguration {
+            print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
             sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
             sceneView.session.run(configuration)
+            configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
+            print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
         }
         sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
     }
@@ -75,11 +79,13 @@ class ViewController: UIViewController {
     
     extension ViewController: ARSCNViewDelegate {
         func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-            DispatchQueue.main.async {} //Hide objects callback
+            DispatchQueue.main.async {} //Hide things callback
             if let imageAnchor = anchor as? ARImageAnchor {
                 handleFoundImage(imageAnchor, node)
+                /*
             } else if let objectAnchor = anchor as? ARObjectAnchor { //This is for finding objects, which probably we won't need
                 //handleFoundObject(ObjectAnchor, node)
+                */
             }
         } //renderer()
         
@@ -89,13 +95,13 @@ class ViewController: UIViewController {
             print("Found image: \(name)")
             
             let size = imageAnchor.referenceImage.physicalSize
-            if let imageNode = makeImage(size: size) {
+            if let imageNode = makeImage(size: size) { //NOTE: This implemtation is really sloppy right now
                 node.addChildNode(imageNode)
-                node.opacity = 0.1
-                print("bababooey")
+                node.opacity = 1
+                print("Image matches size")
             } else {
-                print("OH NO")
-                let tempShape = SCNBox(width: 0.1, height: 0.0, length: 0.15, chamferRadius: 0)
+                print("Image does NOT match size")
+                let tempShape = SCNBox(width: size.width, height: 0.0, length: size.height, chamferRadius: 0)
                 let tempNode = SCNNode(geometry: tempShape)
                 tempShape.firstMaterial?.diffuse.contents = UIImage(named: "highlight_green.png")
                 tempShape.firstMaterial?.lightingModel = .constant
@@ -108,7 +114,7 @@ class ViewController: UIViewController {
         
         
         private func makeImage(size: CGSize) -> SCNNode? {
-            guard let imagePath = Bundle.main.url(forResource: "gabe_newell", withExtension: "jpg") else { return nil }
+            //guard let imagePath = Bundle.main.url(forResource: "gabe_newell", withExtension: "jpg") else { return nil }
             
             print("Preparing size: width: \(size.width) height: \(size.height)")
             let newImage = SCNPlane(width: size.width, height: size.height) //size    CGSize    (width = 0.10159999877214432, height = 0.1269999984651804)
@@ -121,12 +127,13 @@ class ViewController: UIViewController {
             
         }
         
-        
+        /*
         //Handles a found OBJECT via a callback function
         private func handleFoundObject(_ objectAnchor: ARObjectAnchor, _ node: SCNNode) {
             DispatchQueue.main.sync {} //This is where the good things happen (Show objects)
             
         } //handleFoundObject()
+         */
     } //extension
     
     

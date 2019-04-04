@@ -6,6 +6,9 @@
   "resources" : [
     {
       "filename" : "gabe_newell.arreferenceimage"
+    },
+    {
+      "filename" : "pocky.arreferenceimage"
     }
   ]
 }
