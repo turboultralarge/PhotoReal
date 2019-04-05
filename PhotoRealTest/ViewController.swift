@@ -201,46 +201,48 @@ class ViewController: UIViewController {
             let newImageNode = SCNNode(geometry: newImage)
             newImageNode.eulerAngles.x = -.pi / 2
             
+            let spacing = 0.01
+            
             //Based on the index, find the relative offset position
             switch index {
             case 0:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x -= Float(boxSize)
-                newImageNode.position.y += Float(boxSize)
+                newImageNode.position.x -= Float(boxSize) + Float(spacing)
+                newImageNode.position.y += Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 1:
                 newImageNode.rotation.w = 0.0
                 newImageNode.position.x = 0.0
-                newImageNode.position.y += Float(boxSize)
+                newImageNode.position.y += Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 2:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x += Float(boxSize)
-                newImageNode.position.y += Float(boxSize)
+                newImageNode.position.x += Float(boxSize) + Float(spacing)
+                newImageNode.position.y += Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 3:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x += Float(boxSize)
+                newImageNode.position.x += Float(boxSize) + Float(spacing)
                 newImageNode.position.y = 0.0
                 newImageNode.position.z = 0.0
             case 4:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x += Float(boxSize)
-                newImageNode.position.y -= Float(boxSize)
+                newImageNode.position.x += Float(boxSize) + Float(spacing)
+                newImageNode.position.y -= Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 5:
                 newImageNode.rotation.w = 0.0
                 newImageNode.position.x = 0.0
-                newImageNode.position.y -= Float(boxSize)
+                newImageNode.position.y -= Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 6:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x -= Float(boxSize)
-                newImageNode.position.y -= Float(boxSize)
+                newImageNode.position.x -= Float(boxSize) + Float(spacing)
+                newImageNode.position.y -= Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 7:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x -= Float(boxSize)
+                newImageNode.position.x -= Float(boxSize) + Float(spacing)
                 newImageNode.position.y = 0.0
                 newImageNode.position.z = 0.0
             default:
