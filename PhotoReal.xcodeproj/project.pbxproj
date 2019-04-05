@@ -15,6 +15,9 @@
 		24D0966B225556DA00AFA230 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24D09669225556DA00AFA230 /* LaunchScreen.storyboard */; };
 		24D09676225556DA00AFA230 /* PhotoRealTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D09675225556DA00AFA230 /* PhotoRealTestTests.swift */; };
 		24D09681225556DA00AFA230 /* PhotoRealTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D09680225556DA00AFA230 /* PhotoRealTestUITests.swift */; };
+		4FB8C90EBEFDB32AC8991CEA /* Pods_PhotoRealTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54798540C0B43860FCA7DA33 /* Pods_PhotoRealTests.framework */; };
+		5863A9C458414F175FF0F1EF /* Pods_PhotoRealUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B26AC0335CB646FDE9C619 /* Pods_PhotoRealUITests.framework */; };
+		C68E5B0932A69C3C1EF2DD83 /* Pods_PhotoReal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CFC69CF5339CC5A443ABB /* Pods_PhotoReal.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,15 @@
 		24D0967C225556DA00AFA230 /* PhotoRealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoRealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24D09680225556DA00AFA230 /* PhotoRealTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRealTestUITests.swift; sourceTree = "<group>"; };
 		24D09682225556DA00AFA230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26BEB150DA0279B9EA32F40E /* Pods-PhotoReal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoReal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoReal/Pods-PhotoReal.debug.xcconfig"; sourceTree = "<group>"; };
+		35B26AC0335CB646FDE9C619 /* Pods_PhotoRealUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoRealUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54798540C0B43860FCA7DA33 /* Pods_PhotoRealTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoRealTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A788BBE7180261C038F970C /* Pods-PhotoReal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoReal.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoReal/Pods-PhotoReal.release.xcconfig"; sourceTree = "<group>"; };
+		936CAD249BF38F8B3D4AF148 /* Pods-PhotoRealTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoRealTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoRealTests/Pods-PhotoRealTests.debug.xcconfig"; sourceTree = "<group>"; };
+		948FC9B48CC3A3D2130CE102 /* Pods-PhotoRealUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoRealUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoRealUITests/Pods-PhotoRealUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A8C5C169A46C1C7069A56632 /* Pods-PhotoRealTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoRealTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoRealTests/Pods-PhotoRealTests.release.xcconfig"; sourceTree = "<group>"; };
+		EA5B86B3370BBE2F991C0283 /* Pods-PhotoRealUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoRealUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoRealUITests/Pods-PhotoRealUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F16CFC69CF5339CC5A443ABB /* Pods_PhotoReal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoReal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C68E5B0932A69C3C1EF2DD83 /* Pods_PhotoReal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FB8C90EBEFDB32AC8991CEA /* Pods_PhotoRealTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5863A9C458414F175FF0F1EF /* Pods_PhotoRealUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 				24D09674225556DA00AFA230 /* PhotoRealTestTests */,
 				24D0967F225556DA00AFA230 /* PhotoRealTestUITests */,
 				24D0965C225556D900AFA230 /* Products */,
+				91CA03984488C1E09BC03E96 /* Pods */,
+				C83C26D4F412BA8F5616203C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +145,29 @@
 			path = PhotoRealTestUITests;
 			sourceTree = "<group>";
 		};
+		91CA03984488C1E09BC03E96 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26BEB150DA0279B9EA32F40E /* Pods-PhotoReal.debug.xcconfig */,
+				6A788BBE7180261C038F970C /* Pods-PhotoReal.release.xcconfig */,
+				936CAD249BF38F8B3D4AF148 /* Pods-PhotoRealTests.debug.xcconfig */,
+				A8C5C169A46C1C7069A56632 /* Pods-PhotoRealTests.release.xcconfig */,
+				EA5B86B3370BBE2F991C0283 /* Pods-PhotoRealUITests.debug.xcconfig */,
+				948FC9B48CC3A3D2130CE102 /* Pods-PhotoRealUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C83C26D4F412BA8F5616203C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F16CFC69CF5339CC5A443ABB /* Pods_PhotoReal.framework */,
+				54798540C0B43860FCA7DA33 /* Pods_PhotoRealTests.framework */,
+				35B26AC0335CB646FDE9C619 /* Pods_PhotoRealUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24D09685225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoReal" */;
 			buildPhases = (
+				60D1F43A86EEAAB7BE185A06 /* [CP] Check Pods Manifest.lock */,
 				24D09657225556D900AFA230 /* Sources */,
 				24D09658225556D900AFA230 /* Frameworks */,
 				24D09659225556D900AFA230 /* Resources */,
+				2C4E1E028D215D87A2B01088 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24D09688225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealTests" */;
 			buildPhases = (
+				C8978C60BFE65BBF3420C9B4 /* [CP] Check Pods Manifest.lock */,
 				24D0966D225556DA00AFA230 /* Sources */,
 				24D0966E225556DA00AFA230 /* Frameworks */,
 				24D0966F225556DA00AFA230 /* Resources */,
@@ -170,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24D0968B225556DA00AFA230 /* Build configuration list for PBXNativeTarget "PhotoRealUITests" */;
 			buildPhases = (
+				0DB8B3BA516A3AEF112102D7 /* [CP] Check Pods Manifest.lock */,
 				24D09678225556DA00AFA230 /* Sources */,
 				24D09679225556DA00AFA230 /* Frameworks */,
 				24D0967A225556DA00AFA230 /* Resources */,
@@ -254,6 +298,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DB8B3BA516A3AEF112102D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoRealUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C4E1E028D215D87A2B01088 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PhotoReal/Pods-PhotoReal-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoReal/Pods-PhotoReal-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60D1F43A86EEAAB7BE185A06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoReal-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8978C60BFE65BBF3420C9B4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoRealTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		24D09657225556D900AFA230 /* Sources */ = {
@@ -434,6 +571,7 @@
 		};
 		24D09686225556DA00AFA230 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26BEB150DA0279B9EA32F40E /* Pods-PhotoReal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -453,6 +591,7 @@
 		};
 		24D09687225556DA00AFA230 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A788BBE7180261C038F970C /* Pods-PhotoReal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -472,6 +611,7 @@
 		};
 		24D09689225556DA00AFA230 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 936CAD249BF38F8B3D4AF148 /* Pods-PhotoRealTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +632,7 @@
 		};
 		24D0968A225556DA00AFA230 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8C5C169A46C1C7069A56632 /* Pods-PhotoRealTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +653,7 @@
 		};
 		24D0968C225556DA00AFA230 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA5B86B3370BBE2F991C0283 /* Pods-PhotoRealUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -531,6 +673,7 @@
 		};
 		24D0968D225556DA00AFA230 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 948FC9B48CC3A3D2130CE102 /* Pods-PhotoRealUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
