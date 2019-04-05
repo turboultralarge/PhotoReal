@@ -12,6 +12,12 @@ import ARKit
 import CoreMedia
 
 class ViewController: UIViewController {
+    
+//    OUTLETS
+    
+    
+    
+//    ACTIONS
 
     @IBOutlet var sceneView: ARSCNView!
     

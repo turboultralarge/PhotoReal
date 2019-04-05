@@ -39,11 +39,11 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--CreationVC-->
         <scene sceneID="Ebf-4J-wOt">
             <objects>
-                <viewController id="vfu-U8-Grw" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nRE-K3-cnQ">
+                <viewController id="vfu-U8-Grw" customClass="CreationVC" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="CreationController" id="nRE-K3-cnQ" customClass="CreationView" customModule="PhotoReal" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -55,39 +55,43 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="Anchor" translatesAutoresizingMaskIntoConstraints="NO" id="WGc-rl-rqA" userLabel="Anchor">
-                                <rect key="frame" x="127" y="368" width="160" height="160"/>
+                                <rect key="frame" x="144" y="388" width="126" height="121"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SCW-z0-1cf" userLabel="D_Index">
-                                <rect key="frame" x="295" y="423" width="103" height="105"/>
+                                <rect key="frame" x="291" y="388" width="103" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q9l-dM-FbJ" userLabel="B_Index">
-                                <rect key="frame" x="184" y="255" width="103" height="105"/>
+                                <rect key="frame" x="167" y="245" width="103" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xl0-KM-R88" userLabel="A_Index">
-                                <rect key="frame" x="73" y="255" width="103" height="105"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sc6-Iq-AsL" userLabel="H_Index">
-                                <rect key="frame" x="16" y="368" width="103" height="105"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="A_Index" translatesAutoresizingMaskIntoConstraints="NO" id="xl0-KM-R88" userLabel="A_Index">
+                                <rect key="frame" x="39" y="245" width="103" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tby-OI-Odi" userLabel="G_Index">
-                                <rect key="frame" x="16" y="481" width="103" height="105"/>
+                                <rect key="frame" x="30" y="512" width="103" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2tp-R7-01f" userLabel="F_Index">
-                                <rect key="frame" x="127" y="536" width="103" height="105"/>
+                                <rect key="frame" x="153" y="532" width="103" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nBY-oQ-lF3" userLabel="E_Index">
-                                <rect key="frame" x="238" y="536" width="103" height="105"/>
+                                <rect key="frame" x="291" y="522" width="103" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CTU-KK-wzb" userLabel="C_Index">
-                                <rect key="frame" x="295" y="310" width="103" height="105"/>
+                                <rect key="frame" x="291" y="245" width="103" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iconmonstr-save-1-240" translatesAutoresizingMaskIntoConstraints="NO" id="EWr-3y-6jP">
+                                <rect key="frame" x="127" y="705" width="129" height="123"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sc6-Iq-AsL" userLabel="H_Index">
+                                <rect key="frame" x="30" y="388" width="103" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -95,6 +99,17 @@
                         <viewLayoutGuide key="safeArea" id="3uU-hQ-fwU"/>
                     </view>
                     <navigationItem key="navigationItem" id="UPe-SQ-loy"/>
+                    <connections>
+                        <outlet property="A_Image" destination="xl0-KM-R88" id="36O-re-BXO"/>
+                        <outlet property="AnchorImage" destination="WGc-rl-rqA" id="CS5-2b-WwU"/>
+                        <outlet property="B_Image" destination="Q9l-dM-FbJ" id="NQW-8o-6Hh"/>
+                        <outlet property="C_Image" destination="CTU-KK-wzb" id="fYX-y2-Syq"/>
+                        <outlet property="D_Image" destination="SCW-z0-1cf" id="1s4-yS-pl9"/>
+                        <outlet property="E_Image" destination="nBY-oQ-lF3" id="g0j-YN-h7y"/>
+                        <outlet property="F_Image" destination="2tp-R7-01f" id="9hx-uC-GfI"/>
+                        <outlet property="G_Image" destination="Tby-OI-Odi" id="NjN-Cn-OAK"/>
+                        <outlet property="H_Image" destination="Sc6-Iq-AsL" id="ahY-oH-98N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxO-Vs-dpN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,4 +134,7 @@
             <point key="canvasLocation" x="-1497.1014492753625" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconmonstr-save-1-240" width="240" height="240"/>
+    </resources>
 </document>
