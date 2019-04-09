@@ -100,62 +100,37 @@ class ViewController: UIViewController {
                 node.opacity = 1
                 //print("Image matches size")
                 
-                //Displays collage images
-                if (name == "gabe_newell") {
-                    
-                    //These should be checked for to avoid a cyan case, same as above
-                    //There also needs to be a more effecient way to do this, and the
-                    //collage images need to be checked if they exist first
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 0) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 1) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 2) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 3) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 4) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 5) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 6) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 7) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                } else if (name == "note") {
-                    
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 0) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 1) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 2) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
-                    if let collageNode0 = makeCollageImage(size: size, name: name, index: 5) {
-                        imageNode.addChildNode(collageNode0)
-                        imageNode.opacity = 1
-                    }
+                if let collageNode = makeCollageImage(size: size, name: name, index: 0) {
+                    imageNode.addChildNode(collageNode)
+                    imageNode.opacity = 1
+                }
+                if let collageNode = makeCollageImage(size: size, name: name, index: 1) {
+                    imageNode.addChildNode(collageNode)
+                    imageNode.opacity = 1
+                }
+                if let collageNode = makeCollageImage(size: size, name: name, index: 2) {
+                    imageNode.addChildNode(collageNode)
+                    imageNode.opacity = 1
+                }
+                if let collageNode = makeCollageImage(size: size, name: name, index: 3) {
+                    imageNode.addChildNode(collageNode)
+                    imageNode.opacity = 1
+                }
+                if let collageNode = makeCollageImage(size: size, name: name, index: 4) {
+                    imageNode.addChildNode(collageNode)
+                    imageNode.opacity = 1
+                }
+                if let collageNode = makeCollageImage(size: size, name: name, index: 5) {
+                    imageNode.addChildNode(collageNode)
+                    imageNode.opacity = 1
+                }
+                if let collageNode = makeCollageImage(size: size, name: name, index: 6) {
+                    imageNode.addChildNode(collageNode)
+                    imageNode.opacity = 1
+                }
+                if let collageNode = makeCollageImage(size: size, name: name, index: 7) {
+                    imageNode.addChildNode(collageNode)
+                    imageNode.opacity = 1
                 }
                 
             } else {
@@ -187,7 +162,7 @@ class ViewController: UIViewController {
         private func makeCollageImage(size: CGSize, name: String, index: Int) -> SCNNode? {
             
             //Set the box size to the length
-            var boxSize = size.height
+            var boxSize = size.width
             //If the height is longer, set it to that
             if (size.height > size.width) {
                 boxSize = size.height
@@ -195,52 +170,58 @@ class ViewController: UIViewController {
             
             //print("Preparing size: width: \(size.width) height: \(size.height)")
             let newImage = SCNPlane(width: boxSize, height: boxSize)
+            let tempImage = UIImage(named: name + "_" + String(index))
+            if (tempImage == nil) {
+                return nil
+            }
             newImage.firstMaterial?.diffuse.contents = UIImage(named: name + "_" + String(index))
             print("Adding Collage Image: \(name + "_" + String(index))")
             newImage.firstMaterial?.lightingModel = .constant
             let newImageNode = SCNNode(geometry: newImage)
             newImageNode.eulerAngles.x = -.pi / 2
             
+            let spacing = 0.01
+            
             //Based on the index, find the relative offset position
             switch index {
             case 0:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x -= Float(boxSize)
-                newImageNode.position.y += Float(boxSize)
+                newImageNode.position.x -= Float(boxSize) + Float(spacing)
+                newImageNode.position.y += Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 1:
                 newImageNode.rotation.w = 0.0
                 newImageNode.position.x = 0.0
-                newImageNode.position.y += Float(boxSize)
+                newImageNode.position.y += Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 2:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x += Float(boxSize)
-                newImageNode.position.y += Float(boxSize)
+                newImageNode.position.x += Float(boxSize) + Float(spacing)
+                newImageNode.position.y += Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 3:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x += Float(boxSize)
+                newImageNode.position.x += Float(boxSize) + Float(spacing)
                 newImageNode.position.y = 0.0
                 newImageNode.position.z = 0.0
             case 4:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x += Float(boxSize)
-                newImageNode.position.y -= Float(boxSize)
+                newImageNode.position.x += Float(boxSize) + Float(spacing)
+                newImageNode.position.y -= Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 5:
                 newImageNode.rotation.w = 0.0
                 newImageNode.position.x = 0.0
-                newImageNode.position.y -= Float(boxSize)
+                newImageNode.position.y -= Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 6:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x -= Float(boxSize)
-                newImageNode.position.y -= Float(boxSize)
+                newImageNode.position.x -= Float(boxSize) + Float(spacing)
+                newImageNode.position.y -= Float(boxSize) + Float(spacing)
                 newImageNode.position.z = 0.0
             case 7:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x -= Float(boxSize)
+                newImageNode.position.x -= Float(boxSize) + Float(spacing)
                 newImageNode.position.y = 0.0
                 newImageNode.position.z = 0.0
             default:
