@@ -11,7 +11,7 @@ import SceneKit
 import ARKit
 import CoreMedia
 
-class ViewController: UIViewController {
+class ARViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
     
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
 
     // -----
     
-    extension ViewController: ARSCNViewDelegate {
+    extension ARViewController: ARSCNViewDelegate {
         func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
             DispatchQueue.main.async {} //Hide things callback
             if let imageAnchor = anchor as? ARImageAnchor {
