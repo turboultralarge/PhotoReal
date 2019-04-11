@@ -98,6 +98,7 @@
                                 <state key="normal" title="Confirm"/>
                                 <connections>
                                     <action selector="onConfirm:" destination="Gvm-uA-4te" eventType="touchUpInside" id="k7s-2F-57X"/>
+                                    <action selector="onConfirm:" destination="NVb-96-0QY" eventType="touchUpInside" id="tby-CZ-ZQ4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -117,6 +118,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ph1-dh-KnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NVb-96-0QY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1888" y="130"/>
         </scene>

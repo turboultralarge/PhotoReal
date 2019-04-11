@@ -33,10 +33,12 @@ class ChooseImageViewController: UIViewController, UIImagePickerControllerDelega
         present(picker, animated: true, completion: nil)
     }
     
-    @IBAction func onConfirm(_ sender: Any) {
+    @IBAction func onConfirm(_ sender: AnyObject) {
         
         //let newRefImage = CGImage(
         getImage()
+        
+        
         
         //Return to previous View Controller
         navigationController?.popViewController(animated: true)
@@ -87,7 +89,7 @@ class ChooseImageViewController: UIViewController, UIImagePickerControllerDelega
         
         let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("Custom Reference Images")
         
-        let url = NSURL(string: path)
+        //let url = NSURL(string: path)
         return path
         
         //let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -116,6 +118,10 @@ class ChooseImageViewController: UIViewController, UIImagePickerControllerDelega
         print("--- Trying to save Image at \(urlString)")
     }
     
+    
+    //NOTE: Test.jpg is currently a placeholder, in the future it will
+    //take in a name specified by the user and automatically detect
+    //the file type.
     func getImage() {
         let fileManager = FileManager.default
         let imagePath = (self.getImageStorageDirectory() as NSString).appendingPathComponent("Test.jpg")

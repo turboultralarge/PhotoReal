@@ -15,6 +15,8 @@ class ARViewController: UIViewController, UIImagePickerControllerDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    var referenceImageSet = Set<ARReferenceImage>()
+    
     //Configuration Variables
     private var imageConfiguration: ARImageTrackingConfiguration?
     
@@ -242,8 +244,22 @@ class ARViewController: UIViewController, UIImagePickerControllerDelegate {
             
         }
         
-        func addReferenceImage(image: UIImage) {
-            let createRefImage = getImageURL(imgName: "Test", type: ".jpg")
+        func addReferenceImage() {
+            let retrievedImage = UIImage(contentsOfFile: getImageURL(imgName: "Test", type: ".jpg"))
+            
+            //Prepares the image to go into a new ARReferenceImage object
+            guard let cgImage = retrievedImage?.cgImage else { return }
+            let width = CGFloat(cgImage.width)
+            //guard let refSize = 0.0762 else { return }
+            
+            //Creates a new ARReferenceImage object from the image
+            let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
+            
+            //Temporary name for testing
+            newRefImage.name = "TestRef"
+            
+            referenceImageSet.insert(newRefImage)
+            imageConfiguration?.trackingImages = referenceImageSet
             
         }
         
