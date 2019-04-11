@@ -7,6 +7,7 @@ target 'PhotoReal' do
 
   # Pods for PhotoReal
 	pod 'Parse'
+	pod "AlamofireImage"
 
   target 'PhotoRealTests' do
     inherit! :search_paths

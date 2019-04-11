@@ -10,8 +10,13 @@ import UIKit
 import SceneKit
 import ARKit
 import CoreMedia
+import Parse
 
 class ViewController: UIViewController {
+    
+    
+    var passedImage: UIImage?
+    
     
 //    OUTLETS
     
@@ -40,7 +45,31 @@ class ViewController: UIViewController {
         // Set the scene to the view
         sceneView.scene = scene
         
+        let query = PFQuery(className: "collage")
+        query.getFirstObjectInBackground { (object, error) -> Void in
+            
+            if error == nil {
+                if let passedImage = object {
+                    
+                   // let image = UIImage(named: )
+                    
+
+                    // we have an image object
+                    
+                    // get the image data
+                    
+                    //set the image data to a key of the PFObject
+                    
+                    // save the object to parse
+                    
+                    
+                }
+            }
+        }
+        
         setupImageDetection()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +123,7 @@ class ViewController: UIViewController {
                 */
             }
         } //renderer()
+}
         
         //Handles a found IMAGE
         private func handleFoundImage(_ imageAnchor: ARImageAnchor, _ node: SCNNode) {
@@ -260,28 +290,10 @@ class ViewController: UIViewController {
             
         }
         
-        /*
-        //Handles a found OBJECT via a callback function
-        private func handleFoundObject(_ objectAnchor: ARObjectAnchor, _ node: SCNNode) {
-            DispatchQueue.main.sync {} //This is where the good things happen (Show objects)
+   
+        func setUI() {
             
-        } //handleFoundObject()
-         */
-    } //extension
-    
-    
-    
-
-    // MARK: - ARSCNViewDelegate
-    
-/*
-    // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let node = SCNNode()
-     
-        return node
-    }
-*/
+        }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
@@ -297,4 +309,5 @@ class ViewController: UIViewController {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+
 
