@@ -11,7 +11,7 @@ import SceneKit
 import ARKit
 import CoreMedia
 
-class ARViewController: UIViewController {
+class ARViewController: UIViewController, UIImagePickerControllerDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
@@ -49,11 +49,11 @@ class ARViewController: UIViewController {
         // Run the view's session
         
         if let configuration = imageConfiguration {
-            print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
+            //print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
             sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
             sceneView.session.run(configuration)
             configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-            print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
+            //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
         }
         sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
     }
@@ -69,9 +69,16 @@ class ARViewController: UIViewController {
         imageConfiguration = ARImageTrackingConfiguration()
         
         guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Images", bundle: nil) else {
-            fatalError("Can't find the AR Images folder!")
+        fatalError("Can't find the AR Images folder!")
         }
+        
+        //let customImage = UIImage(fileName: "Test", scale: "jpg")
+        
+        //guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Images", bundle: nil) else {
+            //fatalError("Can't find the AR Images folder!")
+        //}
         imageConfiguration?.trackingImages = referenceImages
+        print("--- Initial Image Detection Setup Complete!")
     }
 } //class
 
@@ -235,6 +242,11 @@ class ARViewController: UIViewController {
             
         }
         
+        func addReferenceImage(image: UIImage) {
+            let createRefImage = getImageURL(imgName: "Test", type: ".jpg")
+            
+        }
+        
         /*
         //Handles a found OBJECT via a callback function
         private func handleFoundObject(_ objectAnchor: ARObjectAnchor, _ node: SCNNode) {
@@ -257,19 +269,44 @@ class ARViewController: UIViewController {
         return node
     }
 */
+
+//Return the user's Documents directory
+//NOTE: An identical function is currently in ChooseImageViewController
+func getImageStorageDirectory() -> String {
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
+    let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("Custom Reference Images")
     
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
+    return path
+}
+
+func getImageURL(imgName: String, type: String) -> String {
+    let fileManager = FileManager.default
+    let imagePath = (getImageStorageDirectory() as NSString).appendingPathComponent(imgName + type)
     
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
+    if fileManager.fileExists(atPath: imagePath) {
+        print("--- Image Save Confirmed at\(imagePath)")
+        return imagePath
+    } else {
+        print("--- Image Not Found at \(imagePath)")
+        return "error"
     }
+}
+
+
+
+    
+func session(_ session: ARSession, didFailWithError error: Error) {
+    // Present an error message to the user
+    
+}
+
+func sessionWasInterrupted(_ session: ARSession) {
+    // Inform the user that the session has been interrupted, for example, by presenting an overlay
+    
+}
+
+func sessionInterruptionEnded(_ session: ARSession) {
+    // Reset tracking and/or remove existing anchors if consistent tracking is required
+    
+}
 
