@@ -16,6 +16,10 @@
 		24D09676225556DA00AFA230 /* PhotoRealTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D09675225556DA00AFA230 /* PhotoRealTestTests.swift */; };
 		24D09681225556DA00AFA230 /* PhotoRealTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D09680225556DA00AFA230 /* PhotoRealTestUITests.swift */; };
 		4FB8C90EBEFDB32AC8991CEA /* Pods_PhotoRealTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54798540C0B43860FCA7DA33 /* Pods_PhotoRealTests.framework */; };
+		5071537122603B0600FD6E97 /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071537022603B0600FD6E97 /* LibraryCollectionViewCell.swift */; };
+		5071537322603B3300FD6E97 /* LibraryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071537222603B3300FD6E97 /* LibraryCollectionViewController.swift */; };
+		5071537522603B6B00FD6E97 /* NewImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071537422603B6B00FD6E97 /* NewImageViewController.swift */; };
+		5071537722603C8900FD6E97 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071537622603C8900FD6E97 /* SettingsViewController.swift */; };
 		5863A9C458414F175FF0F1EF /* Pods_PhotoRealUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B26AC0335CB646FDE9C619 /* Pods_PhotoRealUITests.framework */; };
 		BD0772452257021600698241 /* CreationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0772442257021600698241 /* CreationVC.swift */; };
 		BD0772472257064B00698241 /* CreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0772462257064B00698241 /* CreationView.swift */; };
@@ -56,6 +60,10 @@
 		24D09682225556DA00AFA230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26BEB150DA0279B9EA32F40E /* Pods-PhotoReal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoReal.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoReal/Pods-PhotoReal.debug.xcconfig"; sourceTree = "<group>"; };
 		35B26AC0335CB646FDE9C619 /* Pods_PhotoRealUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoRealUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5071537022603B0600FD6E97 /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
+		5071537222603B3300FD6E97 /* LibraryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewController.swift; sourceTree = "<group>"; };
+		5071537422603B6B00FD6E97 /* NewImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewImageViewController.swift; sourceTree = "<group>"; };
+		5071537622603C8900FD6E97 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		54798540C0B43860FCA7DA33 /* Pods_PhotoRealTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoRealTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A788BBE7180261C038F970C /* Pods-PhotoReal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoReal.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoReal/Pods-PhotoReal.release.xcconfig"; sourceTree = "<group>"; };
 		936CAD249BF38F8B3D4AF148 /* Pods-PhotoRealTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoRealTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoRealTests/Pods-PhotoRealTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +137,10 @@
 				24D09669225556DA00AFA230 /* LaunchScreen.storyboard */,
 				24D0966C225556DA00AFA230 /* Info.plist */,
 				BD0772442257021600698241 /* CreationVC.swift */,
+				5071537022603B0600FD6E97 /* LibraryCollectionViewCell.swift */,
+				5071537222603B3300FD6E97 /* LibraryCollectionViewController.swift */,
+				5071537422603B6B00FD6E97 /* NewImageViewController.swift */,
+				5071537622603C8900FD6E97 /* SettingsViewController.swift */,
 			);
 			path = PhotoRealTest;
 			sourceTree = "<group>";
@@ -407,10 +419,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5071537122603B0600FD6E97 /* LibraryCollectionViewCell.swift in Sources */,
 				BD0772452257021600698241 /* CreationVC.swift in Sources */,
 				BD0772472257064B00698241 /* CreationView.swift in Sources */,
+				5071537522603B6B00FD6E97 /* NewImageViewController.swift in Sources */,
 				24D09663225556D900AFA230 /* ViewController.swift in Sources */,
+				5071537322603B3300FD6E97 /* LibraryCollectionViewController.swift in Sources */,
 				24D0965F225556D900AFA230 /* AppDelegate.swift in Sources */,
+				5071537722603C8900FD6E97 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -93,6 +93,9 @@ class ViewController: UIViewController {
         sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
     }
     
+    @IBAction func DoneButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
