@@ -15,6 +15,15 @@ class ARViewController: UIViewController, UIImagePickerControllerDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
+    /*
+    var numberOfPhotos: Int?{
+        didSet{
+            runthisfunction();
+        }
+    }
+ */
+    
+    var emptyImageSet = Set<ARReferenceImage>()
     var referenceImageSet = Set<ARReferenceImage>()
     
     //Configuration Variables
@@ -70,16 +79,14 @@ class ARViewController: UIViewController, UIImagePickerControllerDelegate {
     private func setupImageDetection() {
         imageConfiguration = ARImageTrackingConfiguration()
         
-        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Images", bundle: nil) else {
-        fatalError("Can't find the AR Images folder!")
-        }
+
         
         //let customImage = UIImage(fileName: "Test", scale: "jpg")
         
         //guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Images", bundle: nil) else {
             //fatalError("Can't find the AR Images folder!")
         //}
-        imageConfiguration?.trackingImages = referenceImages
+        imageConfiguration?.trackingImages = emptyImageSet
         print("--- Initial Image Detection Setup Complete!")
     }
 } //class
@@ -290,7 +297,7 @@ class ARViewController: UIViewController, UIImagePickerControllerDelegate {
 //NOTE: An identical function is currently in ChooseImageViewController
 func getImageStorageDirectory() -> String {
     
-    let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("Custom Reference Images")
+    let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("CustomReferenceImages")
     
     return path
 }

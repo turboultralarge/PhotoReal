@@ -50,14 +50,14 @@ class ChooseImageViewController: UIViewController, UIImagePickerControllerDelega
         var newReferenceSet = Set<ARReferenceImage>()
         var documentsDirectory = getImageStorageDirectory()
         
-        let image = info[.editedImage] as! UIImage
-        saveImage(image: image, imgName: "Test")
+        let newImage = info[.editedImage] as! UIImage
+        saveImage(image: newImage, imgName: "Test")
         
         //let size = CGSize(width: 300, height: 300)
         //let scaledImage = image.af_imageAspectScaled(toFill: size)
         
         //Displays the image on the screen
-        imageView.image = image
+        imageView.image = newImage
         
         //Try and see if the image was saved
         //if let customImage = UIImage(fileName: "Test", type: "jpg") {
@@ -67,7 +67,7 @@ class ChooseImageViewController: UIViewController, UIImagePickerControllerDelega
         
         
         //Prepares the image to go into a new ARReferenceImage object
-        guard let cgImage = image.cgImage else { return }
+        guard let cgImage = newImage.cgImage else { return }
         let width = CGFloat(cgImage.width)
         //guard let refSize = 0.0762 else { return }
         
@@ -87,7 +87,7 @@ class ChooseImageViewController: UIViewController, UIImagePickerControllerDelega
     //Return the user's Documents directory
     func getImageStorageDirectory() -> String {
         
-        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("Custom Reference Images")
+        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("CustomReferenceImages")
         
         //let url = NSURL(string: path)
         return path
@@ -100,13 +100,19 @@ class ChooseImageViewController: UIViewController, UIImagePickerControllerDelega
     func saveImage(image: UIImage, imgName: String) {
         let fileManager = FileManager.default
         //NOTE: The get path logic is the same as in getImageStorageDirectory()
-        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("Custom Reference Images")
+        let path = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("CustomReferenceImages")
+        print("--------------------------")
+        print("Path: \(path)")
         
         if !fileManager.fileExists(atPath: path) {
             try! fileManager.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
         }
         
+        
         let url = NSURL(string: path)
+        
+        print("URL: \(url)")
+        
         let imagePath = url!.appendingPathComponent(imgName + ".jpg")
         let urlString: String = imagePath!.absoluteString
         let imageData = image.jpegData(compressionQuality: 1)
@@ -116,6 +122,7 @@ class ChooseImageViewController: UIViewController, UIImagePickerControllerDelega
         fileManager.createFile(atPath: urlString as String, contents: imageData, attributes: nil)
         
         print("--- Trying to save Image at \(urlString)")
+        
     }
     
     
