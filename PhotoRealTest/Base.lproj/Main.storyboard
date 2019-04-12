@@ -69,11 +69,15 @@
                                     <segue destination="BV1-FR-VrT" kind="presentation" id="nhi-FB-h9z"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="A_Index" image="note_5" translatesAutoresizingMaskIntoConstraints="NO" id="xl0-KM-R88" userLabel="A_Index">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="A_Index" image="note_5" translatesAutoresizingMaskIntoConstraints="NO" id="xl0-KM-R88" userLabel="A_Index">
                                 <rect key="frame" x="39" y="148" width="103" height="105"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="105" id="HQB-Sc-Ta2"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="sH2-T6-69f" appends="YES" id="HeK-q8-cp4"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -97,9 +101,15 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxO-Vs-dpN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="MQ8-GY-QoB">
+                <tapGestureRecognizer id="MQ8-GY-QoB" userLabel="AnchorImageTapGesture">
                     <connections>
                         <action selector="onAnchorImage:" destination="vfu-U8-Grw" id="thY-UU-evk"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="sH2-T6-69f" userLabel="Image_ATapGesture">
+                    <connections>
+                        <action selector="onImageA:" destination="vfu-U8-Grw" id="h4d-q0-ovk"/>
+                        <outlet property="delegate" destination="xl0-KM-R88" id="3M1-qm-BaE"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

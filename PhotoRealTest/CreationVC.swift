@@ -17,6 +17,7 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     let imagePickerController = UIImagePickerController()
     var passedImage: UIImage!
+    var selectedIndex = "none"
     
 //    OUTLETS
     
@@ -35,80 +36,126 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     @IBAction func onSubmit(_ sender: Any) {
         
+        // initialization of new table "collage"
          let collage = PFObject(className: "collage")
         
-        passedImage = AnchorImage.image
-    
-          let imageData = AnchorImage.image!.pngData()
-          let file = PFFileObject(data: imageData!)
+        //  store image into a PFFile
+        let anchor = AnchorImage.image!.pngData()
+        let file = PFFileObject(data: anchor!)
         
-          collage["Anchor"] = file
+        //  store image into a PFFile
+        let A = A_Image.image!.pngData()
+        let A_file = PFFileObject(data: A!)
         
-       // collage["Anchor"] = passedImage
+        //  add that PFFile to parse under column Anchor
+          collage["AnchorImage"] = file
+          collage["A_Index"] = A_file
         
+       // save results to Parse
         collage.saveInBackground{ (success, error) in
             if success {
                 print ("Saved Successfully.")
-                //  performSegue(withIdentifier: "ImageToAR", sender: Image.self)
               self.dismiss(animated: true, completion: nil)
+                
             } else {
                 print("Image not saved.")
-                print(error)
+                print(error as Any)
             }
         }
-        
-        //  performSegue(withIdentifier: "ImageToAR", sender: Image.self)
-     
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        //  set destination View Controller
         let destinationVC = segue.destination as! ViewController
         destinationVC.passedImage = sender as? UIImage
-        
     }
     
     
     
     @IBAction func onAnchorImage(_ sender: Any) {
         
+        //  Change index for appropriate case
+        selectedIndex = "Anchor"
+        
+        //  Allow user to select or take a picture
         let picker = UIImagePickerController()
-        
         picker.delegate = self
-        
         picker.allowsEditing = true
         
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             picker.sourceType = .camera
             
         }else {
-            
             picker.sourceType = .photoLibrary
         }
-        
         present(picker, animated: true, completion: nil)
     }
     
     
    @objc internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     
-    
     let image = info[.editedImage] as! UIImage
-    
     let size = CGSize(width: 300, height: 300)
     let scaledImage = image.af_imageAspectScaled(toFill: size)
     
-    self.AnchorImage.image = scaledImage
     
-    A_Image.image = image;
+    //  Case is selected based on which imageView is selected
+    
+    switch(selectedIndex) {
+        
+    case "Anchor"  :
+        print("Anchor case entered")
+        self.AnchorImage.image = scaledImage
+        
+        break;
+        
+    case "A_Index"  :
+        print("A_Index case entered")
+        A_Image.image = image;
+        
+        break;
+
+    default :
+        print("error - default")
+    }
     
         dismiss(animated: true, completion: nil)
+    
+    }
+    
+    
+    //  When Image at Index A is selected:
+    
+    @IBAction func onImageA(_ sender: Any) {
+        
+        //  Change index for appropriate case
+        selectedIndex = "A_Index"
+        
+        //  Allow user to select or take a picture
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            picker.sourceType = .camera
+            
+        }else {
+            picker.sourceType = .photoLibrary
+        }
+        present(picker, animated: true, completion: nil)
         
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
     func tableView(_ tableView : UITableView, didSelectRowAt indexPath: IndexPath ){
-        
-        
     }
     
     
@@ -118,48 +165,6 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         super.viewDidLoad()
         
         imagePickerController.delegate = self
-        
-      /*  func checkPermission() {
-            let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
-            switch photoAuthorizationStatus {
-            case .authorized:
-                print("Access is granted by user")
-            case .notDetermined:
-                PHPhotoLibrary.requestAuthorization({
-                    (newStatus) in
-                    print("status is \(newStatus)")
-                    if newStatus ==  PHAuthorizationStatus.authorized {
-                        /* do stuff here */
-                        print("success")
-                    }
-                })
-                print("It is not determined until now")
-            case .restricted:
-                // same same
-                print("User do not have access to photo album.")
-            case .denied:
-                // same same
-                print("User has denied the permission.")
-            @unknown default:
-                print("uh oh youre not suppose to be here")
-            }
-        }
-    
-        
-        imagePickerController.delegate = self
-        
-*/
+ 
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
