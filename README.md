@@ -10,6 +10,10 @@ An AR Photo Library App
 
 [![IMAGE ALT TEXT HERE](https://youtu.be/7zWyM_eDVSA.jpg)](https://youtu.be/7zWyM_eDVSA)
 
+<video poster="poster.jpg" width="618" height="347" controls preload> 
+    <source src="ScreenRecording_04-04-2019%2021-11-02.MP4"></source> 
+</video>
+
 
 # Sprint 1 checklist 
 
