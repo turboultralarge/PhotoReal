@@ -8,6 +8,8 @@ An AR Photo Library App
 
 # Sprint 1 checklist 
 
-[x] Parse Server built to hold anchor images
-[x] User interface for home page and creation screen
-[x] AR tracking a static image
+ - [x] Parse Server built to hold anchor images
+
+ - [x] User interface for home page and creation screen
+
+ - [x] AR tracking a static image
