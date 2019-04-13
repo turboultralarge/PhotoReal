@@ -8,6 +8,8 @@ An AR Photo Library App
 
 <video src="https://github.com/turboultralarge/PhotoReal/blob/master/ScreenRecording_04-04-2019%2021-11-02.MP4" width="320" height="200" controls preload></video>
 
+[![IMAGE ALT TEXT HERE](https://youtu.be/7zWyM_eDVSA.jpg)](https://youtu.be/7zWyM_eDVSA)
+
 
 # Sprint 1 checklist 
 
