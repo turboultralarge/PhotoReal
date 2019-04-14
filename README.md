@@ -7,6 +7,7 @@ An AR Photo Library App
 
 # Youtube Link Here: :-)
 
+prototype of AR Image tracking of a static image.
 https://youtu.be/7zWyM_eDVSA.jpg
 
 
