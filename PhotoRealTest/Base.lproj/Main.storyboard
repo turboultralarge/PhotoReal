@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1e2-qn-dqK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vfu-U8-Grw">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -96,10 +96,16 @@
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="C_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-M5-EDE" userLabel="C_Index">
                                 <rect key="frame" x="267" y="374" width="105" height="105"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5sR-MF-MYZ" appends="YES" id="EPz-Uv-NQM"/>
+                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="D_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="gZk-XU-D9n" userLabel="D_Index">
                                 <rect key="frame" x="267" y="491" width="105" height="105"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nJh-Ib-7wg" appends="YES" id="VSF-oI-ssC"/>
+                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="G_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-fk-i4x" userLabel="G_Index">
                                 <rect key="frame" x="39" y="604" width="105" height="105"/>
@@ -107,6 +113,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="105" id="804-Xr-j4A"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Kce-Cq-jxn" appends="YES" id="E2D-Lp-mIo"/>
+                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="F_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="9Lh-Co-dHy" userLabel="F_Index">
                                 <rect key="frame" x="154" y="604" width="106" height="105"/>
@@ -115,6 +124,9 @@
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="E_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="dVR-Np-su1" userLabel="E_Index">
                                 <rect key="frame" x="267" y="604" width="104" height="105"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="wNy-M8-7ea" appends="YES" id="LyD-v0-mRX"/>
+                                </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="B_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="yvk-Tw-rXf" userLabel="B_Index">
                                 <rect key="frame" x="154" y="374" width="106" height="105"/>
@@ -126,10 +138,14 @@
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="H_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="7Ip-w3-BlO" userLabel="H_Index">
                                 <rect key="frame" x="39" y="491" width="105" height="105"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Uy5-zv-3s3" appends="YES" id="6l6-lQ-4UP"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="3uU-hQ-fwU" firstAttribute="trailing" secondItem="MLS-P5-qDR" secondAttribute="trailing" constant="58" id="2xx-Kc-cVv"/>
                             <constraint firstItem="xl0-KM-R88" firstAttribute="top" secondItem="ccQ-W3-si6" secondAttribute="bottom" constant="93" id="37g-u0-5SP"/>
@@ -174,6 +190,9 @@
                             <constraint firstItem="MLS-P5-qDR" firstAttribute="top" secondItem="3uU-hQ-fwU" secondAttribute="top" constant="723" id="wi1-ix-vVO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3uU-hQ-fwU"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="1TX-W0-tCI" appends="YES" id="YAs-gy-hvA"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="UPe-SQ-loy"/>
                     <connections>
@@ -194,8 +213,46 @@
                         <action selector="onAnchorImage:" destination="vfu-U8-Grw" id="thY-UU-evk"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="DAF-GC-V3u" userLabel="A_ImageTapGesture"/>
-                <tapGestureRecognizer id="IRa-nd-2kv" userLabel="B_ImageTapGesture"/>
+                <tapGestureRecognizer id="DAF-GC-V3u" userLabel="A_ImageTapGesture">
+                    <connections>
+                        <action selector="onImageA:" destination="vfu-U8-Grw" id="L3n-vf-zbN"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="IRa-nd-2kv" userLabel="B_ImageTapGesture">
+                    <connections>
+                        <action selector="onImageB:" destination="vfu-U8-Grw" id="OmC-lM-tcC"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5sR-MF-MYZ" userLabel="C_ImageTapGesture">
+                    <connections>
+                        <action selector="onImageC:" destination="vfu-U8-Grw" id="LIB-Ec-pgi"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="nJh-Ib-7wg" userLabel="D_ImageTapGesture">
+                    <connections>
+                        <action selector="onImageD:" destination="vfu-U8-Grw" id="YN8-ik-mZf"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="wNy-M8-7ea" userLabel="E_ImageTapGesture">
+                    <connections>
+                        <action selector="onImageE:" destination="vfu-U8-Grw" id="l6C-Zr-FBm"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="1TX-W0-tCI" userLabel="F_ImageTapGesture">
+                    <connections>
+                        <action selector="onImageF:" destination="vfu-U8-Grw" id="Qgp-Di-cYm"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Kce-Cq-jxn" userLabel="G_ImageTapGesture">
+                    <connections>
+                        <action selector="onImageG:" destination="vfu-U8-Grw" id="iS1-kw-3fm"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Uy5-zv-3s3" userLabel="H_ImageTapGesture">
+                    <connections>
+                        <action selector="onImageH:" destination="vfu-U8-Grw" id="IyS-h0-UCg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1159.4202898550725" y="559.82142857142856"/>
         </scene>

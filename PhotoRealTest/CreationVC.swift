@@ -107,13 +107,53 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     case "Anchor"  :
         print("Anchor case entered")
         self.AnchorImage.image = scaledImage
-        
         break;
         
     case "A_Index"  :
         print("A_Index case entered")
         A_Image.image = image;
+        break;
         
+        //  Selection of collage index to change
+    case "B_Index"  :
+        print("B_Index case entered")
+        B_Image.image = image;
+        break;
+        
+    //  Selection of collage index to change
+    case "C_Index"  :
+        print("C_Index case entered")
+        C_Image.image = image;
+        break;
+        
+    //  Selection of collage index to change
+    case "D_Index"  :
+        print("D_Index case entered")
+        D_Image.image = image;
+        break;
+        
+    //  Selection of collage index to change
+    case "E_Index"  :
+        print("E_Index case entered")
+        E_Image.image = image;
+        break;
+        
+    //  Selection of collage index to change
+    case "F_Index"  :
+        print("F_Index case entered")
+        F_Image.image = image;
+        break;
+        
+    //  Selection of collage index to change
+    case "G_Index"  :
+        print("G_Index case entered")
+        G_Image.image = image;
+        break;
+        
+    //  Selection of collage index to change
+    case "H_Index"  :
+        print("H_Index case entered")
+        H_Image.image = image;
         break;
 
     default :
@@ -132,6 +172,66 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         //  Change index for appropriate case
         selectedIndex = "A_Index"
         
+       callPicker()
+        
+    }
+    
+    @IBAction func onImageB(_ sender: Any) {
+        
+        //  Change index for appropriate case
+        selectedIndex = "B_Index"
+        //  Allow user to select or take a photo
+        callPicker()
+    }
+    
+    @IBAction func onImageC(_ sender: Any) {
+        
+        //  Change index for appropriate case
+        selectedIndex = "C_Index"
+        //  Allow user to select or take a photo
+        callPicker()
+        
+    }
+    @IBAction func onImageD(_ sender: Any) {
+        
+        //  Change index for appropriate case
+        selectedIndex = "D_Index"
+        //  Allow user to select or take a photo
+        callPicker()
+    }
+    @IBAction func onImageE(_ sender: Any) {
+        
+        //  Change index for appropriate case
+        selectedIndex = "E_Index"
+        //  Allow user to select or take a photo
+        callPicker()
+    }
+    
+    @IBAction func onImageF(_ sender: Any) {
+        
+        //  Change index for appropriate case
+        selectedIndex = "F_Index"
+        //  Allow user to select or take a photo
+        callPicker()
+    }
+    
+    @IBAction func onImageG(_ sender: Any) {
+        
+        //  Change index for appropriate case
+        selectedIndex = "G_Index"
+        //  Allow user to select or take a photo
+        callPicker()
+    }
+    
+    @IBAction func onImageH(_ sender: Any) {
+        
+        //  Change index for appropriate case
+        selectedIndex = "H_Index"
+        //  Allow user to select or take a photo
+        callPicker()
+    }
+    
+    func callPicker(){
         //  Allow user to select or take a picture
         let picker = UIImagePickerController()
         picker.delegate = self
@@ -144,23 +244,12 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
             picker.sourceType = .photoLibrary
         }
         present(picker, animated: true, completion: nil)
-        
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
     func tableView(_ tableView : UITableView, didSelectRowAt indexPath: IndexPath ){
     }
     
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
