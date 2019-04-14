@@ -6,7 +6,7 @@ An AR Photo Library App
 
 ![alt text](https://github.com/turboultralarge/PhotoReal/blob/master/ScreenRecording_04-04-2019%2021-11-02.MP4"Logo Title Text 1")
 
-<video src="https://github.com/turboultralarge/PhotoReal/blob/master/ScreenRecording_04-04-2019%2021-11-02.MP4" width="320" height="200" controls preload></video>
+<video src="ScreenRecording_04-04-2019%2021-11-02.MP4" width="320" height="200" controls preload></video>
 
 
 # troubleshooting poster issue in github :-)
