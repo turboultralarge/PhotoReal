@@ -4,14 +4,10 @@ An AR Photo Library App
 
 ## USER STORIES Ver - 1.0
 
-![alt text](https://github.com/turboultralarge/PhotoReal/blob/master/ScreenRecording_04-04-2019%2021-11-02.MP4"Logo Title Text 1")
 
-<video src="ScreenRecording_04-04-2019%2021-11-02.MP4" width="320" height="200" controls preload></video>
+# Youtube Link Here: :-)
 
-
-# troubleshooting poster issue in github :-)
-
-[![IMAGE ALT TEXT HERE](https://youtu.be/7zWyM_eDVSA.jpg)](https://youtu.be/7zWyM_eDVSA)
+https://youtu.be/7zWyM_eDVSA.jpg
 
 
 
