@@ -421,4 +421,7 @@
         <image name="addButton" width="240" height="240"/>
         <image name="anchor" width="240" height="240"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rXo-UT-jR2"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,7 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     let imagePickerController = UIImagePickerController()
     var passedImage: UIImage!
     var selectedIndex = "none"
+    var defaultImage: UIImage!
     
 //    OUTLETS
     
@@ -47,25 +48,59 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         let A = A_Image.image!.pngData()
         let A_file = PFFileObject(data: A!)
         
-        //  add that PFFile to parse under column Anchor
-          collage["AnchorImage"] = file
-          collage["A_Index"] = A_file
+        let B = B_Image.image!.pngData()
+        let B_file = PFFileObject(data: B!)
         
-       // save results to Parse
-        collage.saveInBackground{ (success, error) in
-            if success {
-                print ("Saved Successfully.")
-              self.dismiss(animated: true, completion: nil)
-                
-            } else {
-                print("Image not saved.")
-                print(error as Any)
+        let C = C_Image.image!.pngData()
+        let C_file = PFFileObject(data: C!)
+        
+        let D = D_Image.image!.pngData()
+        let D_file = PFFileObject(data: D!)
+        
+        let E = E_Image.image!.pngData()
+        let E_file = PFFileObject(data: E!)
+        
+        let F = F_Image.image!.pngData()
+        let F_file = PFFileObject(data: F!)
+        
+        let G = A_Image.image!.pngData()
+        let G_file = PFFileObject(data: G!)
+        
+        let H = H_Image.image!.pngData()
+        let H_file = PFFileObject(data: H!)
+        
+        //  add that PFFile to parse under column Anchor
+        // nil checking
+        if (AnchorImage.image == defaultImage){
+          print("Please select an image.")
+        } else {
+            collage["AnchorImage"] = file
+            //  submit all contents to
+            collage["A_Index"] = A_file
+            collage["B_Index"] = B_file
+            collage["C_Index"] = C_file
+            collage["D_Index"] = D_file
+            collage["E_Index"] = E_file
+            collage["F_Index"] = F_file
+            collage["G_Index"] = G_file
+            collage["H_Index"] = H_file
+            
+            // save results to Parse
+            collage.saveInBackground{ (success, error) in
+                if success {
+                    print ("Saved Successfully.")
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    print("Image not saved.")
+                    print(error as Any)
+                }
             }
+          }
         }
-    }
+        
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         //  set destination View Controller
         let destinationVC = segue.destination as! ViewController
         destinationVC.passedImage = sender as? UIImage
@@ -82,10 +117,9 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
-        
+        //  If camera is available
         if UIImagePickerController.isSourceTypeAvailable(.camera){
             picker.sourceType = .camera
-            
         }else {
             picker.sourceType = .photoLibrary
         }
@@ -159,9 +193,7 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     default :
         print("error - default")
     }
-    
         dismiss(animated: true, completion: nil)
-    
     }
     
     
@@ -253,6 +285,9 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //  DefaultImage is set to anchor image. This is used to tell if the user has entered a new image
+        
+        defaultImage = AnchorImage.image
         imagePickerController.delegate = self
  
     }
