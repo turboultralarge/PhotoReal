@@ -28,6 +28,6 @@ https://youtu.be/7zWyM_eDVSA.jpg
   
  - [x] home screen integration
  
- ![Alt text](Photoreal/Screen Shot 2019-04-25 at 4.13.57 PM.png?raw=true "TableView for Library")
+ ![Alt text](https://github.com/turboultralarge/PhotoReal/blob/master/Screen%20Shot%202019-04-25%20at%204.13.57%20PM.pngraw=true "TableView for Library")
  
- ![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+ ![Alt text](https://github.com/turboultralarge/PhotoReal/blob/master/Screen%20Shot%202019-04-25%20at%204.13.46%20PM.png "Optional Title")
