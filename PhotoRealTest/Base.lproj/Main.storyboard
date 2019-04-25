@@ -36,11 +36,11 @@
             </objects>
             <point key="canvasLocation" x="1487" y="-903"/>
         </scene>
-        <!--CreationVC-->
+        <!--Add Collage View Controller-->
         <scene sceneID="Ebf-4J-wOt">
             <objects>
-                <viewController id="vfu-U8-Grw" customClass="CreationVC" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="CreationController" id="nRE-K3-cnQ" customClass="CreationView" customModule="PhotoReal" customModuleProvider="target">
+                <viewController id="vfu-U8-Grw" customClass="AddCollageViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="CreationController" id="nRE-K3-cnQ" customClass="CreationView" customModule="PhotoReal" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

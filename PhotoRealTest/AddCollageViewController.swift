@@ -11,7 +11,7 @@ import Parse
 import AlamofireImage
 import Photos
 
-class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class AddCollageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     //  VARIABLES USED:
     
