@@ -26,6 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "http://photorealer.herokuapp.com/parse"
             })
         )
+        
+        if PFUser.current() != nil {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let HomeNavigationController = main.instantiateViewController(withIdentifier: "HomeNavigationController")
+            
+            window?.rootViewController = HomeNavigationController
+        }
     
         return true
     
