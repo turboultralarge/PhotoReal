@@ -112,6 +112,27 @@ class ARViewController: UIViewController {
         }
         imageConfiguration?.trackingImages = emptyImageSet //Change to referenceImages if you want hardcoded images back
     }
+    
+    func addReferenceImage() {
+        //let retrievedImage = UIImage(contentsOfFile: getImageURL(imgName: "Test", type: ".jpg"))
+        let retrievedImage = passedImage
+        
+        //Prepares the image to go into a new ARReferenceImage object
+        guard let cgImage = retrievedImage?.cgImage else { return }
+        let width = CGFloat(cgImage.width)
+        //guard let refSize = 0.0762 else { return }
+        
+        //Creates a new ARReferenceImage object from the image
+        let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
+        
+        //Temporary name for testing
+        newRefImage.name = "TestRef"
+        
+        referenceImageSet.insert(newRefImage)
+        imageConfiguration?.trackingImages = referenceImageSet
+        
+    } //END addReferenceImage
+    
 } //class
 
     // -----
@@ -276,25 +297,7 @@ class ARViewController: UIViewController {
         } //END makeCollageImage()
 
 
-    func addReferenceImage() {
-        //let retrievedImage = UIImage(contentsOfFile: getImageURL(imgName: "Test", type: ".jpg"))
-        let retrievedImage = passedImage
-        
-        //Prepares the image to go into a new ARReferenceImage object
-        guard let cgImage = retrievedImage?.cgImage else { return }
-        let width = CGFloat(cgImage.width)
-        //guard let refSize = 0.0762 else { return }
-        
-        //Creates a new ARReferenceImage object from the image
-        let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
-        
-        //Temporary name for testing
-        newRefImage.name = "TestRef"
-        
-        referenceImageSet.insert(newRefImage)
-        imageConfiguration?.trackingImages = referenceImageSet
-        
-    } //END addReferenceImage
+
    
     func setUI() {
         
