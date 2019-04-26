@@ -16,6 +16,9 @@ class LibraryCollectionViewController: UICollectionViewController {
     //  OUTLETS
     
     @IBOutlet var LibraryCollection: UICollectionView!
+ 
+    
+    var collage = [PFObject] ( )
     
 
     override func viewDidLoad() {
@@ -39,7 +42,12 @@ class LibraryCollectionViewController: UICollectionViewController {
         
         query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index" ])
         query.limit = 20
+        
+//        anchorImage.image = (query["AnchorImage"] as! [PJObject] ?? []
+        
         query.getFirstObjectInBackground { (object, error) -> Void in
+            
+            
             
             if error == nil {
                 if let passedImage = object {

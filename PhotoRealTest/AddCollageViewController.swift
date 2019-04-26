@@ -19,6 +19,7 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
     var passedImage: UIImage!
     var selectedIndex = "none"
     var defaultImage: UIImage!
+    var staticTestImage: UIImage?
     
 //    OUTLETS
     
@@ -96,6 +97,15 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
                 }
             }
           }
+        
+        //  Pass a static image to AR Scene for testing creation on AR
+        
+        staticTestImage = AnchorImage.image
+        
+        // SEGUE FOR TESTING PURPOSES AR
+        
+        performSegue(withIdentifier: "ARViewController",   sender: nil)
+        
         }
         
     
@@ -103,7 +113,7 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  set destination View Controller
         let destinationVC = segue.destination as! ARViewController
-        destinationVC.passedImage = sender as? UIImage
+        destinationVC.passedImage = staticTestImage
     }
     
     

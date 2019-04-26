@@ -14,7 +14,7 @@ import Parse
 
 class ARViewController: UIViewController {
     
-    
+    //  Receives UIImage StaticTestImage from AddCollageVC
     var passedImage: UIImage?
     
     
