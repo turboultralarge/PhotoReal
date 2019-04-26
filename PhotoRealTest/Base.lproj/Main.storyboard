@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhe-5q-3Dj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,11 +15,11 @@
             <objects>
                 <viewController title="Photo Scan" id="BV1-FR-VrT" customClass="ARViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -36,25 +40,25 @@
             </objects>
             <point key="canvasLocation" x="1487" y="-903"/>
         </scene>
-        <!--Add Collage View Controller-->
+        <!--Add Collage-->
         <scene sceneID="Ebf-4J-wOt">
             <objects>
-                <viewController id="vfu-U8-Grw" customClass="AddCollageViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Collage" id="vfu-U8-Grw" customClass="AddCollageViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="CreationController" id="nRE-K3-cnQ" customClass="CreationView" customModule="PhotoReal" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="AnchorDisplay" image="TurboExtraLarge_logo_color_halfres" translatesAutoresizingMaskIntoConstraints="NO" id="ccQ-W3-si6" userLabel="AnchorDisplay">
-                                <rect key="frame" x="200" y="10" width="200" height="200"/>
+                                <rect key="frame" x="87.5" y="10" width="200" height="200"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="L2a-d0-PdG"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="WGS-nj-WIO"/>
+                                    <constraint firstAttribute="width" constant="200" id="WGS-nj-WIO"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLS-P5-qDR">
-                                <rect key="frame" x="150" y="441" width="300" height="75"/>
-                                <color key="backgroundColor" red="0.36862745098039218" green="0.30980392156862746" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="37.5" y="508" width="300" height="75"/>
+                                <color key="backgroundColor" red="0.58823529409999997" green="0.31372549020000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="TCe-nN-TDU"/>
                                     <constraint firstAttribute="height" constant="75" id="bDb-Sn-a3G"/>
@@ -71,97 +75,106 @@
                                     <action selector="onSubmit:" destination="vfu-U8-Grw" eventType="touchUpInside" id="BHR-KG-0TN"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="Anchor" image="anchor" translatesAutoresizingMaskIntoConstraints="NO" id="WGc-rl-rqA" userLabel="Anchor">
-                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="Anchor" image="anchor_image" translatesAutoresizingMaskIntoConstraints="NO" id="WGc-rl-rqA" userLabel="Anchor">
+                                <rect key="frame" x="137" y="251" width="100" height="100"/>
+                                <color key="tintColor" red="0.14901960784313725" green="0.7803921568627451" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="RvY-zd-Dmv"/>
-                                    <constraint firstAttribute="height" constant="100" id="hYW-JE-bqe"/>
+                                    <constraint firstAttribute="width" constant="60" id="RvY-zd-Dmv"/>
+                                    <constraint firstAttribute="height" constant="60" id="hYW-JE-bqe"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="MQ8-GY-QoB" appends="YES" id="Nw6-mo-Sgc"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="B_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="yvk-Tw-rXf" userLabel="B_Index">
-                                <rect key="frame" x="157" y="288" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="B_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="yvk-Tw-rXf" userLabel="B_Index">
+                                <rect key="frame" x="137" y="141" width="100" height="100"/>
+                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="DLs-y3-XV0"/>
-                                    <constraint firstAttribute="width" constant="100" id="fPH-GY-i98"/>
+                                    <constraint firstAttribute="height" constant="60" id="DLs-y3-XV0"/>
+                                    <constraint firstAttribute="width" constant="60" id="fPH-GY-i98"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="IRa-nd-2kv" appends="YES" id="hAR-yQ-8cg"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="A_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="xl0-KM-R88" userLabel="A_Index">
-                                <rect key="frame" x="47" y="288" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="A_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="xl0-KM-R88" userLabel="A_Index">
+                                <rect key="frame" x="27" y="141" width="100" height="100"/>
+                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="8c8-6M-gk4"/>
-                                    <constraint firstAttribute="width" constant="100" id="d65-BG-mbq"/>
+                                    <constraint firstAttribute="height" constant="60" id="8c8-6M-gk4"/>
+                                    <constraint firstAttribute="width" constant="60" id="d65-BG-mbq"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="DAF-GC-V3u" appends="YES" id="4uJ-3j-xga"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="G_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-fk-i4x" userLabel="G_Index">
-                                <rect key="frame" x="47" y="398" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="G_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-fk-i4x" userLabel="G_Index">
+                                <rect key="frame" x="27" y="251" width="100" height="100"/>
+                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="K53-1n-73b"/>
-                                    <constraint firstAttribute="height" constant="100" id="aCk-xP-cXq"/>
+                                    <constraint firstAttribute="width" constant="60" id="K53-1n-73b"/>
+                                    <constraint firstAttribute="height" constant="60" id="aCk-xP-cXq"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Kce-Cq-jxn" appends="YES" id="E2D-Lp-mIo"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="F_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="9Lh-Co-dHy" userLabel="F_Index">
-                                <rect key="frame" x="47" y="508" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="F_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="9Lh-Co-dHy" userLabel="F_Index">
+                                <rect key="frame" x="27" y="361" width="100" height="100"/>
+                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="jHP-ca-ULO"/>
-                                    <constraint firstAttribute="width" constant="100" id="oU4-OI-YeM"/>
+                                    <constraint firstAttribute="height" constant="60" id="jHP-ca-ULO"/>
+                                    <constraint firstAttribute="width" constant="60" id="oU4-OI-YeM"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="H_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="7Ip-w3-BlO" userLabel="H_Index">
-                                <rect key="frame" x="157" y="508" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="H_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="7Ip-w3-BlO" userLabel="H_Index">
+                                <rect key="frame" x="137" y="361" width="100" height="100"/>
+                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="W0q-TC-dwt"/>
-                                    <constraint firstAttribute="height" constant="100" id="mjr-iX-5UF"/>
+                                    <constraint firstAttribute="width" constant="60" id="W0q-TC-dwt"/>
+                                    <constraint firstAttribute="height" constant="60" id="mjr-iX-5UF"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Uy5-zv-3s3" appends="YES" id="6l6-lQ-4UP"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="D_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="gZk-XU-D9n" userLabel="D_Index">
-                                <rect key="frame" x="267" y="398" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="D_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="gZk-XU-D9n" userLabel="D_Index">
+                                <rect key="frame" x="247" y="251" width="100" height="100"/>
+                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="aqo-Dp-PTu"/>
-                                    <constraint firstAttribute="width" constant="100" id="cn9-9c-IH5"/>
+                                    <constraint firstAttribute="height" constant="60" id="aqo-Dp-PTu"/>
+                                    <constraint firstAttribute="width" constant="60" id="cn9-9c-IH5"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="nJh-Ib-7wg" appends="YES" id="VSF-oI-ssC"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="C_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-M5-EDE" userLabel="C_Index">
-                                <rect key="frame" x="267" y="288" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="C_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-M5-EDE" userLabel="C_Index">
+                                <rect key="frame" x="247" y="141" width="100" height="100"/>
+                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="sw3-7r-IW6"/>
-                                    <constraint firstAttribute="height" constant="100" id="vEn-R2-byq"/>
+                                    <constraint firstAttribute="width" constant="60" id="sw3-7r-IW6"/>
+                                    <constraint firstAttribute="height" constant="60" id="vEn-R2-byq"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="5sR-MF-MYZ" appends="YES" id="EPz-Uv-NQM"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="E_Index" image="addButton" translatesAutoresizingMaskIntoConstraints="NO" id="dVR-Np-su1" userLabel="E_Index">
-                                <rect key="frame" x="267" y="508" width="100" height="100"/>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="E_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="dVR-Np-su1" userLabel="E_Index">
+                                <rect key="frame" x="247" y="361" width="100" height="100"/>
+                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="2v1-hd-GGQ"/>
-                                    <constraint firstAttribute="height" constant="100" id="pxo-Ff-lrH"/>
+                                    <constraint firstAttribute="width" constant="60" id="2v1-hd-GGQ"/>
+                                    <constraint firstAttribute="height" constant="60" id="pxo-Ff-lrH"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="wNy-M8-7ea" appends="YES" id="LyD-v0-mRX"/>
@@ -200,7 +213,7 @@
                             <outletCollection property="gestureRecognizers" destination="1TX-W0-tCI" appends="YES" id="YAs-gy-hvA"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="UPe-SQ-loy"/>
+                    <navigationItem key="navigationItem" title="New Collage" id="UPe-SQ-loy"/>
                     <connections>
                         <outlet property="A_Image" destination="xl0-KM-R88" id="36O-re-BXO"/>
                         <outlet property="AnchorImage" destination="WGc-rl-rqA" id="CS5-2b-WwU"/>
@@ -267,7 +280,7 @@
             <objects>
                 <collectionViewController title="Library" id="F5S-D1-sNc" customClass="LibraryCollectionViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QVc-4s-8Ip">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BDq-gR-Pys">
@@ -308,7 +321,7 @@
             <objects>
                 <viewController id="KZ2-v2-oMi" customClass="NewImageViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jse-x3-hzH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q7E-0N-iCp">
@@ -332,12 +345,12 @@
         <scene sceneID="Jj0-Ww-WUM">
             <objects>
                 <viewController id="1e2-qn-dqK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="yHQ-Vs-uVf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="yHQ-Vs-uVf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvM-O3-jLB">
-                                <rect key="frame" x="200" y="48" width="200" height="100"/>
+                                <rect key="frame" x="87.5" y="81.5" width="200" height="100"/>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.78039215689999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="H95-Yv-AZz"/>
@@ -356,7 +369,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="a8E-hE-9Zx">
-                                <rect key="frame" x="200" y="168" width="200" height="200"/>
+                                <rect key="frame" x="87.5" y="201.5" width="200" height="200"/>
                                 <color key="backgroundColor" red="1" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Jk1-vq-gly"/>
@@ -375,7 +388,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-kP-NKO">
-                                <rect key="frame" x="380" y="416" width="200" height="100"/>
+                                <rect key="frame" x="155" y="483" width="200" height="100"/>
                                 <color key="backgroundColor" red="0.58823529409999997" green="0.31372549020000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="1ge-1E-oKg"/>
@@ -415,8 +428,8 @@
         <scene sceneID="0ID-bm-Re8">
             <objects>
                 <viewController title="Settings" id="LMx-jS-l4q" customClass="SettingsViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="6ku-Tg-EUy">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="6ku-Tg-EUy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="Okd-SH-KQv"/>
@@ -432,7 +445,7 @@
                 <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="Uhe-5q-3Dj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="NhH-mM-aqA">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.58823529409999997" green="0.31372549020000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -449,7 +462,7 @@
     </scenes>
     <resources>
         <image name="TurboExtraLarge_logo_color_halfres" width="1140" height="751"/>
-        <image name="addButton" width="240" height="240"/>
-        <image name="anchor" width="240" height="240"/>
+        <image name="add_image" width="300" height="300"/>
+        <image name="anchor_image" width="300" height="300"/>
     </resources>
 </document>
