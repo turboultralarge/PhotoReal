@@ -11,7 +11,7 @@ import Parse
 import AlamofireImage
 import Photos
 
-class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class AddCollageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     //  VARIABLES USED:
     
@@ -102,7 +102,7 @@ class CreationVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  set destination View Controller
-        let destinationVC = segue.destination as! ViewController
+        let destinationVC = segue.destination as! ARViewController
         destinationVC.passedImage = sender as? UIImage
     }
     

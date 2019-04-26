@@ -12,7 +12,7 @@ import ARKit
 import CoreMedia
 import Parse
 
-class ViewController: UIViewController {
+class ARViewController: UIViewController {
     
     
     var passedImage: UIImage?
@@ -115,7 +115,7 @@ class ViewController: UIViewController {
 
     // -----
     
-    extension ViewController: ARSCNViewDelegate {
+    extension ARViewController: ARSCNViewDelegate {
         func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
             DispatchQueue.main.async {} //Hide things callback
             if let imageAnchor = anchor as? ARImageAnchor {
