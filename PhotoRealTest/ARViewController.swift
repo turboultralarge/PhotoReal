@@ -32,6 +32,7 @@ class ARViewController: UIViewController {
     var referenceImageSet = Set<ARReferenceImage>()
     
     override func viewDidLoad() {
+        print("View loaded my dude")
         super.viewDidLoad()
         
         // Set the view's delegate
@@ -76,6 +77,7 @@ class ARViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("VIEW WILL APPEAR HERE TOO D00D")
         //Debug Options
         //sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This stopped working
         
@@ -110,7 +112,10 @@ class ARViewController: UIViewController {
         guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Images", bundle: nil) else {
             fatalError("Can't find the AR Images folder!")
         }
-        imageConfiguration?.trackingImages = emptyImageSet //Change to referenceImages if you want hardcoded images back
+        addReferenceImage()
+        
+       // imageConfiguration?.trackingImages = emptyImageSet //Change to referenceImages if you want hardcoded images back
+        //print("Loaded empty configuration!")
     }
     
     func addReferenceImage() {
@@ -128,8 +133,15 @@ class ARViewController: UIViewController {
         //Temporary name for testing
         newRefImage.name = "TestRef"
         
+        //Check number of images in set before new image is added
+        print("Number of images in set: \(referenceImageSet.count)")
         referenceImageSet.insert(newRefImage)
+        
         imageConfiguration?.trackingImages = referenceImageSet
+        print("Loaded new configuration!")
+        
+        print("Number of images in set: \(referenceImageSet.count)")
+
         
     } //END addReferenceImage
     
