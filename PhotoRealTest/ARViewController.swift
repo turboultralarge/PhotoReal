@@ -9,7 +9,7 @@
 import UIKit
 import SceneKit
 import ARKit
-import CoreMedia
+//import CoreMedia //For videos later
 import Parse
 
 class ARViewController: UIViewController {

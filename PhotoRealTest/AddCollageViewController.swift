@@ -23,14 +23,14 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
 //    OUTLETS
     
     @IBOutlet var AnchorImage: UIImageView! //  Middle image AKA Anchor for AR scene
-    @IBOutlet var A_Image: UIImageView!  //  image at [0,0]
+    @IBOutlet var A_Image: UIImageView!  //  image at [-1,1]
     @IBOutlet var B_Image: UIImageView!  //  image at [0,1]
-    @IBOutlet var C_Image: UIImageView!  //  image at [0,2]
-    @IBOutlet var D_Image: UIImageView!  //  image at [2,2]
-    @IBOutlet var E_Image: UIImageView!  //  image at [3,2]
-    @IBOutlet var F_Image: UIImageView!  //  image at [3,1]
-    @IBOutlet var G_Image: UIImageView!  //  image at [3,0]
-    @IBOutlet var H_Image: UIImageView!  //  image at [2,0]
+    @IBOutlet var C_Image: UIImageView!  //  image at [1,1]
+    @IBOutlet var D_Image: UIImageView!  //  image at [1,0]
+    @IBOutlet var E_Image: UIImageView!  //  image at [1,-1]
+    @IBOutlet var F_Image: UIImageView!  //  image at [0,-1]
+    @IBOutlet var G_Image: UIImageView!  //  image at [-1,-1]
+    @IBOutlet var H_Image: UIImageView!  //  image at [-1,0]
     
     
 //    ACTIONS
