@@ -28,7 +28,8 @@ class ARViewController: UIViewController {
     
     //Configuration Variables
     private var imageConfiguration: ARImageTrackingConfiguration?
-    
+    var emptyImageSet = Set<ARReferenceImage>()
+    var referenceImageSet = Set<ARReferenceImage>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +110,7 @@ class ARViewController: UIViewController {
         guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Images", bundle: nil) else {
             fatalError("Can't find the AR Images folder!")
         }
-        imageConfiguration?.trackingImages = referenceImages
+        imageConfiguration?.trackingImages = emptyImageSet //Change to referenceImages if you want hardcoded images back
     }
 } //class
 
@@ -272,12 +273,32 @@ class ARViewController: UIViewController {
             
             return newImageNode
             
-        }
+        } //END makeCollageImage()
+
+
+    func addReferenceImage() {
+        //let retrievedImage = UIImage(contentsOfFile: getImageURL(imgName: "Test", type: ".jpg"))
+        let retrievedImage = passedImage
         
+        //Prepares the image to go into a new ARReferenceImage object
+        guard let cgImage = retrievedImage?.cgImage else { return }
+        let width = CGFloat(cgImage.width)
+        //guard let refSize = 0.0762 else { return }
+        
+        //Creates a new ARReferenceImage object from the image
+        let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
+        
+        //Temporary name for testing
+        newRefImage.name = "TestRef"
+        
+        referenceImageSet.insert(newRefImage)
+        imageConfiguration?.trackingImages = referenceImageSet
+        
+    } //END addReferenceImage
    
-        func setUI() {
-            
-        }
+    func setUI() {
+        
+    }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
