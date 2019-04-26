@@ -7,13 +7,59 @@
 //
 
 import UIKit
+import Parse
 
 private let reuseIdentifier = "Cell"
 
 class LibraryCollectionViewController: UICollectionViewController {
+    
+    //  OUTLETS
+    
+    @IBOutlet var LibraryCollection: UICollectionView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        LibraryCollection.delegate = self
+        LibraryCollection.dataSource = self
+        
+        let layout = LibraryCollection.collectionViewLayout as! UICollectionViewFlowLayout
+        
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        
+        let width = ( view.frame.size.width - layout.minimumInteritemSpacing * 2 ) / 2
+        
+        layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+        
+        //  Queries the database for collage information
+        let query = PFQuery(className: "collage")
+        
+        query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index" ])
+        query.limit = 20
+        query.getFirstObjectInBackground { (object, error) -> Void in
+            
+            if error == nil {
+                if let passedImage = object {
+                    
+                    // let image = UIImage(named: )
+                    
+                    
+                    // we have an image object
+                    
+                    // get the image data
+                    
+                    //set the image data to a key of the PFObject
+                    
+                    // save the object to parse
+                    
+                    
+                }
+            }
+        }
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
