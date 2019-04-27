@@ -28,12 +28,13 @@ class ARViewController: UIViewController {
     
     //Configuration Variables
     private var imageConfiguration: ARImageTrackingConfiguration?
-    var emptyImageSet = Set<ARReferenceImage>()
-    var referenceImageSet = Set<ARReferenceImage>()
+    var emptyImageSet = Set<ARReferenceImage>()  //  Empty set of image resources used for testing purposes
+    var referenceImageSet = Set<ARReferenceImage>()  //  holding set of Reference images
     
     override func viewDidLoad() {
-        print("View loaded my dude")
         super.viewDidLoad()
+        
+        print("View Did Load")
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -47,37 +48,29 @@ class ARViewController: UIViewController {
         // Set the scene to the view
         sceneView.scene = scene
         
+        // Parse Query for image data
         let query = PFQuery(className: "collage")
         query.getFirstObjectInBackground { (object, error) -> Void in
             
             if error == nil {
                 if let passedImage = object {
-                    
                    // let image = UIImage(named: )
-                    
-
                     // we have an image object
-                    
                     // get the image data
-                    
                     //set the image data to a key of the PFObject
-                    
                     // save the object to parse
-                    
-                    
                 }
             }
         }
         
         setupImageDetection()
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("VIEW WILL APPEAR HERE TOO D00D")
+        print("ViewWillAppear")
         //Debug Options
         //sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This stopped working
         
@@ -207,6 +200,7 @@ class ARViewController: UIViewController {
                 }
                 
             } else {
+                
                 print("Image does NOT match size")
                 let tempShape = SCNBox(width: size.width, height: 0.0, length: size.height, chamferRadius: 0)
                 let tempNode = SCNNode(geometry: tempShape)
@@ -214,6 +208,7 @@ class ARViewController: UIViewController {
                 tempShape.firstMaterial?.lightingModel = .constant
                 node.addChildNode(tempNode)
                 print("'size' var width: \(size.width) height: \(size.height)")
+                
             }
         } //handleFoundImage()
         
