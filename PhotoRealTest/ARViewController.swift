@@ -16,6 +16,7 @@ class ARViewController: UIViewController {
     
     //  Receives UIImage StaticTestImage from AddCollageVC
     var passedImage: UIImage?
+    var cluster = [PFObject]()
     
     
 //    OUTLETS
@@ -33,8 +34,11 @@ class ARViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print("View Did Load")
+        
+        //  load the collages into an array of "clusters"
+        
+        
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -52,8 +56,11 @@ class ARViewController: UIViewController {
         let query = PFQuery(className: "collage")
         query.getFirstObjectInBackground { (object, error) -> Void in
             
+            
+            
             if error == nil {
-                if let passedImage = object {
+                // Successfully retrieve image from parse
+                if let parseImage = object!["AnchorImage"] as? UIImage {
                    // let image = UIImage(named: )
                     // we have an image object
                     // get the image data
@@ -115,20 +122,30 @@ class ARViewController: UIViewController {
         //let retrievedImage = UIImage(contentsOfFile: getImageURL(imgName: "Test", type: ".jpg"))
         let retrievedImage = passedImage
         
+        let passedFromParseUIImage = passedImage
+        
         //Prepares the image to go into a new ARReferenceImage object
         guard let cgImage = retrievedImage?.cgImage else { return }
+        guard let cgImageFromParse = passedFromParseUIImage?.cgImage else { return }
         let width = CGFloat(cgImage.width)
         //guard let refSize = 0.0762 else { return }
         
         //Creates a new ARReferenceImage object from the image
         let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
         
+        let newRefImageFromParse = ARReferenceImage(cgImageFromParse, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
+        
         //Temporary name for testing
         newRefImage.name = "TestRef"
+        
+        newRefImageFromParse.name = "ImageFromParse"
         
         //Check number of images in set before new image is added
         print("Number of images in set: \(referenceImageSet.count)")
         referenceImageSet.insert(newRefImage)
+        
+        print("Number of images in set: \(referenceImageSet.count)")
+        referenceImageSet.insert(newRefImageFromParse)
         
         imageConfiguration?.trackingImages = referenceImageSet
         print("Loaded new configuration!")
