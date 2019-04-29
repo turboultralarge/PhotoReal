@@ -90,12 +90,12 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
             collage.saveInBackground{ (success, error) in
                 if success {
                     print ("Saved Successfully.")
-                    self.dismiss(animated: true, completion: nil)
                 } else {
                     print("Image not saved.")
                     print(error as Any)
                 }
             }
+            self.dismiss(animated: true, completion: nil)
           }
         
         //  Pass a static image to AR Scene for testing creation on AR

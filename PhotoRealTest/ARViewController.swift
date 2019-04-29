@@ -16,6 +16,7 @@ class ARViewController: UIViewController {
     
     //  Receives UIImage StaticTestImage from AddCollageVC
     var passedImage: UIImage?
+    var parseImage: UIImage?
     var cluster = [PFObject]()
     
     
@@ -60,13 +61,13 @@ class ARViewController: UIViewController {
             
             if error == nil {
                 // Successfully retrieve image from parse
-                if let parseImage = object!["AnchorImage"] as? UIImage {
+                self.parseImage = object!["AnchorImage"] as? UIImage
                    // let image = UIImage(named: )
                     // we have an image object
                     // get the image data
                     //set the image data to a key of the PFObject
                     // save the object to parse
-                }
+                
             }
         }
         
@@ -122,11 +123,11 @@ class ARViewController: UIViewController {
         //let retrievedImage = UIImage(contentsOfFile: getImageURL(imgName: "Test", type: ".jpg"))
         let retrievedImage = passedImage
         
-        let passedFromParseUIImage = passedImage
+        let passedFromParseUIImage = parseImage
         
         //Prepares the image to go into a new ARReferenceImage object
         guard let cgImage = retrievedImage?.cgImage else { return }
-        guard let cgImageFromParse = passedFromParseUIImage?.cgImage else { return }
+        guard let cgImageFromParse = retrievedImage?.cgImage else { return }
         let width = CGFloat(cgImage.width)
         //guard let refSize = 0.0762 else { return }
         
