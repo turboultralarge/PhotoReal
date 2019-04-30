@@ -14,11 +14,12 @@ private let reuseIdentifier = "Cell"
 class LibraryCollectionViewController: UICollectionViewController {
     
     //  OUTLETS
+    @IBOutlet var test: UIImageView!
     
     @IBOutlet var LibraryCollection: UICollectionView!
  
     
-    var collage = [PFObject] ( )
+    var cluster = [PFObject] ( )
     
 
     override func viewDidLoad() {
@@ -45,29 +46,25 @@ class LibraryCollectionViewController: UICollectionViewController {
         
 //        anchorImage.image = (query["AnchorImage"] as! [PJObject] ?? []
         
-        query.getFirstObjectInBackground { (object, error) -> Void in
-            
-            
-            
-            if error == nil {
-                if let passedImage = object {
-                    
-                    // let image = UIImage(named: )
-                    
-                    
-                    // we have an image object
-                    
-                    // get the image data
-                    
-                    //set the image data to a key of the PFObject
-                    
-                    // save the object to parse
-                    
-                    
+        query.getFirstObjectInBackground { (collage: PFObject?, error: Error?) -> Void in
+                if let error = error {
+                    //The query returned an error
+                    print(error.localizedDescription)
+                } else {
+                    //The object has been retrieved
+                        print("IMAGE OBJECT RECEIVED")
+                    self.test.image = collage!["AnchorImage"] as? UIImage
                 }
-            }
+            
+            
+//            if (collage!["AnchorImage"] != nil) {
+//                self.test.image = collage!["AnchorImage"] as? UIImage
+//            }
+            
         }
         
+//        test.image = collage!["AnchorImage"] as? UIImage
+       
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

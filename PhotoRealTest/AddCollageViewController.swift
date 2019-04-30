@@ -295,10 +295,41 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        //  Queries the database for collage information
+        let query = PFQuery(className: "collage")
+        
+        query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index" ])
+        query.limit = 20
+        
+        //        anchorImage.image = (query["AnchorImage"] as! [PJObject] ?? []
+        
+        query.getFirstObjectInBackground { (collage: PFObject?, error: Error?) -> Void in
+            if let error = error {
+                //The query returned an error
+                print(error.localizedDescription)
+            } else {
+                //The object has been retrieved
+                if let userPicture = collage?["AnchorImage"] as? PFFileObject {
+                    userPicture.getDataInBackground { (imageData: Data?, error: Error?) -> Void in
+                        if (error == nil) {
+                            // Test Statement to see which image is being loaded into Parse
+                            // self.A_Image.image = UIImage(data:imageData!)
+                        }
+                    }
+                }
+ 
+                    
+                    
+            }
+        }
+    
+        
         //  DefaultImage is set to anchor image. This is used to tell if the user has entered a new image
         
         defaultImage = AnchorImage.image
         imagePickerController.delegate = self
+    
  
     }
 }
