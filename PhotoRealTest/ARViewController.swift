@@ -15,11 +15,23 @@ import Parse
 class ARViewController: UIViewController {
     
     //  Receives UIImage StaticTestImage from AddCollageVC
+    
     var passedImage: UIImage?
     var parseImage: UIImage?
     var clusters = [PFObject]()
     var Collages = [collages]()
+    
+    
+    //  Arrays holding columns from Parse
     var anchors = [UIImage]()
+    var a_index = [UIImage]()
+    var b_index = [UIImage]()
+    var c_index = [UIImage]()
+    var d_index = [UIImage]()
+    var e_index = [UIImage]()
+    var f_index = [UIImage]()
+    var g_index = [UIImage]()
+    var h_index = [UIImage]()
     
     
     
@@ -66,6 +78,7 @@ class ARViewController: UIViewController {
         var i = 0
         
         // Working on saving the data to an Array of Objects (Clusters)
+        //  This is the ideal way to do it, but I cannot find a way to unpack the cluster into UIImages
         query.findObjectsInBackground{(objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 if let objects = objects {
@@ -81,7 +94,7 @@ class ARViewController: UIViewController {
                                 //count+=1
 
                             
-                        print("number of Objects dissassembled \(i)")
+//                        print("number of Objects dissassembled \(i)")
                         }
                     
                     for objects in self.clusters{
@@ -92,6 +105,17 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let image = UIImage(data:imageData)
                                     self.anchors.append(image!)
+                                    if let a_Image = objects.value(forKey:"A_Index") as? PFFileObject {
+                                        a_Image.getDataInBackground(block: {
+                                            (imageData: Data!, error: Error!) -> Void in
+                                            if (error == nil) {
+                                                let image = UIImage(data:imageData)
+                                                self.a_index.append(image!)
+                                                print("a_index accepted")
+                                                print("Number of A_Index loaded after: \(self.a_index.count)" )
+                                            }
+                                        })
+                                    }
                                     
                                     // Successfully Query Parse
                                     
@@ -102,101 +126,46 @@ class ARViewController: UIViewController {
                                     self.setupImageDetection()
                                     
                                     if let configuration = self.imageConfiguration {
-                                        print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
+                                        //print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
                                         self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
                                         self.sceneView.session.run(configuration)
                                         configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-                                        print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
+                                       //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
                                     }
                                     self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
                                     
+                                            print("Number of Anchors loaded: \(self.anchors.count)" )
+                                            print("Number of A_Index loaded: \(self.a_index.count)" )
+                                            print(" number of objects from parse in Array: \(i)")
                                 }
-                                
-                                
-                                    //count+=1
-                                    
-                                    
-                                })
-                            
+                            })
                         }
                     }
-                    print("Number of Anchors loaded: \(self.anchors.count)" ) 
                 }
             }
-                    
-            print(" number of objects from parse in Array: \(i)")
-                
-               /* if let userPicture = collage?["AnchorImage"] as? PFFileObject {
-                    userPicture.getDataInBackground { (imageData: Data?, error: Error?) -> Void in
-                        if (error == nil) {
-                            // Successfully Query Parse
-                            
-                            
-                            self.parseImage = UIImage(data:imageData!) // single Anchor image for testing purposes
-                            print("Parse Images Received")
-                        }*/
-        
-            
-           
          }
-        
-        //else  {
-                //print("\(String(describing: error))")
-            //}
-    
-        
-    /*  Cannot run two network requests at once
-        query.getFirstObjectInBackground { (collage: PFObject?, error: Error?) -> Void in
-            if let error = error {
-                //The query returned an error
-                print(error.localizedDescription)
-            } else {
-                //The object has been retrieve
-                // TODO:  load the collages into an array of "clusters"
-            
-                if let userPicture = collage?["AnchorImage"] as? PFFileObject {
-                    userPicture.getDataInBackground { (imageData: Data?, error: Error?) -> Void in
-                        if (error == nil) {
-                            // Successfully Query Parse
-                        
-                            
-                            self.parseImage = UIImage(data:imageData!) // single Anchor image for testing purposes
-                            print("Parse Images Received")
-                            
-                            // Must be in the same block or image isn't loaded first
-                            self.setupImageDetection()
-                            
-                            if let configuration = self.imageConfiguration {
-                                print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-                                self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
-                                self.sceneView.session.run(configuration)
-                                configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-                                print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
-                            }
-                            self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
-                            
-                        }
-                    }
-                }
-            
-                
-            }
-        }
-        */
-
-        
-        setupImageDetection()
-        
-        if let configuration = imageConfiguration {
-            print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-            sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
-            sceneView.session.run(configuration)
-            configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-            print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
-        }
-        sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
- 
- 
+//
+//        print("Number of Anchors loaded: \(self.anchors.count)" )
+//        print("Number of A_Index loaded: \(self.a_index.count)" )
+//        print(" number of objects from parse in Array: \(i)")
+//
+//        //else  {
+//                //print("\(String(describing: error))")
+//            //}
+//
+//
+//        setupImageDetection()
+//
+//        if let configuration = imageConfiguration {
+//            print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
+//            sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
+//            sceneView.session.run(configuration)
+//            configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
+//            print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
+//        }
+//        sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
+//
+//
         
     }
     
@@ -205,25 +174,7 @@ class ARViewController: UIViewController {
         super.viewWillAppear(animated)
         
         print("ViewWillAppear")
-        //Debug Options
-        //sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This stopped working
-        
-        // Create a session configuration
-        //let configuration = ARImageTrackingConfiguration()
-        // Run the view's session
-        
-        
-        /*  This code belongs in the success block in ViewDidLoad()
-        
-        if let configuration = imageConfiguration {
-            print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-            sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
-            sceneView.session.run(configuration)
-            configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-            print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
-        }
-        sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin
- */
+
     }   // end ViewWillAppearn
     
     
@@ -254,18 +205,18 @@ class ARViewController: UIViewController {
         
         let retrievedImage = parseImage
         
-        let passedFromParseUIImage = parseImage
+        //let passedFromParseUIImage = parseImage
         
-        //Prepares the image to go into a new ARReferenceImage object
-        guard let cgImage = retrievedImage?.cgImage else { return }
-        guard let cgImageFromParse = passedFromParseUIImage?.cgImage else { return }
+        //Prepares the image to go into a new ARReferenceImage object  Test case no longer needed
+       guard let cgImage = retrievedImage?.cgImage else { return }
+        //guard let cgImageFromParse = passedFromParseUIImage?.cgImage else { return }
         let width = CGFloat(cgImage.width)
         //guard let refSize = 0.0762 else { return }
         
         //Creates a new ARReferenceImage object from the image
         let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
         
-        let newRefImageFromParse = ARReferenceImage(cgImageFromParse, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
+        //let newRefImageFromParse = ARReferenceImage(cgImageFromParse, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
         
         //Temporary name for testing
         newRefImage.name = "TestRef"
