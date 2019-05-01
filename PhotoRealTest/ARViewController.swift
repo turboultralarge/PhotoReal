@@ -18,10 +18,13 @@ class ARViewController: UIViewController {
     var passedImage: UIImage?
     var parseImage: UIImage?
     var clusters = [PFObject]()
+    var Collages = [collages]()
+    var anchors = [UIImage]()
+    
     
     
 //    OUTLETS
-    
+
     
     
 //    ACTIONS
@@ -60,24 +63,89 @@ class ARViewController: UIViewController {
         
         //Get the data from the PFQuery class
         
+        var i = 0
+        
         // Working on saving the data to an Array of Objects (Clusters)
-      /*  query.findObjectsInBackground{(objects: [AnyObject]?, error: Error?) -> Void in
+        query.findObjectsInBackground{(objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 if let objects = objects {
                     for object in objects {
                         //For each object in the class object, append it to myArray(clusters)
-                        if let parseObject = collage?["AnchorImage"] as? PFFileObject{
+                        self.clusters.append(object)
+                        i += 1
+ 
+                            
+                            //self.anchors[count] = objects["AnchorImage"]  as! UIImage
+                            // self.anchors.append((objects["AnchorImage"]  as? UIImage)!)
+                            //Could not cast value of type 'PFFileObject' (0x10f7a9500) to 'UIImage' (0x11bc0e598).
+                                //count+=1
+
+                            
+                        print("number of Objects dissassembled \(i)")
+                        }
+                    
+                    for objects in self.clusters{
+                        
+                        if let userPicture = objects.value(forKey: "AnchorImage") as? PFFileObject {
+                            userPicture.getDataInBackground(block: {
+                                (imageData: Data!, error: Error!) -> Void in
+                                if (error == nil) {
+                                    let image = UIImage(data:imageData)
+                                    self.anchors.append(image!)
+                                    
+                                    // Successfully Query Parse
+                                    
+                                    self.parseImage = UIImage(data:imageData!) // single Anchor image for testing purposes
+                                    print("Parse Images Received")
+                                    
+                                    // Must be in the same block or image isn't loaded first
+                                    self.setupImageDetection()
+                                    
+                                    if let configuration = self.imageConfiguration {
+                                        print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
+                                        self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
+                                        self.sceneView.session.run(configuration)
+                                        configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
+                                        print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
+                                    }
+                                    self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
+                                    
+                                }
+                                
+                                
+                                    //count+=1
+                                    
+                                    
+                                })
                             
                         }
-                        self.clusters.append(parseImage as? UIImage)
                     }
-                    
+                    print("Number of Anchors loaded: \(self.anchors.count)" ) 
                 }
-            } else {
-                print("\(String(describing: error))")
             }
-        }
-        */
+                    
+            print(" number of objects from parse in Array: \(i)")
+                
+               /* if let userPicture = collage?["AnchorImage"] as? PFFileObject {
+                    userPicture.getDataInBackground { (imageData: Data?, error: Error?) -> Void in
+                        if (error == nil) {
+                            // Successfully Query Parse
+                            
+                            
+                            self.parseImage = UIImage(data:imageData!) // single Anchor image for testing purposes
+                            print("Parse Images Received")
+                        }*/
+        
+            
+           
+         }
+        
+        //else  {
+                //print("\(String(describing: error))")
+            //}
+    
+        
+    /*  Cannot run two network requests at once
         query.getFirstObjectInBackground { (collage: PFObject?, error: Error?) -> Void in
             if let error = error {
                 //The query returned an error
@@ -114,8 +182,9 @@ class ARViewController: UIViewController {
                 
             }
         }
+        */
 
-        /*
+        
         setupImageDetection()
         
         if let configuration = imageConfiguration {
@@ -127,7 +196,7 @@ class ARViewController: UIViewController {
         }
         sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
  
- */
+ 
         
     }
     
@@ -291,7 +360,7 @@ class ARViewController: UIViewController {
                 
             }
         } //handleFoundImage()
-        
+
         
         private func makeImage(size: CGSize) -> SCNNode? {
             //guard let imagePath = Bundle.main.url(forResource: "gabe_newell", withExtension: "jpg") else { return nil }
@@ -406,3 +475,18 @@ class ARViewController: UIViewController {
     }
 
 
+class collages {
+    var anchorImage = UIImage()
+    var a_Image = UIImage()
+    var b_Image = UIImage()
+    var c_Image = UIImage()
+    var d_Image = UIImage()
+    var e_Image = UIImage()
+    var f_Image = UIImage()
+    var g_Image = UIImage()
+    var h_Image = UIImage()
+    
+    init(){
+    
+    }
+}
