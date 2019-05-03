@@ -214,7 +214,7 @@ class ARViewController: UIViewController {
         //guard let refSize = 0.0762 else { return }
         
         //Creates a new ARReferenceImage object from the image
-        let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
+        let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762) //3 inches in meters
         
         //let newRefImageFromParse = ARReferenceImage(cgImageFromParse, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
         
@@ -224,21 +224,21 @@ class ARViewController: UIViewController {
         //newRefImageFromParse.name = "ImageFromParse"
         
         //Check number of images in set before new image is added
-        print("Number of images in set: \(referenceImageSet.count)")
+        print("Number of images in set Before Insert: \(referenceImageSet.count)")
         referenceImageSet.insert(newRefImage)
         
-        print("Number of images in set: \(referenceImageSet.count)")
+        print("Number of images in set After Insert: \(referenceImageSet.count)")
         //referenceImageSet.insert(newRefImageFromParse)
         
         imageConfiguration?.trackingImages = referenceImageSet
         print("Loaded new configuration!")
         
-        print("Number of images in set: \(referenceImageSet.count)")
+        print("Number of images in set After New Config: \(referenceImageSet.count)")
 
         
     } //END addReferenceImage
     
-} //class
+} //END class
 
     // -----
     
@@ -342,7 +342,9 @@ class ARViewController: UIViewController {
             if (tempImage == nil) {
                 return nil
             }
-            newImage.firstMaterial?.diffuse.contents = UIImage(named: name + "_" + String(index))
+            
+            //newImage.firstMaterial?.diffuse.contents = //Gets image associated with anchor image  - NEW LINE
+            //newImage.firstMaterial?.diffuse.contents = UIImage(named: name + "_" + String(index)) - OLD LINE
             print("Adding Collage Image: \(name + "_" + String(index))")
             newImage.firstMaterial?.lightingModel = .constant
             let newImageNode = SCNNode(geometry: newImage)
@@ -353,50 +355,50 @@ class ARViewController: UIViewController {
             //Based on the index, find the relative offset position
             switch index {
             case 0:
-                newImageNode.rotation.w = 0.0
+                //newImageNode.rotation.w = 0.0
                 newImageNode.position.x -= Float(boxSize) + Float(spacing)
                 newImageNode.position.y += Float(boxSize) + Float(spacing)
-                newImageNode.position.z = 0.0
+                //newImageNode.position.z = 0.0
             case 1:
-                newImageNode.rotation.w = 0.0
-                newImageNode.position.x = 0.0
+                //newImageNode.rotation.w = 0.0
+                //newImageNode.position.x = 0.0
                 newImageNode.position.y += Float(boxSize) + Float(spacing)
-                newImageNode.position.z = 0.0
+                //newImageNode.position.z = 0.0
             case 2:
-                newImageNode.rotation.w = 0.0
+                //newImageNode.rotation.w = 0.0
                 newImageNode.position.x += Float(boxSize) + Float(spacing)
                 newImageNode.position.y += Float(boxSize) + Float(spacing)
-                newImageNode.position.z = 0.0
+                //newImageNode.position.z = 0.0
             case 3:
-                newImageNode.rotation.w = 0.0
+                //newImageNode.rotation.w = 0.0
                 newImageNode.position.x += Float(boxSize) + Float(spacing)
-                newImageNode.position.y = 0.0
-                newImageNode.position.z = 0.0
+                //newImageNode.position.y = 0.0
+                //newImageNode.position.z = 0.0
             case 4:
-                newImageNode.rotation.w = 0.0
+                //newImageNode.rotation.w = 0.0
                 newImageNode.position.x += Float(boxSize) + Float(spacing)
                 newImageNode.position.y -= Float(boxSize) + Float(spacing)
-                newImageNode.position.z = 0.0
+                //newImageNode.position.z = 0.0
             case 5:
-                newImageNode.rotation.w = 0.0
-                newImageNode.position.x = 0.0
+                //newImageNode.rotation.w = 0.0
+                //newImageNode.position.x = 0.0
                 newImageNode.position.y -= Float(boxSize) + Float(spacing)
-                newImageNode.position.z = 0.0
+                //newImageNode.position.z = 0.0
             case 6:
-                newImageNode.rotation.w = 0.0
+                //newImageNode.rotation.w = 0.0
                 newImageNode.position.x -= Float(boxSize) + Float(spacing)
                 newImageNode.position.y -= Float(boxSize) + Float(spacing)
-                newImageNode.position.z = 0.0
+                //newImageNode.position.z = 0.0
             case 7:
-                newImageNode.rotation.w = 0.0
+                //newImageNode.rotation.w = 0.0
                 newImageNode.position.x -= Float(boxSize) + Float(spacing)
-                newImageNode.position.y = 0.0
-                newImageNode.position.z = 0.0
+                //newImageNode.position.y = 0.0
+                //newImageNode.position.z = 0.0
             default:
                 newImageNode.rotation.w = 0.0
-                newImageNode.position.x = 0.0
-                newImageNode.position.y = 0.0
-                newImageNode.position.z = 0.0
+                //newImageNode.position.x = 0.0
+                //newImageNode.position.y = 0.0
+                //newImageNode.position.z = 0.0
             }
             
             return newImageNode
