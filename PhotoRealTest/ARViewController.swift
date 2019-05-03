@@ -266,35 +266,35 @@ class ARViewController: UIViewController {
                 node.opacity = 1
                 //print("Image matches size")
                 
-                if let collageNode = makeCollageImage(size: size, name: name, index: 0) {
+                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 0) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
                 }
-                if let collageNode = makeCollageImage(size: size, name: name, index: 1) {
+                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 1) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
                 }
-                if let collageNode = makeCollageImage(size: size, name: name, index: 2) {
+                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 2) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
                 }
-                if let collageNode = makeCollageImage(size: size, name: name, index: 3) {
+                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 3) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
                 }
-                if let collageNode = makeCollageImage(size: size, name: name, index: 4) {
+                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 4) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
                 }
-                if let collageNode = makeCollageImage(size: size, name: name, index: 5) {
+                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 5) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
                 }
-                if let collageNode = makeCollageImage(size: size, name: name, index: 6) {
+                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 6) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
                 }
-                if let collageNode = makeCollageImage(size: size, name: name, index: 7) {
+                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 7) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
                 }
@@ -327,7 +327,7 @@ class ARViewController: UIViewController {
             
         }
         
-        private func makeCollageImage(size: CGSize, name: String, index: Int) -> SCNNode? {
+        private func makeCollageImage(size: CGSize, name: String, collageIndex: Int) -> SCNNode? {
             
             //Set the box size to the length
             var boxSize = size.width
@@ -338,14 +338,19 @@ class ARViewController: UIViewController {
             
             //print("Preparing size: width: \(size.width) height: \(size.height)")
             let newImage = SCNPlane(width: boxSize, height: boxSize)
-            let tempImage = UIImage(named: name + "_" + String(index))
+            let tempImage = UIImage(named: name + "_" + String(collageIndex))
             if (tempImage == nil) {
                 return nil
             }
             
+            //Going to need a switch statement to determine which letter index array to look in for the UIImage
+            
+            //name paramater will be changed to array index location
+            //index location will be specifying collageIndex
+            
             //newImage.firstMaterial?.diffuse.contents = //Gets image associated with anchor image  - NEW LINE
             //newImage.firstMaterial?.diffuse.contents = UIImage(named: name + "_" + String(index)) - OLD LINE
-            print("Adding Collage Image: \(name + "_" + String(index))")
+            print("Adding Collage Image: \(name + "_" + String(collageIndex))")
             newImage.firstMaterial?.lightingModel = .constant
             let newImageNode = SCNNode(geometry: newImage)
             newImageNode.eulerAngles.x = -.pi / 2
@@ -353,7 +358,7 @@ class ARViewController: UIViewController {
             let spacing = 0.01
             
             //Based on the index, find the relative offset position
-            switch index {
+            switch collageIndex {
             case 0:
                 //newImageNode.rotation.w = 0.0
                 newImageNode.position.x -= Float(boxSize) + Float(spacing)
