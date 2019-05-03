@@ -432,6 +432,11 @@ class ARViewController: UIViewController {
         
     }
 
+//Takes in the anchor image name, searches the "anchors" array and returns the index it was found at
+func getAnchorImageIndex() {
+    
+}
+
 
 class collages {
     var anchorImage = UIImage()
