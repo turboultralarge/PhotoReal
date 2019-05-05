@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "http://photorealer.herokuapp.com/parse"
             })
         )
+        
+        configureParse()
     
         return true
     
@@ -62,6 +64,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ...
     }
 
+    
+    func configureParse() {
+        MyClass.registerSubclass()
+    }
 
         
 }

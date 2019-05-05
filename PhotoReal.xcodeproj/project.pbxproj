@@ -22,6 +22,8 @@
 		5071537722603C8900FD6E97 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5071537622603C8900FD6E97 /* SettingsViewController.swift */; };
 		5863A9C458414F175FF0F1EF /* Pods_PhotoRealUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B26AC0335CB646FDE9C619 /* Pods_PhotoRealUITests.framework */; };
 		BD0772452257021600698241 /* AddCollageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0772442257021600698241 /* AddCollageViewController.swift */; };
+		BDA77210227CD5E1007C7F8F /* imageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7720F227CD5E1007C7F8F /* imageCollection.swift */; };
+		BDA77213227ED98D007C7F8F /* MyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA77212227ED98D007C7F8F /* MyClass.swift */; };
 		C68E5B0932A69C3C1EF2DD83 /* Pods_PhotoReal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CFC69CF5339CC5A443ABB /* Pods_PhotoReal.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,9 @@
 		948FC9B48CC3A3D2130CE102 /* Pods-PhotoRealUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoRealUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoRealUITests/Pods-PhotoRealUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A8C5C169A46C1C7069A56632 /* Pods-PhotoRealTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoRealTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoRealTests/Pods-PhotoRealTests.release.xcconfig"; sourceTree = "<group>"; };
 		BD0772442257021600698241 /* AddCollageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollageViewController.swift; sourceTree = "<group>"; };
+		BDA7720F227CD5E1007C7F8F /* imageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCollection.swift; sourceTree = "<group>"; };
+		BDA77211227ED94C007C7F8F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		BDA77212227ED98D007C7F8F /* MyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClass.swift; sourceTree = "<group>"; };
 		EA5B86B3370BBE2F991C0283 /* Pods-PhotoRealUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoRealUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoRealUITests/Pods-PhotoRealUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F16CFC69CF5339CC5A443ABB /* Pods_PhotoReal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoReal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -104,6 +109,8 @@
 		24D09652225556D900AFA230 = {
 			isa = PBXGroup;
 			children = (
+				BDA77211227ED94C007C7F8F /* Header.h */,
+				BDA77212227ED98D007C7F8F /* MyClass.swift */,
 				24D0965D225556D900AFA230 /* PhotoRealTest */,
 				24D09674225556DA00AFA230 /* PhotoRealTestTests */,
 				24D0967F225556DA00AFA230 /* PhotoRealTestUITests */,
@@ -129,6 +136,7 @@
 				24D0965E225556D900AFA230 /* AppDelegate.swift */,
 				24D09660225556D900AFA230 /* art.scnassets */,
 				24D09662225556D900AFA230 /* ARViewController.swift */,
+				BDA7720F227CD5E1007C7F8F /* imageCollection.swift */,
 				24D09664225556D900AFA230 /* Main.storyboard */,
 				24D09667225556DA00AFA230 /* Assets.xcassets */,
 				24D09669225556DA00AFA230 /* LaunchScreen.storyboard */,
@@ -418,11 +426,13 @@
 			files = (
 				5071537122603B0600FD6E97 /* LibraryCollectionViewCell.swift in Sources */,
 				BD0772452257021600698241 /* AddCollageViewController.swift in Sources */,
+				BDA77213227ED98D007C7F8F /* MyClass.swift in Sources */,
 				5071537522603B6B00FD6E97 /* NewImageViewController.swift in Sources */,
 				24D09663225556D900AFA230 /* ARViewController.swift in Sources */,
 				5071537322603B3300FD6E97 /* LibraryCollectionViewController.swift in Sources */,
 				24D0965F225556D900AFA230 /* AppDelegate.swift in Sources */,
 				5071537722603C8900FD6E97 /* SettingsViewController.swift in Sources */,
+				BDA77210227CD5E1007C7F8F /* imageCollection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

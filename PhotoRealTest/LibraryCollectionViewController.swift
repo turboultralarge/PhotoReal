@@ -39,29 +39,29 @@ class LibraryCollectionViewController: UICollectionViewController {
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
         
         //  Queries the database for collage information
-        let query = PFQuery(className: "collage")
+//        let query = PFQuery(className: "collage")
+//
+//        query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index" ])
+//        query.limit = 20
+//
+////        anchorImage.image = (query["AnchorImage"] as! [PJObject] ?? []
+//
+//        query.getFirstObjectInBackground { (collage: PFObject?, error: Error?) -> Void in
+//                if let error = error {
+//                    //The query returned an error
+//                    print(error.localizedDescription)
+//                } else {
+//                    //The object has been retrieved
+//                        print("IMAGE OBJECT RECEIVED")
+//                    self.test.image = collage!["AnchorImage"] as? UIImage
+//                }
         
-        query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index" ])
-        query.limit = 20
-        
-//        anchorImage.image = (query["AnchorImage"] as! [PJObject] ?? []
-        
-        query.getFirstObjectInBackground { (collage: PFObject?, error: Error?) -> Void in
-                if let error = error {
-                    //The query returned an error
-                    print(error.localizedDescription)
-                } else {
-                    //The object has been retrieved
-                        print("IMAGE OBJECT RECEIVED")
-                    self.test.image = collage!["AnchorImage"] as? UIImage
-                }
-            
             
 //            if (collage!["AnchorImage"] != nil) {
 //                self.test.image = collage!["AnchorImage"] as? UIImage
 //            }
             
-        }
+//        }
         
 //        test.image = collage!["AnchorImage"] as? UIImage
        

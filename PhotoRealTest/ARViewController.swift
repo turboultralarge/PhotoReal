@@ -18,21 +18,11 @@ class ARViewController: UIViewController {
     
     var passedImage: UIImage?
     var parseImage: UIImage?
-    var clusters = [PFObject]()
-    var Collages = [collages]()
-    
-    
-    //  Arrays holding columns from Parse
-    var anchors = [UIImage]()
-    var a_index = [UIImage]()
-    var b_index = [UIImage]()
-    var c_index = [UIImage]()
-    var d_index = [UIImage]()
-    var e_index = [UIImage]()
-    var f_index = [UIImage]()
-    var g_index = [UIImage]()
-    var h_index = [UIImage]()
-    
+    var clusters = [imageCollection]()
+//    var collages = [PFObject]()
+    var collages = [UIImage]()
+    var imageObjects = [PFObject]()
+
     
     
 //    OUTLETS
@@ -52,129 +42,100 @@ class ARViewController: UIViewController {
         super.viewDidLoad()
         print("View Did Load")
         
-        
         // Set the view's delegate
         sceneView.delegate = self
-        
         // Show statistics such as fps and timing information --------DEBUG
         sceneView.showsStatistics = true
-        
         // Create a new scene
         let scene = SCNScene(named: "art.scnassets/empty.scn")!
-        
         // Set the scene to the view
         sceneView.scene = scene
         
         // Parse Query for image data
-        
         //  Queries the database for collage information
-        let query = PFQuery(className: "collage")
+        let query = PFQuery(className:"cluster")
         
-        query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index" ])
+        query.includeKeys(["imageArray"])
         query.limit = 20
         
-        //Get the data from the PFQuery class
+//        let x = imageCollection()
+//        collages = x.image!
         
-        var i = 0
         
-        // Working on saving the data to an Array of Objects (Clusters)
-        //  This is the ideal way to do it, but I cannot find a way to unpack the cluster into UIImages
-        query.findObjectsInBackground{(objects: [PFObject]?, error: Error?) -> Void in
-            if error == nil {
-                if let objects = objects {
-                    for object in objects {
-                        //For each object in the class object, append it to myArray(clusters)
-                        self.clusters.append(object)
-                        i += 1
- 
-                            
-                            //self.anchors[count] = objects["AnchorImage"]  as! UIImage
-                            // self.anchors.append((objects["AnchorImage"]  as? UIImage)!)
-                            //Could not cast value of type 'PFFileObject' (0x10f7a9500) to 'UIImage' (0x11bc0e598).
-                                //count+=1
-
-                            
-//                        print("number of Objects dissassembled \(i)")
-                        }
-                    
-                    for objects in self.clusters{
-                        
-                        if let userPicture = objects.value(forKey: "AnchorImage") as? PFFileObject {
-                            userPicture.getDataInBackground(block: {
-                                (imageData: Data!, error: Error!) -> Void in
-                                if (error == nil) {
-                                    let image = UIImage(data:imageData)
-                                    self.anchors.append(image!)
-                                    if let a_Image = objects.value(forKey:"A_Index") as? PFFileObject {
-                                        a_Image.getDataInBackground(block: {
-                                            (imageData: Data!, error: Error!) -> Void in
-                                            if (error == nil) {
-                                                let image = UIImage(data:imageData)
-                                                self.a_index.append(image!)
-                                                print("a_index accepted")
-                                                print("Number of A_Index loaded after: \(self.a_index.count)" )
-                                            }
-                                        })
-                                    }
-                                    
-                                    // Successfully Query Parse
-                                    
-                                    self.parseImage = UIImage(data:imageData!) // single Anchor image for testing purposes
-                                    print("Parse Images Received")
-                                    
-                                    // Must be in the same block or image isn't loaded first
-                                    self.setupImageDetection()
-                                    
-                                    if let configuration = self.imageConfiguration {
-                                        //print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-                                        self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
-                                        self.sceneView.session.run(configuration)
-                                        configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-                                       //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
-                                    }
-                                    self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
-                                    
-                                            print("Number of Anchors loaded: \(self.anchors.count)" )
-                                            print("Number of A_Index loaded: \(self.a_index.count)" )
-                                            print(" number of objects from parse in Array: \(i)")
-                                }
-                            })
-                        }
-                    }
-                }
-            }
-         }
-//
-//        print("Number of Anchors loaded: \(self.anchors.count)" )
-//        print("Number of A_Index loaded: \(self.a_index.count)" )
-//        print(" number of objects from parse in Array: \(i)")
-//
-//        //else  {
-//                //print("\(String(describing: error))")
-//            //}
-//
-//
-//        setupImageDetection()
-//
-//        if let configuration = imageConfiguration {
-//            print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-//            sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
-//            sceneView.session.run(configuration)
-//            configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-//            print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
+        
+//        query.value(forKey:"imageArray")
+//        query.findObjectsInBackground()
+//        
+//        
+//        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+//            if let error = error {
+//                // The request failed
+//                print(error.localizedDescription)
+//            } else if let objects = objects as? [imageCollection], let firstCluster = objects.first {
+//                self.clusters.append(firstCluster)
+//                print("succesfully cast")
+//                //...
+//            } else {
+//                print("no dice! - No clusters received.")
+//            }
 //        }
-//        sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
+////        do { imageObjects = try query.findObjects()
+//        }
+//        catch { print("error - \(LocalizedError.self)") }
 //
-//
+//        for object in imageObjects{
+//            var imgData = object as! PFFileObject
+//        }
         
-    }
+        
+        
+        //Get the data from the PFQuery class
+//        var count = 0  //  increment counter
+        
+//        if let userPicture = object.valueForKey("Image")! as! PFFile {
+//            userPicture.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
+//                let image = UIImage(data: imageData!)
+//                if image != nil {
+//                    self.imageArray.append(image!)
+//                }
+//            })
+//        }
+        
+//        if let imgData = query.value(forKey: "imageArray") as? PFFileObject {
+//            imgData.getDataInBackground()
+//                var images = imgData as [UIImage
+//                self.clusters.append(imgData) as? imageCollection
+//            }
+        
+        
+//        query.findObjectsInBackground(){(objects,error) ->
+//            Void in
+//
+//            if objects != nil && error == nil{
+//                for object in objects!{
+//                        do { try object.fetch() }  //  Make sure to use updated data
+//                        catch{ print("error fetching") }
+//                    //let imgData = object["imageArray"] as [UIImage]
+//                    //self.collages.append(object["imageArray"] as! imageCollection)
+//                    var imgData = object as! PFFileObject
+//                    self.clusters.append(object as! imageCollection)
+//                        //self.clusters[count] = (collage["imageArray"]) as! imageCollection
+////                        count += 1
+//                    }
+//                }
+//            }
+        
+        
+        print("Amount of clusters: \(clusters.count)")
+ 
+
+}
+
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print("ViewWillAppear")
-
+        //print("ViewWillAppear")
     }   // end ViewWillAppearn
     
     
