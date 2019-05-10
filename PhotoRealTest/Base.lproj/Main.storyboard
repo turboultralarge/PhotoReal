@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhe-5q-3Dj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhe-5q-3Dj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,12 +34,11 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
-                        <segue destination="vfu-U8-Grw" kind="presentation" id="NSv-AI-SQR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1537" y="-904"/>
+            <point key="canvasLocation" x="1310" y="-708"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="B7R-CN-Qxf">
@@ -274,7 +273,6 @@
                         <outlet property="F_Image" destination="9Lh-Co-dHy" id="Wpf-N4-m6l"/>
                         <outlet property="G_Image" destination="QAx-fk-i4x" id="xhQ-BJ-HiS"/>
                         <outlet property="H_Image" destination="7Ip-w3-BlO" id="ItU-WH-16z"/>
-                        <segue destination="BV1-FR-VrT" kind="presentation" identifier="ARViewController" id="Hoe-zw-np2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZxO-Vs-dpN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -368,7 +366,7 @@
                     <navigationItem key="navigationItem" title="Library" id="wM6-21-GLf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ByO-MM-2it">
                             <connections>
-                                <segue destination="vfu-U8-Grw" kind="show" id="4tc-S5-2oc"/>
+                                <segue destination="vfu-U8-Grw" kind="presentation" id="4tc-S5-2oc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -410,7 +408,7 @@
         <scene sceneID="Jj0-Ww-WUM">
             <objects>
                 <viewController id="1e2-qn-dqK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yHQ-Vs-uVf">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="Home" id="yHQ-Vs-uVf" userLabel="Home">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -507,7 +505,7 @@
         <!--Home-->
         <scene sceneID="72Q-3I-9qX">
             <objects>
-                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="Uhe-5q-3Dj" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="Home" storyboardIdentifier="Home" title="Home" automaticallyAdjustsScrollViewInsets="NO" id="Uhe-5q-3Dj" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" largeTitles="YES" id="NhH-mM-aqA">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -530,8 +528,4 @@
         <image name="anchor" width="240" height="240"/>
         <image name="anchor_image" width="300" height="300"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="NSv-AI-SQR"/>
-        <segue reference="lL1-bN-7vV"/>
-    </inferredMetricsTieBreakers>
 </document>

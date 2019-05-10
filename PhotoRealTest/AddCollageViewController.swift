@@ -95,16 +95,16 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
                     print(error as Any)
                 }
             }
-            self.dismiss(animated: true, completion: nil)
           }
         
         //  Pass a static image to AR Scene for testing creation on AR
         
         staticTestImage = AnchorImage.image
+        dismiss(animated: true) {}
         
         // SEGUE FOR TESTING PURPOSES AR
         
-        performSegue(withIdentifier: "ARViewController",   sender: nil)
+        
         
         }
         
@@ -112,10 +112,10 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  set destination View Controller
-        let destinationVC = segue.destination as! ARViewController
-        destinationVC.passedImage = staticTestImage
+        let destinationVC = segue.destination as! LibraryCollectionViewController
+//        destinationVC.passedImage = staticTestImage
     }
-    
+
     
     
     @IBAction func onAnchorImage(_ sender: Any) {
