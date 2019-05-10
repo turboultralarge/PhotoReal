@@ -74,98 +74,18 @@ class ARViewController: UIViewController {
         query.limit = 20
         
         //Get the data from the PFQuery class
-        
-        var i = 0
-        
-        // Working on saving the data to an Array of Objects (Clusters)
-        //  This is the ideal way to do it, but I cannot find a way to unpack the cluster into UIImages
+
         query.findObjectsInBackground{(objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 if let objects = objects {
                     for object in objects {
                         //For each object in the class object, append it to myArray(clusters)
                         self.clusters.append(object)
-                        i += 1
- 
-                            
-                            //self.anchors[count] = objects["AnchorImage"]  as! UIImage
-                            // self.anchors.append((objects["AnchorImage"]  as? UIImage)!)
-                            //Could not cast value of type 'PFFileObject' (0x10f7a9500) to 'UIImage' (0x11bc0e598).
-                                //count+=1
-
-                            
-//                        print("number of Objects dissassembled \(i)")
                         }
-                    
-                    for objects in self.clusters{
-                        
-                        if let userPicture = objects.value(forKey: "AnchorImage") as? PFFileObject {
-                            userPicture.getDataInBackground(block: {
-                                (imageData: Data!, error: Error!) -> Void in
-                                if (error == nil) {
-                                    let image = UIImage(data:imageData)
-                                    self.anchors.append(image!)
-                                    if let a_Image = objects.value(forKey:"A_Index") as? PFFileObject {
-                                        a_Image.getDataInBackground(block: {
-                                            (imageData: Data!, error: Error!) -> Void in
-                                            if (error == nil) {
-                                                let image = UIImage(data:imageData)
-                                                self.a_index.append(image!)
-                                                print("a_index accepted")
-                                                print("Number of A_Index loaded after: \(self.a_index.count)" )
-                                            }
-                                        })
-                                    }
-                                    
-                                    // Successfully Query Parse
-                                    
-                                    self.parseImage = UIImage(data:imageData!) // single Anchor image for testing purposes
-                                    print("Parse Images Received")
-                                    
-                                    // Must be in the same block or image isn't loaded first
-                                    self.setupImageDetection()
-                                    
-                                    if let configuration = self.imageConfiguration {
-                                        //print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-                                        self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
-                                        self.sceneView.session.run(configuration)
-                                        configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-                                       //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
-                                    }
-                                    self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
-                                    
-                                            print("Number of Anchors loaded: \(self.anchors.count)" )
-                                            print("Number of A_Index loaded: \(self.a_index.count)" )
-                                            print(" number of objects from parse in Array: \(i)")
-                                }
-                            })
-                        }
-                    }
+                    self.getData()
                 }
             }
          }
-//
-//        print("Number of Anchors loaded: \(self.anchors.count)" )
-//        print("Number of A_Index loaded: \(self.a_index.count)" )
-//        print(" number of objects from parse in Array: \(i)")
-//
-//        //else  {
-//                //print("\(String(describing: error))")
-//            //}
-//
-//
-//        setupImageDetection()
-//
-//        if let configuration = imageConfiguration {
-//            print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-//            sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
-//            sceneView.session.run(configuration)
-//            configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-//            print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
-//        }
-//        sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
-//
-//
         
     }
     
@@ -237,6 +157,139 @@ class ARViewController: UIViewController {
 
         
     } //END addReferenceImage
+    
+    func getData(){
+        for objects in self.clusters{
+            
+            // Get Anchor
+            if let userPicture = objects.value(forKey: "AnchorImage") as? PFFileObject {
+                userPicture.getDataInBackground(block: {
+                    (imageData: Data!, error: Error!) -> Void in
+                    if (error == nil) {
+                        let image = UIImage(data:imageData)
+                        self.anchors.append(image!)
+                        // Get A
+                        if let a_Image = objects.value(forKey:"A_Index") as? PFFileObject {
+                            a_Image.getDataInBackground(block: {
+                                (imageData: Data!, error: Error!) -> Void in
+                                if (error == nil) {
+                                    let image = UIImage(data:imageData)
+                                    self.a_index.append(image!)
+                                    print("a_index accepted")
+                                    //   print("Number of A_Index loaded: \(self.a_index.count)" )
+                                }
+                            })
+                        }
+                        // Get B
+                        if let b_Image = objects.value(forKey:"B_Index") as? PFFileObject {
+                            b_Image.getDataInBackground(block: {
+                                (imageData: Data!, error: Error!) -> Void in
+                                if (error == nil) {
+                                    let image = UIImage(data:imageData)
+                                    self.b_index.append(image!)
+                                    print("b_index accepted")
+                                    //print("Number of B_Index loaded: \(self.b_index.count)" )
+                                }
+                            })
+                        }
+                        // Get C
+                        if let c_Image = objects.value(forKey:"C_Index") as? PFFileObject {
+                            c_Image.getDataInBackground(block: {
+                                (imageData: Data!, error: Error!) -> Void in
+                                if (error == nil) {
+                                    let image = UIImage(data:imageData)
+                                    self.c_index.append(image!)
+                                    print("c_index accepted")
+                                    // print("Number of C_Index loaded: \(self.c_index.count)" )
+                                }
+                            })
+                        }
+                        // Get D
+                        if let d_Image = objects.value(forKey:"D_Index") as? PFFileObject {
+                            d_Image.getDataInBackground(block: {
+                                (imageData: Data!, error: Error!) -> Void in
+                                if (error == nil) {
+                                    let image = UIImage(data:imageData)
+                                    self.d_index.append(image!)
+                                    print("d_index accepted")
+                                    //print("Number of D_Index loaded: \(self.d_index.count)" )
+                                }
+                            })
+                        }
+                        // Get E
+                        if let e_Image = objects.value(forKey:"E_Index") as? PFFileObject {
+                            e_Image.getDataInBackground(block: {
+                                (imageData: Data!, error: Error!) -> Void in
+                                if (error == nil) {
+                                    let image = UIImage(data:imageData)
+                                    self.e_index.append(image!)
+                                    print("e_index accepted")
+                                    //print("Number of E_Index loaded: \(self.e_index.count)" )
+                                }
+                            })
+                        }
+                        // Get F
+                        if let f_Image = objects.value(forKey:"F_Index") as? PFFileObject {
+                            f_Image.getDataInBackground(block: {
+                                (imageData: Data!, error: Error!) -> Void in
+                                if (error == nil) {
+                                    let image = UIImage(data:imageData)
+                                    self.f_index.append(image!)
+                                    print("f_index accepted")
+                                    //    print("Number of F_Index loaded: \(self.f_index.count)" )
+                                }
+                            })
+                        }
+                        // Get G
+                        if let g_Image = objects.value(forKey:"G_Index") as? PFFileObject {
+                            g_Image.getDataInBackground(block: {
+                                (imageData: Data!, error: Error!) -> Void in
+                                if (error == nil) {
+                                    let image = UIImage(data:imageData)
+                                    self.g_index.append(image!)
+                                    print("g_index accepted")
+                                    //    print("Number of G_Index loaded: \(self.g_index.count)" )
+                                }
+                            })
+                        }
+                        // Get H
+                        if let h_Image = objects.value(forKey:"H_Index") as? PFFileObject {
+                            h_Image.getDataInBackground(block: {
+                                (imageData: Data!, error: Error!) -> Void in
+                                if (error == nil) {
+                                    let image = UIImage(data:imageData)
+                                    self.h_index.append(image!)
+                                    print("h_index accepted")
+                                    // print("Number of H_Index loaded: \(self.h_index.count)" )
+                                }
+                            })
+                        }
+                        
+                        
+                        // Successfully Query Parse
+                        
+                        self.parseImage = UIImage(data:imageData!) // single Anchor image for testing purposes
+                        print("Parse Images Received")
+                        
+                        // Must be in the same block or image isn't loaded first
+                        self.setupImageDetection()
+                        
+                        if let configuration = self.imageConfiguration {
+                            //print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
+                            self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
+                            self.sceneView.session.run(configuration)
+                            configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
+                            //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
+                        }
+                        self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
+                        
+                        print("Number of Anchors loaded: \(self.anchors.count)" )
+                        //print(" number of objects from parse in Array: \(i)")
+                    }
+                })
+            }
+        }
+    }
     
 } //END class
 
