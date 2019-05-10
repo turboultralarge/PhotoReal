@@ -318,7 +318,7 @@ class ARViewController: UIViewController {
             
             //print("Preparing size: width: \(size.width) height: \(size.height)")
             let newImage = SCNPlane(width: size.width, height: size.height) //size    CGSize    (width = 0.10159999877214432, height = 0.1269999984651804)
-            newImage.firstMaterial?.diffuse.contents = UIImage(named: "highlight_green.png")
+            newImage.firstMaterial?.diffuse.contents = UIImage(named: "highlight_purple.png")
             newImage.firstMaterial?.lightingModel = .constant
             let newImageNode = SCNNode(geometry: newImage)
             newImageNode.eulerAngles.x = -.pi / 2

@@ -110,7 +110,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLS-P5-qDR">
                                 <rect key="frame" x="37.5" y="572" width="300" height="75"/>
-                                <color key="backgroundColor" red="0.58823529409999997" green="0.31372549020000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.56862745098039214" green="0.18431372549019609" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="TCe-nN-TDU"/>
                                     <constraint firstAttribute="height" constant="75" id="bDb-Sn-a3G"/>
@@ -132,28 +132,16 @@
                                 <color key="tintColor" red="0.14901960784313725" green="0.7803921568627451" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="RvY-zd-Dmv"/>
-                                    <constraint firstAttribute="height" constant="100" id="hYW-JE-bqe"/>
+                                    <constraint firstAttribute="width" constant="60" id="RvY-zd-Dmv"/>
+                                    <constraint firstAttribute="height" constant="60" id="hYW-JE-bqe"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="MQ8-GY-QoB" appends="YES" id="Nw6-mo-Sgc"/>
                                 </connections>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="B_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="yvk-Tw-rXf" userLabel="B_Index">
-                                <rect key="frame" x="137" y="141" width="100" height="100"/>
-                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="DLs-y3-XV0"/>
-                                    <constraint firstAttribute="width" constant="60" id="fPH-GY-i98"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="IRa-nd-2kv" appends="YES" id="hAR-yQ-8cg"/>
-                                </connections>
-                            </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="A_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="xl0-KM-R88" userLabel="A_Index">
                                 <rect key="frame" x="27" y="141" width="100" height="100"/>
-                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="8c8-6M-gk4"/>
@@ -165,7 +153,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="G_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-fk-i4x" userLabel="G_Index">
                                 <rect key="frame" x="27" y="251" width="100" height="100"/>
-                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="K53-1n-73b"/>
@@ -177,7 +165,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="F_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="9Lh-Co-dHy" userLabel="F_Index">
                                 <rect key="frame" x="27" y="361" width="100" height="100"/>
-                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="jHP-ca-ULO"/>
@@ -186,7 +174,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="H_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="7Ip-w3-BlO" userLabel="H_Index">
                                 <rect key="frame" x="137" y="361" width="100" height="100"/>
-                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="W0q-TC-dwt"/>
@@ -198,7 +186,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="D_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="gZk-XU-D9n" userLabel="D_Index">
                                 <rect key="frame" x="247" y="251" width="100" height="100"/>
-                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="aqo-Dp-PTu"/>
@@ -210,7 +198,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="C_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-M5-EDE" userLabel="C_Index">
                                 <rect key="frame" x="247" y="141" width="100" height="100"/>
-                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="sw3-7r-IW6"/>
@@ -222,7 +210,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="E_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="dVR-Np-su1" userLabel="E_Index">
                                 <rect key="frame" x="247" y="361" width="100" height="100"/>
-                                <color key="tintColor" red="0.58823529411764708" green="0.31372549019607843" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="2v1-hd-GGQ"/>
@@ -230,6 +218,18 @@
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="wNy-M8-7ea" appends="YES" id="LyD-v0-mRX"/>
+                                </connections>
+                            </imageView>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="B_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="yvk-Tw-rXf" userLabel="B_Index">
+                                <rect key="frame" x="137" y="141" width="100" height="100"/>
+                                <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="DLs-y3-XV0"/>
+                                    <constraint firstAttribute="width" constant="60" id="fPH-GY-i98"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="IRa-nd-2kv" appends="YES" id="hAR-yQ-8cg"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -331,7 +331,7 @@
             <objects>
                 <collectionViewController title="Library" id="F5S-D1-sNc" customClass="LibraryCollectionViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="QVc-4s-8Ip">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BDq-gR-Pys">
@@ -341,7 +341,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="test" id="hSJ-e4-gkx" userLabel="test">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
@@ -411,12 +411,12 @@
             <objects>
                 <viewController id="1e2-qn-dqK" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yHQ-Vs-uVf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvM-O3-jLB">
-                                <rect key="frame" x="87.5" y="81.5" width="200" height="100"/>
-                                <color key="backgroundColor" red="0.14901960780000001" green="0.78039215689999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="87.5" y="55.5" width="200" height="100"/>
+                                <color key="backgroundColor" red="0.086274509803921567" green="0.81568627450980391" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="H95-Yv-AZz"/>
                                     <constraint firstAttribute="width" constant="200" id="mKi-Xh-1aY"/>
@@ -434,15 +434,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="a8E-hE-9Zx">
-                                <rect key="frame" x="87.5" y="201.5" width="200" height="200"/>
-                                <color key="backgroundColor" red="1" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="87.5" y="175.5" width="200" height="200"/>
+                                <color key="backgroundColor" red="1" green="0.13725490196078433" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Jk1-vq-gly"/>
                                     <constraint firstAttribute="width" constant="200" id="vep-Ke-JmX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="60"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Photo Scan"/>
+                                <state key="normal" title="Scan"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="25"/>
@@ -452,9 +452,33 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="lL1-bN-7vV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-kP-NKO">
-                                <rect key="frame" x="155" y="483" width="200" height="100"/>
-                                <color key="backgroundColor" red="0.58823529409999997" green="0.31372549020000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="a8E-hE-9Zx" firstAttribute="centerY" secondItem="yHQ-Vs-uVf" secondAttribute="centerY" id="QRF-vy-Fd8"/>
+                            <constraint firstItem="AvM-O3-jLB" firstAttribute="centerX" secondItem="yHQ-Vs-uVf" secondAttribute="centerX" id="Sr4-Dl-H9Y"/>
+                            <constraint firstItem="a8E-hE-9Zx" firstAttribute="centerX" secondItem="yHQ-Vs-uVf" secondAttribute="centerX" id="eas-Nq-kMR"/>
+                            <constraint firstItem="a8E-hE-9Zx" firstAttribute="top" secondItem="AvM-O3-jLB" secondAttribute="bottom" constant="20" id="zkm-rt-lI0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Nt-36-sOD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="PhotoReal" id="9N8-uO-eis"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T6f-1F-31t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="520.79999999999995" y="-903.59820089955031"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="0ID-bm-Re8">
+            <objects>
+                <viewController title="Settings" id="LMx-jS-l4q" customClass="SettingsViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6ku-Tg-EUy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbc-kP-NKO">
+                                <rect key="frame" x="87" y="90" width="200" height="100"/>
+                                <color key="backgroundColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="1ge-1E-oKg"/>
                                     <constraint firstAttribute="height" constant="100" id="vXD-cA-9Cj"/>
@@ -473,30 +497,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Pbc-kP-NKO" firstAttribute="trailing" secondItem="5Nt-36-sOD" secondAttribute="trailing" constant="-20" id="3wk-bQ-3nQ"/>
-                            <constraint firstItem="Pbc-kP-NKO" firstAttribute="bottom" secondItem="5Nt-36-sOD" secondAttribute="bottom" constant="-20" id="JM2-eN-pwd"/>
-                            <constraint firstItem="a8E-hE-9Zx" firstAttribute="centerY" secondItem="yHQ-Vs-uVf" secondAttribute="centerY" id="QRF-vy-Fd8"/>
-                            <constraint firstItem="AvM-O3-jLB" firstAttribute="centerX" secondItem="yHQ-Vs-uVf" secondAttribute="centerX" id="Sr4-Dl-H9Y"/>
-                            <constraint firstItem="a8E-hE-9Zx" firstAttribute="centerX" secondItem="yHQ-Vs-uVf" secondAttribute="centerX" id="eas-Nq-kMR"/>
-                            <constraint firstItem="a8E-hE-9Zx" firstAttribute="top" secondItem="AvM-O3-jLB" secondAttribute="bottom" constant="20" id="zkm-rt-lI0"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="5Nt-36-sOD"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="PhotoReal" id="9N8-uO-eis"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T6f-1F-31t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="521.73913043478262" y="-903.34821428571422"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="0ID-bm-Re8">
-            <objects>
-                <viewController title="Settings" id="LMx-jS-l4q" customClass="SettingsViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6ku-Tg-EUy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="Okd-SH-KQv"/>
                     </view>
                 </viewController>
@@ -509,11 +509,11 @@
             <objects>
                 <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="Uhe-5q-3Dj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="NhH-mM-aqA">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" largeTitles="YES" id="NhH-mM-aqA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.58823529409999997" green="0.31372549020000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -532,6 +532,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NSv-AI-SQR"/>
-        <segue reference="Hoe-zw-np2"/>
+        <segue reference="lL1-bN-7vV"/>
     </inferredMetricsTieBreakers>
 </document>
