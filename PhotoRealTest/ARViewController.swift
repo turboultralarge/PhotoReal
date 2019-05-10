@@ -261,7 +261,8 @@ class ARViewController: UIViewController {
             print("Found image: \(name)")
             
             let size = imageAnchor.referenceImage.physicalSize
-            if let imageNode = makeImage(size: size) { //NOTE: This implemtation is really sloppy right now
+            let sizeBig = CGSize(width: size.width * 1.25, height: size.height * 1.25)
+            if let imageNode = makeImage(size: sizeBig) { //NOTE: This implemtation is really sloppy right now
                 node.addChildNode(imageNode)
                 node.opacity = 1
                 //print("Image matches size")
@@ -308,8 +309,8 @@ class ARViewController: UIViewController {
                 let textNode = SCNNode(geometry: text)
                 let fontScale = Float(0.04)
                 textNode.scale = SCNVector3(fontScale, fontScale, fontScale)
-                textNode.position.y += Float(fontScale) + Float(0.01)
-                let (min, max) = textNode.boundingBox
+                textNode.position.y += Float(fontScale) + Float(0.05)
+                let (_, max) = textNode.boundingBox
                 textNode.position.x -= Float(max.x)
                 
                 imageNode.addChildNode(textNode)
