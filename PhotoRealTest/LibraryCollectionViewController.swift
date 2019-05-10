@@ -8,24 +8,20 @@
 
 import UIKit
 import Parse
-import AlamofireImage
 
-private let reuseIdentifier = "cell"
-
-class LibraryCollectionViewController: UICollectionViewController {
-    
-    //  OUTLETS
-    //@IBOutlet var test: UIImageView!
+class LibraryCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var LibraryCollection: UICollectionView!
     
-    
+    let reuseIdentifier = "cell"
     var clusters = [PFObject] ( )
     var cellImage = [UIImage]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("ViewDidLoad - no crash in this block")
         
         LibraryCollection.delegate = self
         LibraryCollection.dataSource = self
@@ -52,83 +48,31 @@ class LibraryCollectionViewController: UICollectionViewController {
                        // For each object in the class object, append it to myArray(clusters)
                         self.clusters.append(object)
                     }
-                   // self.getData()
                 }
             }
         }
         
+
+        self.LibraryCollection.reloadData()
+        
+        print(self.clusters)
     }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Register cell classes
-        self.LibraryCollection!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            // This will run when the network request returns
-            
-            if let error = error {
-                
-                print(error.localizedDescription)
-                
-            } else if let data = data {
-                
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                self.movies = dataDictionary["results"] as! [[String:Any]]
-                
-                self.CollectionView.reloadData()
-                
-                print(self.movies)
-                
-                // TODO: Get the array of movies
-                // TODO: Store the movies in a property to use elsewhere
-                // TODO: Reload your table view data
-                
-            }
-        }
-        task.resume()
-        
-        //self.CollectionView.reloadData()
-        
-        //print(self.movies)
-        
-        // Do any additional setup after loading the view.
-//    func getData(){
-//            // Get Anchor
-//            if let userPicture = objects.value(forKey: "AnchorImage") as? PFFileObject {
-//                userPicture.getDataInBackground(block: {
-//                    (imageData: Data!, error: Error!) -> Void in
-//                    if (error == nil) {
-//                        let image = UIImage(data:imageData)
-//                        self.anchors.append(image!)
-//                   })
-//
-//
-//                        // Successfully Query Parse
-//
-//                        self.parseImage = UIImage(data:imageData!) // single Anchor image for testing purposes
-//                        print("Parse Image Received")
-//
-//                    }
-//                }
+
+
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 1
+        return clusters.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LibraryCollectionViewCell
-    
         let cluster = clusters[indexPath.item]
-        let anchorImage = cluster
-        
-        cell.
-        
-        
+        //let anchorImage = cluster
+
+        cell.anchorView = cluster["anchorImage"] as? UIImageView
+        //print(cluster["anchorImage"])
         
         // Configure the cell
         return cell

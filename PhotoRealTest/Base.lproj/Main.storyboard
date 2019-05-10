@@ -343,7 +343,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" restorationIdentifier="cell" reuseIdentifier="cell" id="lRL-hy-MhF" customClass="LibraryCollectionViewCell" customModule="PhotoReal" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="lRL-hy-MhF" customClass="LibraryCollectionViewCell" customModule="PhotoReal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="166" height="161"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -431,7 +431,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="F5S-D1-sNc" kind="show" id="ORt-yf-Vn9"/>
+                                    <segue destination="F5S-D1-sNc" kind="show" id="fy4-Fx-sWS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="a8E-hE-9Zx">

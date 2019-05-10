@@ -112,7 +112,7 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  set destination View Controller
-        let destinationVC = segue.destination as! LibraryCollectionViewController
+       // let destinationVC = segue.destination as! LibraryCollectionViewController
 //        destinationVC.passedImage = staticTestImage
     }
 
