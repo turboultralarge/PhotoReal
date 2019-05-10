@@ -1,4 +1,4 @@
-//
+
 //  LibraryCollectionViewController.swift
 //  PhotoReal
 //
@@ -8,23 +8,24 @@
 
 import UIKit
 import Parse
+import AlamofireImage
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "cell"
 
 class LibraryCollectionViewController: UICollectionViewController {
     
     //  OUTLETS
-    @IBOutlet var test: UIImageView!
+    //@IBOutlet var test: UIImageView!
     
     @IBOutlet var LibraryCollection: UICollectionView!
- 
     
-    var cluster = [PFObject] ( )
     
-
+    var clusters = [PFObject] ( )
+    var cellImage = [UIImage]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         LibraryCollection.delegate = self
         LibraryCollection.dataSource = self
@@ -38,103 +39,99 @@ class LibraryCollectionViewController: UICollectionViewController {
         
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
         
-        //  Queries the database for collage information
+        
         let query = PFQuery(className: "collage")
         
-        query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index" ])
+        query.includeKeys(["AnchorImage"])
         query.limit = 20
         
-//        anchorImage.image = (query["AnchorImage"] as! [PJObject] ?? []
-        
-        query.getFirstObjectInBackground { (collage: PFObject?, error: Error?) -> Void in
-                if let error = error {
-                    //The query returned an error
-                    print(error.localizedDescription)
-                } else {
-                    //The object has been retrieved
-                        print("IMAGE OBJECT RECEIVED")
-                    self.test.image = collage!["AnchorImage"] as? UIImage
+        query.findObjectsInBackground{(objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                       // For each object in the class object, append it to myArray(clusters)
+                        self.clusters.append(object)
+                    }
+                   // self.getData()
                 }
-            
-            
-//            if (collage!["AnchorImage"] != nil) {
-//                self.test.image = collage!["AnchorImage"] as? UIImage
-//            }
-            
+            }
         }
         
-//        test.image = collage!["AnchorImage"] as? UIImage
-       
-
+    }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
+        self.LibraryCollection!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            // This will run when the network request returns
+            
+            if let error = error {
+                
+                print(error.localizedDescription)
+                
+            } else if let data = data {
+                
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                
+                self.movies = dataDictionary["results"] as! [[String:Any]]
+                
+                self.CollectionView.reloadData()
+                
+                print(self.movies)
+                
+                // TODO: Get the array of movies
+                // TODO: Store the movies in a property to use elsewhere
+                // TODO: Reload your table view data
+                
+            }
+        }
+        task.resume()
+        
+        //self.CollectionView.reloadData()
+        
+        //print(self.movies)
+        
         // Do any additional setup after loading the view.
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
+//    func getData(){
+//            // Get Anchor
+//            if let userPicture = objects.value(forKey: "AnchorImage") as? PFFileObject {
+//                userPicture.getDataInBackground(block: {
+//                    (imageData: Data!, error: Error!) -> Void in
+//                    if (error == nil) {
+//                        let image = UIImage(data:imageData)
+//                        self.anchors.append(image!)
+//                   })
+//
+//
+//                        // Successfully Query Parse
+//
+//                        self.parseImage = UIImage(data:imageData!) // single Anchor image for testing purposes
+//                        print("Parse Image Received")
+//
+//                    }
+//                }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return 1
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LibraryCollectionViewCell
     
+        let cluster = clusters[indexPath.item]
+        let anchorImage = cluster
+        
+        cell.
+        
+        
+        
         // Configure the cell
-    
         return cell
     }
+  }
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
-}

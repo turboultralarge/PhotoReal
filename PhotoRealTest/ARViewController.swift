@@ -19,7 +19,6 @@ class ARViewController: UIViewController {
     var passedImage: UIImage?
     var parseImage: UIImage?
     var clusters = [PFObject]()
-    var Collages = [collages]()
     
     
     //  Arrays holding columns from Parse
@@ -488,12 +487,6 @@ class ARViewController: UIViewController {
             
         } //END makeCollageImage()
 
-
-
-   
-    func setUI() {
-        
-    }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
@@ -516,18 +509,4 @@ func getAnchorImageIndex() {
 }
 
 
-class collages {
-    var anchorImage = UIImage()
-    var a_Image = UIImage()
-    var b_Image = UIImage()
-    var c_Image = UIImage()
-    var d_Image = UIImage()
-    var e_Image = UIImage()
-    var f_Image = UIImage()
-    var g_Image = UIImage()
-    var h_Image = UIImage()
-    
-    init(){
-    
-    }
-}
+

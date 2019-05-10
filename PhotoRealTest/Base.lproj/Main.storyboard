@@ -343,7 +343,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="lRL-hy-MhF" customClass="LibraryCollectionViewCell" customModule="PhotoReal" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" restorationIdentifier="cell" reuseIdentifier="cell" id="lRL-hy-MhF" customClass="LibraryCollectionViewCell" customModule="PhotoReal" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="166" height="161"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -356,6 +356,9 @@
                                         </imageView>
                                     </subviews>
                                 </view>
+                                <connections>
+                                    <outlet property="anchorView" destination="R0W-4D-v5l" id="bnF-zH-Upu"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

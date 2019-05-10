@@ -8,6 +8,9 @@
 
 import UIKit
 
-class LibraryCollectionViewCell: UICollectionViewCell {
+class LibraryCollectionViewCell: UICollectionViewCell{
+    
+    @IBOutlet var anchorView: UIImageView!
+    
     
 }
