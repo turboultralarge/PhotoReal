@@ -302,7 +302,7 @@ class ARViewController: UIViewController {
                 }
                 
                 //Adds title text
-                let text = SCNText(string: "Title", extrusionDepth: 0.0)
+                let text = SCNText(string: "Title", extrusionDepth: 0.001)
                 text.font = UIFont.systemFont(ofSize: 1.0)
                 text.flatness = 0.005
                 text.firstMaterial?.diffuse.contents = UIColor.white
@@ -310,8 +310,16 @@ class ARViewController: UIViewController {
                 let fontScale = Float(0.04)
                 textNode.scale = SCNVector3(fontScale, fontScale, fontScale)
                 textNode.position.y += Float(fontScale) + Float(0.05)
+                
+                //Centers the Text
+                //let (min, max) = textNode.boundingBox
+                //let dx = min.x + 0.5 * (max.x - min.x)
+                //let dy = min.y + 0.5 * (max.y - min.y)
+                //let dz = min.z + 0.5 * (max.z - min.z)
+                //textNode.pivot = SCNMatrix4MakeTranslation(dx, dy, dz)
+                
                 let (_, max) = textNode.boundingBox
-                textNode.position.x -= Float(max.x)
+                textNode.position.x -= (Float(max.x) / 2.0)
                 
                 imageNode.addChildNode(textNode)
                 
