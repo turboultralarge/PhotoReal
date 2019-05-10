@@ -21,7 +21,7 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
     var defaultImage: UIImage!
     var staticTestImage: UIImage?
     
-//    OUTLETS
+    //    OUTLETS
     
     @IBOutlet var AnchorImage: UIImageView! //  Middle image AKA Anchor for AR scene
     @IBOutlet var A_Image: UIImageView!  //  image at [-1,1]
@@ -33,70 +33,69 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet var G_Image: UIImageView!  //  image at [-1,-1]
     @IBOutlet var H_Image: UIImageView!  //  image at [-1,0]
     
+    var uiimageviews = [UIImageView]()
     
-//    ACTIONS
+    
+    //    ACTIONS
     
     @IBAction func onSubmit(_ sender: Any) {
         
         // initialization of new table "collage"
-        let collage = PFObject(className: "cluster")
+        //let collage = PFObject(className: "cluster")
         
         //  store image into a PFFile
-        let anchor = AnchorImage.image!.pngData()
-        let file = PFFileObject(data: anchor!)
+        let anchor = AnchorImage.image
+        //let file = PFFileObject(data: anchor!)
         
         //  store image into a PFFile
-        let A = A_Image.image!.pngData()
-        let A_file = PFFileObject(data: A!)
+        let A = A_Image.image
+        //let A_file = PFFileObject(data: A!)
         
-        let B = B_Image.image!.pngData()
-        let B_file = PFFileObject(data: B!)
+        let B = B_Image.image
+       // let B_file = PFFileObject(data: B!)
         
-        let C = C_Image.image!.pngData()
-        let C_file = PFFileObject(data: C!)
+        let C = C_Image.image
+        //let C_file = PFFileObject(data: C!)
         
-        let D = D_Image.image!.pngData()
-        let D_file = PFFileObject(data: D!)
+        let D = D_Image.image
+        //let D_file = PFFileObject(data: D!)
         
-        let E = E_Image.image!.pngData()
-        let E_file = PFFileObject(data: E!)
+        let E = E_Image.image
+        //let E_file = PFFileObject(data: E!)
         
-        let F = F_Image.image!.pngData()
-        let F_file = PFFileObject(data: F!)
+        let F = F_Image.image
+        //let F_file = PFFileObject(data: F!)
         
-        let G = A_Image.image!.pngData()
-        let G_file = PFFileObject(data: G!)
+        let G = A_Image.image
+       // let G_file = PFFileObject(data: G!)
         
-        let H = H_Image.image!.pngData()
-        let H_file = PFFileObject(data: H!)
+        let H = H_Image.image
+       // let H_file = PFFileObject(data: H!)
         
         //  add that PFFile to parse under column Anchor
         // nil checking
         if (AnchorImage.image == defaultImage){
-          print("Please select an image.")
+            print("Please select an image.")
         } else {
             print("Saving array...")
             
-//            let imageArray = [anchor, A, B, C, D, E, F, G, H]
+            let imageArray = [anchor, A, B, C, D, E, F, G, H]
             
-            collage["imageArray"] = [file!, A_file!, B_file!, C_file!, D_file!, E_file!, F_file!, G_file!, H_file!]// as NSArray
+            let imageColl = imageCollection()
             
-//            collage["imageArray"] = imageArray
+            imageColl.images = imageCollection.imagesToPFObject(arrayOfImages: imageArray as? [UIImage])
             
-            collage.saveInBackground{ (success, error) in
-                if success {
-                    print ("Saved Successfully.")
+            imageColl.saveInBackground { (sucess, error) in
+                if let error = error{
+                    print(error.localizedDescription)
+                } else{
+                    print("Hell ya!!!! 😁  - SAVED ")
                     self.performSegue(withIdentifier: "ARViewController",   sender: nil)
-                    
-                } else {
-                    print("Array not saved.")
-                    print(error as Any)
                 }
             }
-            //self.dismiss(animated: true, completion: nil)
         }
-          }
-
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //  set destination View Controller
         _ = segue.destination as! ARViewController
@@ -122,71 +121,63 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
         present(picker, animated: true, completion: nil)
     }
     
-   @objc internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    
-    let image = info[.editedImage] as! UIImage
-    let size = CGSize(width: 300, height: 300)
-    let scaledImage = image.af_imageAspectScaled(toFill: size)
-    
-    
-    //  Case is selected based on which imageView is selected
-    switch(selectedIndex) {
+    @objc internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-    case "Anchor"  :
-        print("Anchor case entered")
-        self.AnchorImage.image = scaledImage
-        break;
-    case "A_Index"  :
-        print("A_Index case entered")
-        //A_Image.image = image;
-        
-        let x = imageCollection()
-        let imgArr = x.fetchImage(identifier: "cluster")
-        let heyo = imgArr[0].object(forKey: "imageArray") as! [UIImage]
-        let heyoimg = heyo[0]
-        A_Image.image = heyoimg
-        print("query tried - \(imgArr.count)")
+        let image = info[.editedImage] as! UIImage
+        let size = CGSize(width: 300, height: 300)
+        let scaledImage = image.af_imageAspectScaled(toFill: size)
         
         
-        break;
+        //  Case is selected based on which imageView is selected
+        switch(selectedIndex) {
+            
+        case "Anchor"  :
+            print("Anchor case entered")
+            self.AnchorImage.image = scaledImage
+            break;
+        case "A_Index"  :
+            print("A_Index case entered")
+            A_Image.image = image;
+            break;
         //  Selection of collage index to change
-    case "B_Index"  :
-        print("B_Index case entered")
-        B_Image.image = image;
-        break;
-    //  Selection of collage index to change
-    case "C_Index"  :
-        print("C_Index case entered")
-        C_Image.image = image;
-        break;
-    //  Selection of collage index to change
-    case "D_Index"  :
-        print("D_Index case entered")
-        D_Image.image = image;
-        break;
-    //  Selection of collage index to change
-    case "E_Index"  :
-        print("E_Index case entered")
-        E_Image.image = image;
-        break;
-    //  Selection of collage index to change
-    case "F_Index"  :
-        print("F_Index case entered")
-        F_Image.image = image;
-        break;
-    //  Selection of collage index to change
-    case "G_Index"  :
-        print("G_Index case entered")
-        G_Image.image = image;
-        break;
-    //  Selection of collage index to change
-    case "H_Index"  :
-        print("H_Index case entered")
-        H_Image.image = image;
-        break;
-    default :
-        print("error - default")
-    }
+        case "B_Index"  :
+            print("B_Index case entered")
+            B_Image.image = image;
+            break;
+        //  Selection of collage index to change
+        case "C_Index"  :
+            print("C_Index case entered")
+            C_Image.image = image;
+            
+            break;
+        //  Selection of collage index to change
+        case "D_Index"  :
+            print("D_Index case entered")
+            D_Image.image = image;
+            break;
+        //  Selection of collage index to change
+        case "E_Index"  :
+            print("E_Index case entered")
+            E_Image.image = image;
+            break;
+        //  Selection of collage index to change
+        case "F_Index"  :
+            print("F_Index case entered")
+            F_Image.image = image;
+            break;
+        //  Selection of collage index to change
+        case "G_Index"  :
+            print("G_Index case entered")
+            G_Image.image = image;
+            break;
+        //  Selection of collage index to change
+        case "H_Index"  :
+            print("H_Index case entered")
+            H_Image.image = image;
+            break;
+        default :
+            print("error - default")
+        }
         dismiss(animated: true, completion: nil)
     }
     
@@ -195,7 +186,7 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func onImageA(_ sender: Any) {
         //  Change index for appropriate case
         selectedIndex = "A_Index"
-       callPicker()
+        callPicker()
     }
     
     @IBAction func onImageB(_ sender: Any) {
@@ -266,10 +257,37 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //  DefaultImage is set to anchor image. This is used to tell if the user has entered a new image
         defaultImage = AnchorImage.image
         imagePickerController.delegate = self
-
+        
+        uiimageviews = [AnchorImage, A_Image, B_Image, C_Image, D_Image, E_Image, F_Image, G_Image, H_Image]
+        
     }
 }
+
+/*
+ 
+ let query = imageCollection.query()
+ query?.includeKey("images")
+ query?.getFirstObjectInBackground(block: { (object, error) in
+ if let error = error{
+ print(error.localizedDescription)
+ }else{
+ var imageColl = imageCollection()
+ imageColl = object as! imageCollection
+ print(object)
+ for index in 0..<imageColl.images!.count{
+ let urlString = imageColl.images![index].url!
+ let url = URL(string: urlString)!
+ self.uiimageviews[index].af_setImage(withURL: url)
+ print("we got here 🥴")
+ }
+ print("we got here 🦄")
+ }
+ })
+ 
+ print("we got here 👍")
+
+ */

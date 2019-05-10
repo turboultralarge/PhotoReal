@@ -19,18 +19,15 @@ class ARViewController: UIViewController {
     var passedImage: UIImage?
     var parseImage: UIImage?
     var clusters = [imageCollection]()
-//    var collages = [PFObject]()
     var collages = [UIImage]()
-    var imageObjects = [PFObject]()
+    var imageObjectArrays = [PFObject]()
+    var nestedArrays = [nestedArray]()
+    var index = 0
+    //var nestedArray = [arrayOfArrayUIImage]()
+    
 
+    //    ACTIONS
     
-    
-//    OUTLETS
-
-    
-    
-//    ACTIONS
-
     @IBOutlet var sceneView: ARSCNView!
     
     //Configuration Variables
@@ -51,91 +48,116 @@ class ARViewController: UIViewController {
         // Set the scene to the view
         sceneView.scene = scene
         
-        // Parse Query for image data
-        //  Queries the database for collage information
-        let query = PFQuery(className:"cluster")
+        let dispatchGroup = DispatchGroup()
         
-        query.includeKeys(["imageArray"])
-        query.limit = 20
-        
-//        let x = imageCollection()
-//        collages = x.image!
-        
-        
-        
-//        query.value(forKey:"imageArray")
-//        query.findObjectsInBackground()
-//        
-//        
-//        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
-//            if let error = error {
-//                // The request failed
-//                print(error.localizedDescription)
-//            } else if let objects = objects as? [imageCollection], let firstCluster = objects.first {
-//                self.clusters.append(firstCluster)
-//                print("succesfully cast")
-//                //...
-//            } else {
-//                print("no dice! - No clusters received.")
-//            }
-//        }
-////        do { imageObjects = try query.findObjects()
-//        }
-//        catch { print("error - \(LocalizedError.self)") }
+//        dispatchGroup.enter()
+//        getData() { dispatchGroup.leave() }
 //
-//        for object in imageObjects{
-//            var imgData = object as! PFFileObject
-//        }
-        
-        
-        
-        //Get the data from the PFQuery class
-//        var count = 0  //  increment counter
-        
-//        if let userPicture = object.valueForKey("Image")! as! PFFile {
-//            userPicture.getDataInBackground({ (imageData: Data?, error: Error?) -> Void in
-//                let image = UIImage(data: imageData!)
-//                if image != nil {
-//                    self.imageArray.append(image!)
-//                }
-//            })
-//        }
-        
-//        if let imgData = query.value(forKey: "imageArray") as? PFFileObject {
-//            imgData.getDataInBackground()
-//                var images = imgData as [UIImage
-//                self.clusters.append(imgData) as? imageCollection
-//            }
-        
-        
-//        query.findObjectsInBackground(){(objects,error) ->
-//            Void in
+//        dispatchGroup.enter()
+//        initUIImageArrays() { dispatchGroup.leave() }
 //
-//            if objects != nil && error == nil{
-//                for object in objects!{
-//                        do { try object.fetch() }  //  Make sure to use updated data
-//                        catch{ print("error fetching") }
-//                    //let imgData = object["imageArray"] as [UIImage]
-//                    //self.collages.append(object["imageArray"] as! imageCollection)
-//                    var imgData = object as! PFFileObject
-//                    self.clusters.append(object as! imageCollection)
-//                        //self.clusters[count] = (collage["imageArray"]) as! imageCollection
-////                        count += 1
-//                    }
-//                }
-//            }
+//        dispatchGroup.notify(queue: .main) {
+//            print("Both functions complete 👍")
+//        }
+        
+        getData()
+//        initUIImageArrays()
+        //passedImage = nestedArrays[0].images![0]
+
+            // Must be in the same block or image isn't loaded first
+        self.setupImageDetection()
+        
+        if let configuration = self.imageConfiguration {
+            //print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
+            self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
+            self.sceneView.session.run(configuration)
+            configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
+            //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
+        }
+        self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
         
         
-        print("Amount of clusters: \(clusters.count)")
- 
+        
+        print("clusters = \(clusters.count)")
+        print("NestedArrays = \(nestedArrays.count)")
+//        print("we got here 👍")
+        
+        
+        
+    }
 
-}
-
+func getData(){
+    let query = imageCollection.query()
+    query?.includeKey("images")
     
+    
+    query?.findObjectsInBackground(block: {(object, error) in
+        if let error = error {
+            print(error.localizedDescription)
+        } else {
+            for object in object!{
+                print("creation of a cluster 🧘🏻‍♂️")
+                self.clusters.append(object as! imageCollection)
+                print("IT LIVED - clusters: \(self.clusters.count)")
+                
+                self.initUIImageArrays()
+            }
+        }
+    })
+    
+    
+}
+    
+    func initUIImageArrays(){
+        
+        for cluster in clusters{
+            
+            collages = imageCollection.PFObjectsToImages(files: cluster.images)
+            
+            
+            print("clusters = \(clusters.count)")
+            print("NestedArrays = \(nestedArrays.count)")
+            print("we got here 👍")
+            
+            print("index - \(index)")
+            
+            // Peters suggestions: Create more variables to identify what data youre trying to use from parse
+            
+            var testImage = UIImage(named: "anchor")
+//            testImage.append(UIImage(named: "anchor")!)
+            nestedArrays[index].images![index] = testImage! //as UIImage
+            
+//            nestedArrays[index].images? = (imageCollection.PFObjectsToImages(files: cluster.images))
+            
+            print("index before increment - \(index)")
+            index += 1
+            print("index After increment - \(index)")
+            
+            
+        }
+        print("initialization complete")
+    }
+
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //print("ViewWillAppear")
+        print("ViewWillAppear")
+        
+        
+        /*
+        for cluster in clusters{
+            
+            collages = imageCollection.PFObjectsToImages(files: cluster.images)
+            nestedArrays[index].images? = (imageCollection.PFObjectsToImages(files: cluster.images))
+            index += 1
+            //arrayOfUIImageArrays.imageArray.append(imageCollection.PFObjectsToImages(files: cluster.images))
+        }
+        
+        print("clusters = \(clusters.count)")
+        print("NestedArrays = \(nestedArrays.count)")
+        print("we got here 👍")
+        */
     }   // end ViewWillAppearn
     
     
@@ -157,19 +179,19 @@ class ARViewController: UIViewController {
         }
         addReferenceImage()
         
-       // imageConfiguration?.trackingImages = emptyImageSet //Change to referenceImages if you want hardcoded images back
+        // imageConfiguration?.trackingImages = emptyImageSet //Change to referenceImages if you want hardcoded images back
         //print("Loaded empty configuration!")
     }
     
     func addReferenceImage() {
         //let retrievedImage = UIImage(contentsOfFile: getImageURL(imgName: "Test", type: ".jpg"))
         
-        let retrievedImage = parseImage
+        let retrievedImage = passedImage
         
         //let passedFromParseUIImage = parseImage
         
         //Prepares the image to go into a new ARReferenceImage object  Test case no longer needed
-       guard let cgImage = retrievedImage?.cgImage else { return }
+        guard let cgImage = retrievedImage?.cgImage else { return }
         //guard let cgImageFromParse = passedFromParseUIImage?.cgImage else { return }
         let width = CGFloat(cgImage.width)
         //guard let refSize = 0.0762 else { return }
@@ -195,203 +217,203 @@ class ARViewController: UIViewController {
         print("Loaded new configuration!")
         
         print("Number of images in set After New Config: \(referenceImageSet.count)")
-
+        
         
     } //END addReferenceImage
     
 } //END class
 
-    // -----
-    
-    extension ARViewController: ARSCNViewDelegate {
-        func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-            DispatchQueue.main.async {} //Hide things callback
-            if let imageAnchor = anchor as? ARImageAnchor {
-                handleFoundImage(imageAnchor, node)
-                /*
-            } else if let objectAnchor = anchor as? ARObjectAnchor { //This is for finding objects, which probably we won't need
-                //handleFoundObject(ObjectAnchor, node)
-                */
-            }
-        } //renderer()
-}
-        
-        //Handles a found IMAGE
-        private func handleFoundImage(_ imageAnchor: ARImageAnchor, _ node: SCNNode) {
-            let name = imageAnchor.referenceImage.name!
-            print("Found image: \(name)")
-            
-            let size = imageAnchor.referenceImage.physicalSize
-            if let imageNode = makeImage(size: size) { //NOTE: This implemtation is really sloppy right now
-                node.addChildNode(imageNode)
-                node.opacity = 1
-                //print("Image matches size")
-                
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 0) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 1) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 2) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 3) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 4) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 5) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 6) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 7) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                
-            } else {
-                
-                print("Image does NOT match size")
-                let tempShape = SCNBox(width: size.width, height: 0.0, length: size.height, chamferRadius: 0)
-                let tempNode = SCNNode(geometry: tempShape)
-                tempShape.firstMaterial?.diffuse.contents = UIImage(named: "highlight_cyan.png")
-                tempShape.firstMaterial?.lightingModel = .constant
-                node.addChildNode(tempNode)
-                print("'size' var width: \(size.width) height: \(size.height)")
-                
-            }
-        } //handleFoundImage()
+// -----
 
+extension ARViewController: ARSCNViewDelegate {
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        DispatchQueue.main.async {} //Hide things callback
+        if let imageAnchor = anchor as? ARImageAnchor {
+            handleFoundImage(imageAnchor, node)
+            /*
+             } else if let objectAnchor = anchor as? ARObjectAnchor { //This is for finding objects, which probably we won't need
+             //handleFoundObject(ObjectAnchor, node)
+             */
+        }
+    } //renderer()
+}
+
+//Handles a found IMAGE
+private func handleFoundImage(_ imageAnchor: ARImageAnchor, _ node: SCNNode) {
+    let name = imageAnchor.referenceImage.name!
+    print("Found image: \(name)")
+    
+    let size = imageAnchor.referenceImage.physicalSize
+    if let imageNode = makeImage(size: size) { //NOTE: This implemtation is really sloppy right now
+        node.addChildNode(imageNode)
+        node.opacity = 1
+        //print("Image matches size")
         
-        private func makeImage(size: CGSize) -> SCNNode? {
-            //guard let imagePath = Bundle.main.url(forResource: "gabe_newell", withExtension: "jpg") else { return nil }
-            
-            //print("Preparing size: width: \(size.width) height: \(size.height)")
-            let newImage = SCNPlane(width: size.width, height: size.height) //size    CGSize    (width = 0.10159999877214432, height = 0.1269999984651804)
-            newImage.firstMaterial?.diffuse.contents = UIImage(named: "highlight_green.png")
-            newImage.firstMaterial?.lightingModel = .constant
-            let newImageNode = SCNNode(geometry: newImage)
-            newImageNode.eulerAngles.x = -.pi / 2
-            
-            return newImageNode
-            
+        if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 0) {
+            imageNode.addChildNode(collageNode)
+            imageNode.opacity = 1
+        }
+        if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 1) {
+            imageNode.addChildNode(collageNode)
+            imageNode.opacity = 1
+        }
+        if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 2) {
+            imageNode.addChildNode(collageNode)
+            imageNode.opacity = 1
+        }
+        if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 3) {
+            imageNode.addChildNode(collageNode)
+            imageNode.opacity = 1
+        }
+        if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 4) {
+            imageNode.addChildNode(collageNode)
+            imageNode.opacity = 1
+        }
+        if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 5) {
+            imageNode.addChildNode(collageNode)
+            imageNode.opacity = 1
+        }
+        if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 6) {
+            imageNode.addChildNode(collageNode)
+            imageNode.opacity = 1
+        }
+        if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 7) {
+            imageNode.addChildNode(collageNode)
+            imageNode.opacity = 1
         }
         
-        private func makeCollageImage(size: CGSize, name: String, collageIndex: Int) -> SCNNode? {
-            
-            //Set the box size to the length
-            var boxSize = size.width
-            //If the height is longer, set it to that
-            if (size.height > size.width) {
-                boxSize = size.height
-            }
-            
-            //print("Preparing size: width: \(size.width) height: \(size.height)")
-            let newImage = SCNPlane(width: boxSize, height: boxSize)
-            let tempImage = UIImage(named: name + "_" + String(collageIndex))
-            if (tempImage == nil) {
-                return nil
-            }
-            
-            //Going to need a switch statement to determine which letter index array to look in for the UIImage
-            
-            //name paramater will be changed to array index location
-            //index location will be specifying collageIndex
-            
-            //newImage.firstMaterial?.diffuse.contents = //Gets image associated with anchor image  - NEW LINE
-            //newImage.firstMaterial?.diffuse.contents = UIImage(named: name + "_" + String(index)) - OLD LINE
-            print("Adding Collage Image: \(name + "_" + String(collageIndex))")
-            newImage.firstMaterial?.lightingModel = .constant
-            let newImageNode = SCNNode(geometry: newImage)
-            newImageNode.eulerAngles.x = -.pi / 2
-            
-            let spacing = 0.01
-            
-            //Based on the index, find the relative offset position
-            switch collageIndex {
-            case 0:
-                //newImageNode.rotation.w = 0.0
-                newImageNode.position.x -= Float(boxSize) + Float(spacing)
-                newImageNode.position.y += Float(boxSize) + Float(spacing)
-                //newImageNode.position.z = 0.0
-            case 1:
-                //newImageNode.rotation.w = 0.0
-                //newImageNode.position.x = 0.0
-                newImageNode.position.y += Float(boxSize) + Float(spacing)
-                //newImageNode.position.z = 0.0
-            case 2:
-                //newImageNode.rotation.w = 0.0
-                newImageNode.position.x += Float(boxSize) + Float(spacing)
-                newImageNode.position.y += Float(boxSize) + Float(spacing)
-                //newImageNode.position.z = 0.0
-            case 3:
-                //newImageNode.rotation.w = 0.0
-                newImageNode.position.x += Float(boxSize) + Float(spacing)
-                //newImageNode.position.y = 0.0
-                //newImageNode.position.z = 0.0
-            case 4:
-                //newImageNode.rotation.w = 0.0
-                newImageNode.position.x += Float(boxSize) + Float(spacing)
-                newImageNode.position.y -= Float(boxSize) + Float(spacing)
-                //newImageNode.position.z = 0.0
-            case 5:
-                //newImageNode.rotation.w = 0.0
-                //newImageNode.position.x = 0.0
-                newImageNode.position.y -= Float(boxSize) + Float(spacing)
-                //newImageNode.position.z = 0.0
-            case 6:
-                //newImageNode.rotation.w = 0.0
-                newImageNode.position.x -= Float(boxSize) + Float(spacing)
-                newImageNode.position.y -= Float(boxSize) + Float(spacing)
-                //newImageNode.position.z = 0.0
-            case 7:
-                //newImageNode.rotation.w = 0.0
-                newImageNode.position.x -= Float(boxSize) + Float(spacing)
-                //newImageNode.position.y = 0.0
-                //newImageNode.position.z = 0.0
-            default:
-                newImageNode.rotation.w = 0.0
-                //newImageNode.position.x = 0.0
-                //newImageNode.position.y = 0.0
-                //newImageNode.position.z = 0.0
-            }
-            
-            return newImageNode
-            
-        } //END makeCollageImage()
+    } else {
+        
+        print("Image does NOT match size")
+        let tempShape = SCNBox(width: size.width, height: 0.0, length: size.height, chamferRadius: 0)
+        let tempNode = SCNNode(geometry: tempShape)
+        tempShape.firstMaterial?.diffuse.contents = UIImage(named: "highlight_cyan.png")
+        tempShape.firstMaterial?.lightingModel = .constant
+        node.addChildNode(tempNode)
+        print("'size' var width: \(size.width) height: \(size.height)")
+        
+    }
+} //handleFoundImage()
+
+
+private func makeImage(size: CGSize) -> SCNNode? {
+    //guard let imagePath = Bundle.main.url(forResource: "gabe_newell", withExtension: "jpg") else { return nil }
+    
+    //print("Preparing size: width: \(size.width) height: \(size.height)")
+    let newImage = SCNPlane(width: size.width, height: size.height) //size    CGSize    (width = 0.10159999877214432, height = 0.1269999984651804)
+    newImage.firstMaterial?.diffuse.contents = UIImage(named: "highlight_green.png")
+    newImage.firstMaterial?.lightingModel = .constant
+    let newImageNode = SCNNode(geometry: newImage)
+    newImageNode.eulerAngles.x = -.pi / 2
+    
+    return newImageNode
+    
+}
+
+private func makeCollageImage(size: CGSize, name: String, collageIndex: Int) -> SCNNode? {
+    
+    //Set the box size to the length
+    var boxSize = size.width
+    //If the height is longer, set it to that
+    if (size.height > size.width) {
+        boxSize = size.height
+    }
+    
+    //print("Preparing size: width: \(size.width) height: \(size.height)")
+    let newImage = SCNPlane(width: boxSize, height: boxSize)
+    let tempImage = UIImage(named: name + "_" + String(collageIndex))
+    if (tempImage == nil) {
+        return nil
+    }
+    
+    //Going to need a switch statement to determine which letter index array to look in for the UIImage
+    
+    //name paramater will be changed to array index location
+    //index location will be specifying collageIndex
+    
+    //newImage.firstMaterial?.diffuse.contents = //Gets image associated with anchor image  - NEW LINE
+    //newImage.firstMaterial?.diffuse.contents = UIImage(named: name + "_" + String(index)) - OLD LINE
+    print("Adding Collage Image: \(name + "_" + String(collageIndex))")
+    newImage.firstMaterial?.lightingModel = .constant
+    let newImageNode = SCNNode(geometry: newImage)
+    newImageNode.eulerAngles.x = -.pi / 2
+    
+    let spacing = 0.01
+    
+    //Based on the index, find the relative offset position
+    switch collageIndex {
+    case 0:
+        //newImageNode.rotation.w = 0.0
+        newImageNode.position.x -= Float(boxSize) + Float(spacing)
+        newImageNode.position.y += Float(boxSize) + Float(spacing)
+    //newImageNode.position.z = 0.0
+    case 1:
+        //newImageNode.rotation.w = 0.0
+        //newImageNode.position.x = 0.0
+        newImageNode.position.y += Float(boxSize) + Float(spacing)
+    //newImageNode.position.z = 0.0
+    case 2:
+        //newImageNode.rotation.w = 0.0
+        newImageNode.position.x += Float(boxSize) + Float(spacing)
+        newImageNode.position.y += Float(boxSize) + Float(spacing)
+    //newImageNode.position.z = 0.0
+    case 3:
+        //newImageNode.rotation.w = 0.0
+        newImageNode.position.x += Float(boxSize) + Float(spacing)
+        //newImageNode.position.y = 0.0
+    //newImageNode.position.z = 0.0
+    case 4:
+        //newImageNode.rotation.w = 0.0
+        newImageNode.position.x += Float(boxSize) + Float(spacing)
+        newImageNode.position.y -= Float(boxSize) + Float(spacing)
+    //newImageNode.position.z = 0.0
+    case 5:
+        //newImageNode.rotation.w = 0.0
+        //newImageNode.position.x = 0.0
+        newImageNode.position.y -= Float(boxSize) + Float(spacing)
+    //newImageNode.position.z = 0.0
+    case 6:
+        //newImageNode.rotation.w = 0.0
+        newImageNode.position.x -= Float(boxSize) + Float(spacing)
+        newImageNode.position.y -= Float(boxSize) + Float(spacing)
+    //newImageNode.position.z = 0.0
+    case 7:
+        //newImageNode.rotation.w = 0.0
+        newImageNode.position.x -= Float(boxSize) + Float(spacing)
+        //newImageNode.position.y = 0.0
+    //newImageNode.position.z = 0.0
+    default:
+        newImageNode.rotation.w = 0.0
+        //newImageNode.position.x = 0.0
+        //newImageNode.position.y = 0.0
+        //newImageNode.position.z = 0.0
+    }
+    
+    return newImageNode
+    
+} //END makeCollageImage()
 
 
 
-   
-    func setUI() {
-        
-    }
+
+func setUI() {
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
-    }
+}
+
+func session(_ session: ARSession, didFailWithError error: Error) {
+    // Present an error message to the user
     
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
+}
+
+func sessionWasInterrupted(_ session: ARSession) {
+    // Inform the user that the session has been interrupted, for example, by presenting an overlay
     
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
-    }
+}
+
+func sessionInterruptionEnded(_ session: ARSession) {
+    // Reset tracking and/or remove existing anchors if consistent tracking is required
+    
+}
 
 //Takes in the anchor image name, searches the "anchors" array and returns the index it was found at
 func getAnchorImageIndex() {
@@ -399,18 +421,6 @@ func getAnchorImageIndex() {
 }
 
 
-class collages {
-    var anchorImage = UIImage()
-    var a_Image = UIImage()
-    var b_Image = UIImage()
-    var c_Image = UIImage()
-    var d_Image = UIImage()
-    var e_Image = UIImage()
-    var f_Image = UIImage()
-    var g_Image = UIImage()
-    var h_Image = UIImage()
-    
-    init(){
-    
-    }
-}
+
+
+

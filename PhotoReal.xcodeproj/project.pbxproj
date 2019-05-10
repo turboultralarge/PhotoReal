@@ -24,6 +24,8 @@
 		BD0772452257021600698241 /* AddCollageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0772442257021600698241 /* AddCollageViewController.swift */; };
 		BDA77210227CD5E1007C7F8F /* imageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7720F227CD5E1007C7F8F /* imageCollection.swift */; };
 		BDA77213227ED98D007C7F8F /* MyClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA77212227ED98D007C7F8F /* MyClass.swift */; };
+		BDA77215227FE19E007C7F8F /* arrayOfArrayUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA77214227FE19E007C7F8F /* arrayOfArrayUIImage.swift */; };
+		BDA77217227FF0B0007C7F8F /* nestedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA77216227FF0B0007C7F8F /* nestedArray.swift */; };
 		C68E5B0932A69C3C1EF2DD83 /* Pods_PhotoReal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CFC69CF5339CC5A443ABB /* Pods_PhotoReal.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		BDA7720F227CD5E1007C7F8F /* imageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCollection.swift; sourceTree = "<group>"; };
 		BDA77211227ED94C007C7F8F /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		BDA77212227ED98D007C7F8F /* MyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClass.swift; sourceTree = "<group>"; };
+		BDA77214227FE19E007C7F8F /* arrayOfArrayUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = arrayOfArrayUIImage.swift; sourceTree = "<group>"; };
+		BDA77216227FF0B0007C7F8F /* nestedArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nestedArray.swift; sourceTree = "<group>"; };
 		EA5B86B3370BBE2F991C0283 /* Pods-PhotoRealUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoRealUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoRealUITests/Pods-PhotoRealUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F16CFC69CF5339CC5A443ABB /* Pods_PhotoReal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoReal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -137,6 +141,8 @@
 				24D09660225556D900AFA230 /* art.scnassets */,
 				24D09662225556D900AFA230 /* ARViewController.swift */,
 				BDA7720F227CD5E1007C7F8F /* imageCollection.swift */,
+				BDA77214227FE19E007C7F8F /* arrayOfArrayUIImage.swift */,
+				BDA77216227FF0B0007C7F8F /* nestedArray.swift */,
 				24D09664225556D900AFA230 /* Main.storyboard */,
 				24D09667225556DA00AFA230 /* Assets.xcassets */,
 				24D09669225556DA00AFA230 /* LaunchScreen.storyboard */,
@@ -426,6 +432,8 @@
 			files = (
 				5071537122603B0600FD6E97 /* LibraryCollectionViewCell.swift in Sources */,
 				BD0772452257021600698241 /* AddCollageViewController.swift in Sources */,
+				BDA77215227FE19E007C7F8F /* arrayOfArrayUIImage.swift in Sources */,
+				BDA77217227FF0B0007C7F8F /* nestedArray.swift in Sources */,
 				BDA77213227ED98D007C7F8F /* MyClass.swift in Sources */,
 				5071537522603B6B00FD6E97 /* NewImageViewController.swift in Sources */,
 				24D09663225556D900AFA230 /* ARViewController.swift in Sources */,
