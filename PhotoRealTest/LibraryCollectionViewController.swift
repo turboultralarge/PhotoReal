@@ -8,13 +8,14 @@
 
 import UIKit
 import Parse
+import AlamofireImage
 
 class LibraryCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var LibraryCollection: UICollectionView!
     
-    let reuseIdentifier = "cell"
-    var clusters = [PFObject] ( )
+   // let reuseIdentifier = "cell"
+    var clusters = [PFObject]()
     var cellImage = [UIImage]()
     
     
@@ -35,27 +36,18 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
         
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
         
-        
-        let query = PFQuery(className: "collage")
-        
-        query.includeKeys(["AnchorImage"])
-        query.limit = 20
-        
-        query.findObjectsInBackground{(objects: [PFObject]?, error: Error?) -> Void in
-            if error == nil {
-                if let objects = objects {
-                    for object in objects {
-                       // For each object in the class object, append it to myArray(clusters)
-                        self.clusters.append(object)
-                    }
-                }
+        DispatchQueue.global(qos: .background).async {
+            // do your job here
+            self.getData()
+            DispatchQueue.main.async {
+                // update ui here
             }
         }
         
-
         self.LibraryCollection.reloadData()
         
-        print(self.clusters)
+        
+        
     }
 
 
@@ -67,15 +59,43 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        self.LibraryCollection.reloadData()
+        print("creating cells")
+        
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LibraryCollectionViewCell
+        
+        print("THIS ACTUALLY DUD SOMETHING")
+        print(indexPath.item)
         let cluster = clusters[indexPath.item]
-        //let anchorImage = cluster
-
-        cell.anchorView = cluster["anchorImage"] as? UIImageView
+        
+        let anchorImage = cluster["anchorImage"] as! UIImage
+        cell.anchorView.image = anchorImage
         //print(cluster["anchorImage"])
         
         // Configure the cell
         return cell
+    }
+    
+    func getData(){
+        let query = PFQuery(className: "collage")
+        
+        query.includeKeys(["AnchorImage"])
+        query.limit = 20
+        
+        query.findObjectsInBackground{(objects: [PFObject]?, error: Error?) -> Void in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        // For each object in the class object, append it to myArray(clusters)
+                        self.clusters.append(object)
+                    }
+                }
+            }
+            print("\(self.clusters.count) created.")
+        }
+        
+        print(self.clusters)
     }
   }
 
