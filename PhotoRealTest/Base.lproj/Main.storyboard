@@ -339,7 +339,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R4j-3D-Wdi">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JL6-4p-4Wf">
                                             <size key="itemSize" width="182" height="178"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -354,7 +354,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="182" height="178"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="anchor" translatesAutoresizingMaskIntoConstraints="NO" id="DJN-TF-m8G">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="highlight_purple" translatesAutoresizingMaskIntoConstraints="NO" id="DJN-TF-m8G">
                                                             <rect key="frame" x="0.0" y="0.0" width="182" height="178"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -374,6 +374,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="uUE-7x-kMb"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Library" id="DAJ-GF-Tlj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GYF-We-a0r">
+                            <connections>
+                                <segue destination="vfu-U8-Grw" kind="presentation" id="Cit-3d-bvY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="LibraryCollection" destination="R4j-3D-Wdi" id="RjL-IK-Zc3"/>
                     </connections>
@@ -594,7 +601,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvM-O3-jLB">
-                                <rect key="frame" x="87" y="55" width="200" height="100"/>
+                                <rect key="frame" x="87.5" y="55.5" width="200" height="100"/>
                                 <color key="backgroundColor" red="0.086274509803921567" green="0.81568627450980391" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="H95-Yv-AZz"/>
@@ -689,5 +696,6 @@
         <image name="add_image" width="300" height="300"/>
         <image name="anchor" width="240" height="240"/>
         <image name="anchor_image" width="300" height="300"/>
+        <image name="highlight_purple" width="1024" height="1024"/>
     </resources>
 </document>
