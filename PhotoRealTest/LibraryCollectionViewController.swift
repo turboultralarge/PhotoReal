@@ -33,8 +33,7 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
         layout.minimumInteritemSpacing = 10
         
         let width = ( view.frame.size.width - layout.minimumInteritemSpacing * 2 ) / 2
-        
-        layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+        layout.itemSize = CGSize(width: width, height: width * 2 / 2)
         
         self.getData()
         self.LibraryCollection.reloadData()

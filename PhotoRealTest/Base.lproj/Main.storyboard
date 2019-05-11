@@ -324,10 +324,10 @@
             </objects>
             <point key="canvasLocation" x="1537" y="-1641"/>
         </scene>
-        <!--Library Collection View Controller-->
+        <!--Library-->
         <scene sceneID="qFo-U3-4AP">
             <objects>
-                <viewController id="xK3-V4-Z0C" customClass="LibraryCollectionViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Library" id="xK3-V4-Z0C" customClass="LibraryCollectionViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Pt-5T-lIB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -337,26 +337,27 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R4j-3D-Wdi">
-                                        <rect key="frame" x="8" y="0.0" width="367" height="680"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JL6-4p-4Wf">
-                                            <size key="itemSize" width="167" height="163"/>
+                                            <size key="itemSize" width="182" height="178"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="B1O-zZ-Jgd" customClass="LibraryCollectionViewCell" customModule="PhotoReal" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="167" height="163"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="182" height="178"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="167" height="163"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="182" height="178"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="anchor" translatesAutoresizingMaskIntoConstraints="NO" id="DJN-TF-m8G">
-                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="163"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="182" height="178"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
@@ -430,7 +431,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uxx-iD-kSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="520.79999999999995" y="-1641.2293853073465"/>
+            <point key="canvasLocation" x="-5049" y="-1641"/>
         </scene>
         <!--New Image View Controller-->
         <scene sceneID="zrp-c2-JAF">
