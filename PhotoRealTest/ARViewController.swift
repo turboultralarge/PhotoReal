@@ -245,30 +245,21 @@ class ARViewController: UIViewController {
         supplyClustersToAR(anchors: anchors, a: a_index)
     }
     
-    func supplyClustersToAR(anchors: [UIImage], a: [UIImage]){
-        
+    func supplyClustersToAR(anchors: [UIImage], a: [UIImage]) {
         var index = 0
         
-        for anchor in anchors{
-            
+        for anchor in anchors {
            // var anchorImage = anchor
            // var aImage = a[index]
-            
             self.setupImageDetection()
             
             if let configuration = imageConfiguration {
-                //print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-                sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
                 sceneView.session.run(configuration)
-                configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-                //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
+                index += 1
         
-            index += 1
-        
-            }
-        }
-          sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
-    }
+            } //END if let
+        } //END for anchor
+    } //END supplyClustersToAR()
     
 } //END class
 
