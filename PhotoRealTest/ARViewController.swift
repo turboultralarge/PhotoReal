@@ -261,6 +261,105 @@ class ARViewController: UIViewController {
         } //END for anchor
     } //END supplyClustersToAR()
     
+    //Handles a found IMAGE
+    func handleFoundImage(_ imageAnchor: ARImageAnchor, _ node: SCNNode, anchorIndex: Int, collageName: String) {
+        let name = imageAnchor.referenceImage.name!
+        var topRowPopulated = false //Used for title positioning above collage
+        print("Found image: \(name)")
+        
+        let size = imageAnchor.referenceImage.physicalSize
+        let sizeBig = CGSize(width: size.width * 1.25, height: size.height * 1.25)
+        if let imageNode = makeImage(size: sizeBig) {
+            node.addChildNode(imageNode)
+            node.opacity = 1
+            //print("Image matches size")
+            
+            
+            if a_index[anchorIndex] != nil {
+                //Currently working on telling if a collage image exists at the location of
+                //the Anchor index
+            }
+            
+            
+            //Adds any applicable collage images
+            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 0) {
+                imageNode.addChildNode(collageNode)
+                imageNode.opacity = 1
+                topRowPopulated = true //Will shift the title up later
+            }
+            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 1) {
+                imageNode.addChildNode(collageNode)
+                imageNode.opacity = 1
+                topRowPopulated = true //Will shift the title up later
+            }
+            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 2) {
+                imageNode.addChildNode(collageNode)
+                imageNode.opacity = 1
+                topRowPopulated = true //Will shift the title up later
+            }
+            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 3) {
+                imageNode.addChildNode(collageNode)
+                imageNode.opacity = 1
+            }
+            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 4) {
+                imageNode.addChildNode(collageNode)
+                imageNode.opacity = 1
+            }
+            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 5) {
+                imageNode.addChildNode(collageNode)
+                imageNode.opacity = 1
+            }
+            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 6) {
+                imageNode.addChildNode(collageNode)
+                imageNode.opacity = 1
+            }
+            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 7) {
+                imageNode.addChildNode(collageNode)
+                imageNode.opacity = 1
+            }
+            
+            //Adds title text
+            //NOTE: The name string will be pulled from parse later - Travis
+            let text = SCNText(string: imageAnchor.referenceImage.name, extrusionDepth: 0.001)
+            text.font = UIFont.systemFont(ofSize: 1.0)
+            text.flatness = 0.005
+            text.firstMaterial?.diffuse.contents = UIColor.white
+            let textNode = SCNNode(geometry: text)
+            let fontScale = Float(0.04)
+            textNode.scale = SCNVector3(fontScale, fontScale, fontScale)
+            
+            //Offsets the text y position based on collage image placements
+            if topRowPopulated {
+                textNode.position.y += Float(fontScale) + Float(0.03)
+            } else {
+                textNode.position.y += Float(fontScale) + Float(0.06)
+            }
+            
+            //Centers the Text
+            let (min, max) = textNode.boundingBox
+            let dx = min.x + 0.5 * (max.x - min.x)
+            let dy = min.y + 0.5 * (max.y - min.y)
+            let dz = min.z + 0.5 * (max.z - min.z)
+            textNode.pivot = SCNMatrix4MakeTranslation(dx, dy, dz)
+            
+            //let (_, max) = textNode.boundingBox
+            //textNode.position.x -= (Float(max.x) / 2.0)
+            
+            imageNode.addChildNode(textNode)
+            
+        } else {
+            
+            print("Image does NOT match size")
+            let tempShape = SCNBox(width: size.width, height: 0.0, length: size.height, chamferRadius: 0)
+            let tempNode = SCNNode(geometry: tempShape)
+            tempShape.firstMaterial?.diffuse.contents = UIImage(named: "highlight_cyan.png")
+            tempShape.firstMaterial?.lightingModel = .constant
+            node.addChildNode(tempNode)
+            print("'size' var width: \(size.width) height: \(size.height)")
+            
+        }
+    } //END handleFoundImage()
+    
 } //END class
 
     // -----
@@ -269,7 +368,7 @@ class ARViewController: UIViewController {
         func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
             DispatchQueue.main.async {} //Hide things callback
             if let imageAnchor = anchor as? ARImageAnchor {
-                handleFoundImage(imageAnchor, node)
+                handleFoundImage(imageAnchor, node, anchorIndex: -1, collageName: "anchor")
                 /*
             } else if let objectAnchor = anchor as? ARObjectAnchor { //This is for finding objects, which probably we won't need
                 //handleFoundObject(ObjectAnchor, node)
@@ -278,97 +377,7 @@ class ARViewController: UIViewController {
         } //renderer()
 }
         
-        //Handles a found IMAGE
-        private func handleFoundImage(_ imageAnchor: ARImageAnchor, _ node: SCNNode) {
-            let name = imageAnchor.referenceImage.name!
-            var topRowPopulated = false //Used for title positioning above collage
-            print("Found image: \(name)")
-            
-            let size = imageAnchor.referenceImage.physicalSize
-            let sizeBig = CGSize(width: size.width * 1.25, height: size.height * 1.25)
-            if let imageNode = makeImage(size: sizeBig) { //NOTE: This implemtation is really sloppy right now
-                node.addChildNode(imageNode)
-                node.opacity = 1
-                //print("Image matches size")
-                
-                //Adds any applicable collage images
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 0) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                    topRowPopulated = true //Will shift the title up later
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 1) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                    topRowPopulated = true //Will shift the title up later
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 2) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                    topRowPopulated = true //Will shift the title up later
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 3) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 4) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 5) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 6) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 7) {
-                    imageNode.addChildNode(collageNode)
-                    imageNode.opacity = 1
-                }
-                
-                //Adds title text
-                //NOTE: The name string will be pulled from parse later - Travis
-                let text = SCNText(string: imageAnchor.referenceImage.name, extrusionDepth: 0.001)
-                text.font = UIFont.systemFont(ofSize: 1.0)
-                text.flatness = 0.005
-                text.firstMaterial?.diffuse.contents = UIColor.white
-                let textNode = SCNNode(geometry: text)
-                let fontScale = Float(0.04)
-                textNode.scale = SCNVector3(fontScale, fontScale, fontScale)
-                
-                //Offsets the text y position based on collage image placements
-                if topRowPopulated {
-                    textNode.position.y += Float(fontScale) + Float(0.03)
-                } else {
-                    textNode.position.y += Float(fontScale) + Float(0.06)
-                }
-                
-                //Centers the Text
-                let (min, max) = textNode.boundingBox
-                let dx = min.x + 0.5 * (max.x - min.x)
-                let dy = min.y + 0.5 * (max.y - min.y)
-                let dz = min.z + 0.5 * (max.z - min.z)
-                textNode.pivot = SCNMatrix4MakeTranslation(dx, dy, dz)
-                
-                //let (_, max) = textNode.boundingBox
-                //textNode.position.x -= (Float(max.x) / 2.0)
-                
-                imageNode.addChildNode(textNode)
-                
-            } else {
-                
-                print("Image does NOT match size")
-                let tempShape = SCNBox(width: size.width, height: 0.0, length: size.height, chamferRadius: 0)
-                let tempNode = SCNNode(geometry: tempShape)
-                tempShape.firstMaterial?.diffuse.contents = UIImage(named: "highlight_cyan.png")
-                tempShape.firstMaterial?.lightingModel = .constant
-                node.addChildNode(tempNode)
-                print("'size' var width: \(size.width) height: \(size.height)")
-                
-            }
-        } //handleFoundImage()
+
 
         
         private func makeImage(size: CGSize) -> SCNNode? {
@@ -468,6 +477,18 @@ class ARViewController: UIViewController {
             
         } //END makeCollageImage()
 
+    /*
+    func letterIndexToInt() {
+        var conv = -1
+        
+        switch <#value#> {
+        case <#pattern#>:
+            <#code#>
+        default:
+            <#code#>
+        }
+    } //END letterIndexToInt()
+ */
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
