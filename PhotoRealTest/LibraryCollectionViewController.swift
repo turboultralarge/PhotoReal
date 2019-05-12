@@ -66,17 +66,7 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
         let url = URL(string: urlString)!
         
         cell.anchorView.af_setImage(withURL: url)
-        
-        
-        
-       // let cluster = clusters[indexPath.item]
-        
-        
-        //let anchorImage = cluster["AnchorImage"] as? UIImage
-        //cell.anchorView.image = anchorImage
-        //print(cluster["anchorImage"])
-        
-        // Configure the cell
+     
         return cell
     }
     
@@ -88,21 +78,7 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
         
         do {clusters = try query.findObjects()}
         catch {}
-        /*
-        query.findObjectsInBackground{(objects: [PFObject]?, error: Error?) -> Void in
-            if error == nil {
-                if let objects = objects {
-                    for object in objects {
-                        // For each object in the class object, append it to myArray(clusters)
-                        self.clusters.append(object)
-                    }
-                }
-            }
-            print("\(self.clusters.count) created.")
-        }
-        */
         
-        print(self.clusters)
     }
   }
 
