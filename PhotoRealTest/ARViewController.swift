@@ -13,16 +13,11 @@ import ARKit
 import Parse
 
 class ARViewController: UIViewController {
-    
-    //  Receives UIImage StaticTestImage from AddCollageVC
-    
+
     var passedImage: UIImage?
     var parseImage: UIImage?
     var clusters = [PFObject]()
     var globalImageCount = 0
-    
-    // holds each images
-    
     
     //  Arrays holding columns from Parse
     var anchors = [UIImage]()
@@ -36,11 +31,6 @@ class ARViewController: UIViewController {
     var h_index = [UIImage]()
     
 
-    
-//    OUTLETS
-
-    
-    
 //    ACTIONS
 
     @IBOutlet var sceneView: ARSCNView!
@@ -54,45 +44,20 @@ class ARViewController: UIViewController {
         super.viewDidLoad()
         print("View Did Load")
 
-        
         // Set the view's delegate
         sceneView.delegate = self
-        
         // Show statistics such as fps and timing information --------DEBUG
         sceneView.showsStatistics = true
-        
         // Create a new scene
         let scene = SCNScene(named: "art.scnassets/empty.scn")!
-        
         // Set the scene to the view
         sceneView.scene = scene
-        
         // Parse Query for image data
-        
         //  Queries the database for collage information
         let query = PFQuery(className: "collage")
-        
         query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index" ])
         query.limit = 20
-        
-        //Get the data from the PFQuery class
-
-/*        DispatchQueue.main.async { [weak self] in
-            // 3
-            query.findObjectsInBackground{(objects: [PFObject]?, error: Error?) -> Void in
-                if error == nil {
-                    if let objects = objects {
-                        for object in objects {
-                            //For each object in the class object, append it to myArray(clusters)
-                            self?.clusters.append(object)
-                        }
-                        self?.getData()
-                        
-                    }
-                }
-            }
-        }*/
-        
+  
         query.findObjectsInBackground{(objects: [PFObject]?, error: Error?) -> Void in
             if error == nil {
                 if let objects = objects {
@@ -101,13 +66,12 @@ class ARViewController: UIViewController {
                         self.clusters.append(object)
                         }
                     self.getData()
-                    
                 }
             }
          }
         
         // 1
-        let delayInSeconds = 5.0
+        let delayInSeconds = 2.0
         
         // 2
         DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
@@ -121,26 +85,12 @@ class ARViewController: UIViewController {
                 //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
             }
             self?.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
-            }
-        
-        /*
-        self.setupImageDetection()
-        
-        if let configuration = self.imageConfiguration {
-            //print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-            self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
-            self.sceneView.session.run(configuration)
-            configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-            //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
         }
-        self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]*/
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //print("ViewWillAppear")
 
     }   // end ViewWillAppearn
     
@@ -159,14 +109,7 @@ class ARViewController: UIViewController {
         imageConfiguration = ARImageTrackingConfiguration()
         
         print("Setting Image Detection...")
-        
-       // guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Images", bundle: nil) else {
-        //    fatalError("Can't find the AR Images folder!")
-        //}
         addReferenceImage()
-        
-       // imageConfiguration?.trackingImages = emptyImageSet //Change to referenceImages if you want hardcoded images back
-        //print("Loaded empty configuration!")
     }
     
     func addReferenceImage() {
@@ -185,40 +128,7 @@ class ARViewController: UIViewController {
             print("Number of images in set : \(referenceImageSet.count)")
             imageConfiguration?.trackingImages = referenceImageSet
         }
-    /*
-        let retrievedImage = passedImage
-        //let aImage = a
-        //let passedFromParseUIImage = parseImage
-        
-        //Prepares the image to go into a new ARReferenceImage object  Test case no longer needed
-        guard let cgImage = retrievedImage?.cgImage else { return }
-        //guard let cgImageFromParse = passedFromParseUIImage?.cgImage else { return }
-        //let width = CGFloat(cgImage.width)
-        //guard let refSize = 0.0762 else { return }
-        
-        //Creates a new ARReferenceImage object from the image
-        let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762) //3 inches in meters
-        
-        //let newRefImageFromParse = ARReferenceImage(cgImageFromParse, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762)
-        
-        
-        newRefImage.name = "anchor index - \(globalImageCount)"
-        globalImageCount += 1
-        
-        //newRefImageFromParse.name = "ImageFromParse"
-        
-        //Check number of images in set before new image is added
-        //print("Number of images in set Before Insert: \(referenceImageSet.count)")
-        referenceImageSet.insert(newRefImage)
-        print("Number of images in set : \(referenceImageSet.count)")
-        //referenceImageSet.insert(newRefImageFromParse)
-        
-        imageConfiguration?.trackingImages = referenceImageSet
-        //print("Loaded new configuration!")
-        
-        //print("Number of images in set After New Config: \(referenceImageSet.count)")
-*/
-        
+    
     } //END addReferenceImage
     
     func getData(){
@@ -238,7 +148,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let a = UIImage(data:imageData)
                                     self.a_index.append(a!)
-                                    print("a_index accepted")
+                                   // print("a_index accepted")
                                     //   print("Number of A_Index loaded: \(self.a_index.count)" )
                                 }
                             })
@@ -250,7 +160,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let b = UIImage(data:imageData)
                                     self.b_index.append(b!)
-                                    print("b_index accepted")
+                                    //print("b_index accepted")
                                     //print("Number of B_Index loaded: \(self.b_index.count)" )
                                 }
                             })
@@ -262,7 +172,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let c = UIImage(data:imageData)
                                     self.c_index.append(c!)
-                                    print("c_index accepted")
+                                   // print("c_index accepted")
                                     // print("Number of C_Index loaded: \(self.c_index.count)" )
                                 }
                             })
@@ -274,7 +184,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let d = UIImage(data:imageData)
                                     self.d_index.append(d!)
-                                    print("d_index accepted")
+                                   // print("d_index accepted")
                                     //print("Number of D_Index loaded: \(self.d_index.count)" )
                                 }
                             })
@@ -286,7 +196,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let e = UIImage(data:imageData)
                                     self.e_index.append(e!)
-                                    print("e_index accepted")
+                                   // print("e_index accepted")
                                     //print("Number of E_Index loaded: \(self.e_index.count)" )
                                 }
                             })
@@ -298,7 +208,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let f = UIImage(data:imageData)
                                     self.f_index.append(f!)
-                                    print("f_index accepted")
+                                   // print("f_index accepted")
                                     //    print("Number of F_Index loaded: \(self.f_index.count)" )
                                 }
                             })
@@ -310,7 +220,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let g = UIImage(data:imageData)
                                     self.g_index.append(g!)
-                                    print("g_index accepted")
+                                    //print("g_index accepted")
                                     //    print("Number of G_Index loaded: \(self.g_index.count)" )
                                 }
                             })
@@ -322,34 +232,11 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let h = UIImage(data:imageData)
                                     self.h_index.append(h!)
-                                    print("h_index accepted")
+                                    //print("h_index accepted")
                                     // print("Number of H_Index loaded: \(self.h_index.count)" )
                                 }
                             })
                         }
-                        
-                        
-                        // Successfully Query Parse
-                        /*
-                        self.parseImage = UIImage(data:imageData!) // single Anchor image for testing purposes
-                        
-                        print("Parse Images Received")
-                        
-                        // Must be in the same block or image isn't loaded first
-                        self.setupImageDetection()
-                        
-                        if let configuration = self.imageConfiguration {
-                            //print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-                            self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
-                            self.sceneView.session.run(configuration)
-                            configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
-                            //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
-                        }
-                        self.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
-                        
-                        print("Number of Anchors loaded: \(self.anchors.count)" )
-                        //print(" number of objects from parse in Array: \(i)")
-*/
                     }
                 })
             }
@@ -364,8 +251,8 @@ class ARViewController: UIViewController {
         
         for anchor in anchors{
             
-            var anchorImage = anchor
-            var aImage = a[index]
+           // var anchorImage = anchor
+           // var aImage = a[index]
             
             self.setupImageDetection()
             
@@ -375,12 +262,11 @@ class ARViewController: UIViewController {
                 sceneView.session.run(configuration)
                 configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
                 //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
-            
+        
             index += 1
-
+        
             }
         }
-        
           sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
     }
     
