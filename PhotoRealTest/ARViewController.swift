@@ -281,6 +281,7 @@ class ARViewController: UIViewController {
         //Handles a found IMAGE
         private func handleFoundImage(_ imageAnchor: ARImageAnchor, _ node: SCNNode) {
             let name = imageAnchor.referenceImage.name!
+            var topRowPopulated = false //Used for title positioning above collage
             print("Found image: \(name)")
             
             let size = imageAnchor.referenceImage.physicalSize
@@ -294,14 +295,17 @@ class ARViewController: UIViewController {
                 if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 0) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
+                    topRowPopulated = true //Will shift the title up later
                 }
                 if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 1) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
+                    topRowPopulated = true //Will shift the title up later
                 }
                 if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 2) {
                     imageNode.addChildNode(collageNode)
                     imageNode.opacity = 1
+                    topRowPopulated = true //Will shift the title up later
                 }
                 if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 3) {
                     imageNode.addChildNode(collageNode)
@@ -333,7 +337,13 @@ class ARViewController: UIViewController {
                 let textNode = SCNNode(geometry: text)
                 let fontScale = Float(0.04)
                 textNode.scale = SCNVector3(fontScale, fontScale, fontScale)
-                textNode.position.y += Float(fontScale) + Float(0.03)
+                
+                //Offsets the text y position based on collage image placements
+                if topRowPopulated {
+                    textNode.position.y += Float(fontScale) + Float(0.03)
+                } else {
+                    textNode.position.y += Float(fontScale) + Float(0.06)
+                }
                 
                 //Centers the Text
                 let (min, max) = textNode.boundingBox
