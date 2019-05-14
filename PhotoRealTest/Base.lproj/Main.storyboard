@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhe-5q-3Dj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Uhe-5q-3Dj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -407,7 +407,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" restorationIdentifier="Anchor" image="anchor_image" translatesAutoresizingMaskIntoConstraints="NO" id="RoV-f0-c7k" userLabel="Anchor">
-                                <rect key="frame" x="138" y="225" width="100" height="100"/>
+                                <rect key="frame" x="137.5" y="225" width="100" height="100"/>
                                 <color key="tintColor" red="0.14901960780000001" green="0.78039215689999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -622,7 +622,7 @@
         <!--PhotoReal-->
         <scene sceneID="Jj0-Ww-WUM">
             <objects>
-                <viewController id="1e2-qn-dqK" sceneMemberID="viewController">
+                <viewController id="1e2-qn-dqK" customClass="HomeViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Home" id="yHQ-Vs-uVf" userLabel="Home">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -675,7 +675,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Nt-36-sOD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="PhotoReal" id="9N8-uO-eis"/>
+                    <navigationItem key="navigationItem" title="PhotoReal" id="9N8-uO-eis">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="aDK-2R-35Z">
+                            <connections>
+                                <action selector="OnLogout:" destination="1e2-qn-dqK" id="1NR-Y2-x5y"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T6f-1F-31t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -717,6 +723,80 @@
             </objects>
             <point key="canvasLocation" x="1670" y="-148"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="YIA-Pg-cDc">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="S13-JD-Ion" customClass="LoginViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wG5-zn-4ZV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PhotoReal_logo_temp" translatesAutoresizingMaskIntoConstraints="NO" id="Tyg-Ux-rdx">
+                                <rect key="frame" x="76" y="20" width="232" height="256"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nL0-O5-044">
+                                <rect key="frame" x="95" y="313" width="194" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Udv-nz-FU8">
+                                <rect key="frame" x="95" y="373" width="194" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jtl-lN-xDX">
+                                <rect key="frame" x="95" y="284" width="79" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNz-Cm-7Wa">
+                                <rect key="frame" x="95" y="344" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWp-iZ-wNS">
+                                <rect key="frame" x="107" y="411" width="54" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSignup:" destination="S13-JD-Ion" eventType="touchUpInside" id="f1H-WD-fZ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8R1-KB-nvm">
+                                <rect key="frame" x="230" y="411" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogin:" destination="S13-JD-Ion" eventType="touchUpInside" id="pXF-kP-M5j"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <viewLayoutGuide key="safeArea" id="iqc-bh-PDj"/>
+                    </view>
+                    <connections>
+                        <outlet property="PasswordField" destination="Udv-nz-FU8" id="URh-ri-eO8"/>
+                        <outlet property="UsernameField" destination="nL0-O5-044" id="Cwj-nZ-4lQ"/>
+                        <segue destination="Uhe-5q-3Dj" kind="presentation" identifier="LoginSegue" id="n4X-cc-3kY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bFt-R6-YQ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2166" y="-912"/>
+        </scene>
         <!--Home-->
         <scene sceneID="72Q-3I-9qX">
             <objects>
@@ -739,6 +819,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PhotoReal_logo_temp" width="2048" height="2048"/>
         <image name="add_image" width="300" height="300"/>
         <image name="anchor" width="240" height="240"/>
         <image name="anchor_image" width="300" height="300"/>
