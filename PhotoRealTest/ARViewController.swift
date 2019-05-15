@@ -18,6 +18,7 @@ class ARViewController: UIViewController {
     var parseImage: UIImage?
     var clusters = [PFObject]()
     var globalImageCount = 0
+    var collageObjects = [collageObject]()
     
     //  Arrays holding columns from Parse
     var anchors = [UIImage]()
@@ -83,6 +84,7 @@ class ARViewController: UIViewController {
                 self?.sceneView.session.run(configuration)
                 configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
                 //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
+                
             }
             self?.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
         }
@@ -242,11 +244,11 @@ class ARViewController: UIViewController {
             }
         } // end for loop
         print("Required scope for SupplyClustersToAR")
-        supplyClustersToAR(anchors: anchors, a_index: a_index)
+        supplyClustersToAR()
     }
     
     // passes Anchor image array as well as collage arrays
-    func supplyClustersToAR(anchors: [UIImage], a_index: [UIImage]) {
+    func supplyClustersToAR() {
         var index = 0
         
         // laod into collageOIbjects class
@@ -254,11 +256,32 @@ class ARViewController: UIViewController {
         //for anchor in anchors {
            // var anchorImage = anchor
            // var aImage = a[index]
+        //var counter = 0
+    
+        for anchor in anchors{
+            
+            guard let cgImg = anchors[index].cgImage else { return }
+            let ARRefImg = ARReferenceImage(cgImg, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762) //3 inches in meters
+            
+            collageObjects[index].ARAnchor = ARRefImg
+            collageObjects[index].UIAnchor = anchors[index]
+            collageObjects[index].a_Image = a_index[index]
+            collageObjects[index].b_Image = b_index[index]
+            collageObjects[index].c_Image = c_index[index]
+            collageObjects[index].d_Image = d_index[index]
+            collageObjects[index].e_Image = e_index[index]
+            collageObjects[index].f_Image = f_index[index]
+            collageObjects[index].g_Image = g_index[index]
+            collageObjects[index].h_Image = h_index[index]
+            
+            index += 1
+        }
+        
             self.setupImageDetection()
             
             if let configuration = imageConfiguration {
                 sceneView.session.run(configuration)
-                index += 1
+                
         
             } //END if let
        // } //END for anchor
