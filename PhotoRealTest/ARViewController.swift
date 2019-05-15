@@ -73,7 +73,7 @@ class ARViewController: UIViewController {
         // 1
         let delayInSeconds = 2.0
         
-        // 2
+        // 2  waits for query to finish before running code
         DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
             self!.setupImageDetection()
             
@@ -242,13 +242,16 @@ class ARViewController: UIViewController {
             }
         } // end for loop
         print("Required scope for SupplyClustersToAR")
-        supplyClustersToAR(anchors: anchors, a: a_index)
+        supplyClustersToAR(anchors: anchors, a_index: a_index)
     }
     
-    func supplyClustersToAR(anchors: [UIImage], a: [UIImage]) {
+    // passes Anchor image array as well as collage arrays
+    func supplyClustersToAR(anchors: [UIImage], a_index: [UIImage]) {
         var index = 0
         
-        for anchor in anchors {
+        // laod into collageOIbjects class
+        
+        //for anchor in anchors {
            // var anchorImage = anchor
            // var aImage = a[index]
             self.setupImageDetection()
@@ -258,7 +261,7 @@ class ARViewController: UIViewController {
                 index += 1
         
             } //END if let
-        } //END for anchor
+       // } //END for anchor
     } //END supplyClustersToAR()
     
     //Handles a found IMAGE
