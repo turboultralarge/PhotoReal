@@ -31,6 +31,20 @@ class ARViewController: UIViewController {
     var g_index = [UIImage]()
     var h_index = [UIImage]()
     
+    /*
+    //Temporary variables the hold data from Parse, later consolidated into the collageObjects array
+    var tempAnchorUI = UIImage()
+    var tempAnchorAR
+    var tempIndexA = UIImage()
+    var tempIndexB = UIImage()
+    var tempIndexC = UIImage()
+    var tempIndexD = UIImage()
+    var tempIndexE = UIImage()
+    var tempIndexF = UIImage()
+    var tempIndexG = UIImage()
+    var tempIndexH = UIImage()
+ */
+    
 
 //    ACTIONS
 
@@ -48,7 +62,7 @@ class ARViewController: UIViewController {
         // Set the view's delegate
         sceneView.delegate = self
         // Show statistics such as fps and timing information --------DEBUG
-        sceneView.showsStatistics = true
+        //sceneView.showsStatistics = true
         // Create a new scene
         let scene = SCNScene(named: "art.scnassets/empty.scn")!
         // Set the scene to the view
@@ -79,14 +93,16 @@ class ARViewController: UIViewController {
             self!.setupImageDetection()
             
             if let configuration = self?.imageConfiguration {
+                
+                //Creates the collageObjects from the data pulled from parse
+                self?.createCollageObjects()
+                
                 //print("Maximum number of tracked images before: \(configuration.maximumNumberOfTrackedImages)")
-                self?.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin] //This isn't working here?
                 self?.sceneView.session.run(configuration)
                 configuration.maximumNumberOfTrackedImages = 10 //Seems to max out at 4 on a 6S. Still only 1 tracked at a time
                 //print("Maximum number of tracked images after: \(configuration.maximumNumberOfTrackedImages)")
                 
             }
-            self?.sceneView.debugOptions = [.showFeaturePoints, .showWorldOrigin]
         }
     }
     
@@ -110,31 +126,28 @@ class ARViewController: UIViewController {
     func setupImageDetection() {
         imageConfiguration = ARImageTrackingConfiguration()
         
-        print("Setting Image Detection...")
-        addReferenceImage()
+        //print("Setting Image Detection...")
+        //addReferenceImage()
     }
     
-    func addReferenceImage() {
-        //let retrievedImage = UIImage(contentsOfFile: getImageURL(imgName: "Test", type: ".jpg"))
-        
-        print("Adding images to ReferenceSet...")
-        //let retrievedImage = parseImage
-        
-        for anchor in anchors{
-            var retrievedImage = anchor
-            guard let cgImage = retrievedImage.cgImage else { return }
-            let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762) //3 inches in meters
-            newRefImage.name = "anchor index - \(globalImageCount)"
-            globalImageCount += 1
-            referenceImageSet.insert(newRefImage)
-            print("Number of images in set : \(referenceImageSet.count)")
-            imageConfiguration?.trackingImages = referenceImageSet
-        }
+    func createReferenceImage(rawImage: UIImage) -> ARReferenceImage {
+        print("Creating Referance Image...")
+        let cgImage = rawImage.cgImage!
+        let newRefImage = ARReferenceImage(cgImage, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762) //3 inches in meters
+        newRefImage.name = "anchor index - \(globalImageCount)"
+        return newRefImage
+    } //END createReferenceImage
     
+    func addReferenceImage(refImage: ARReferenceImage) {
+        referenceImageSet.insert(refImage)
+        print("Number of images in set : \(referenceImageSet.count)")
+        imageConfiguration?.trackingImages = referenceImageSet
     } //END addReferenceImage
     
     func getData(){
         for objects in self.clusters{
+            
+            
             
             // Get Anchor
             if let userPicture = objects.value(forKey: "AnchorImage") as? PFFileObject {
@@ -143,6 +156,9 @@ class ARViewController: UIViewController {
                     if (error == nil) {
                         let anchor = UIImage(data:imageData)
                         self.anchors.append(anchor!)
+                        
+                        
+                        
                         // Get A
                         if let a_Image = objects.value(forKey:"A_Index") as? PFFileObject {
                             a_Image.getDataInBackground(block: {
@@ -243,55 +259,83 @@ class ARViewController: UIViewController {
                 })
             }
         } // end for loop
-        print("Required scope for SupplyClustersToAR")
-        supplyClustersToAR()
+        //print("Required scope for SupplyClustersToAR")
+        //supplyClustersToAR()
+        
+        
+        
     }
     
-    // passes Anchor image array as well as collage arrays
-    func supplyClustersToAR() {
-        var index = 0
-        
-        // laod into collageOIbjects class
-        
-        //for anchor in anchors {
-           // var anchorImage = anchor
-           // var aImage = a[index]
-        //var counter = 0
-    
-        for anchor in anchors{
+    func createCollageObjects() {
+        for _ in anchors {
+            print("Number of raw anchors stored before pop: \(self.anchors.count)")
+            let tempAnchor = self.anchors.popLast()
             
-            guard let cgImg = anchors[index].cgImage else { return }
-            let ARRefImg = ARReferenceImage(cgImg, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762) //3 inches in meters
+            print("Number of raw anchors stored after pop: \(self.anchors.count)")
+            print("Going in Raw!")
+            if tempAnchor != nil {
+                //Creates the reference image from parse data and adds it to the set
+                let newRefImg = createReferenceImage(rawImage: tempAnchor!)
+                addReferenceImage(refImage: newRefImg)
+                //Creates a new collageObject then adds it to the array of them
+                let newCollageObject = collageObject(ARAnchor: newRefImg, UIAnchor: tempAnchor!, a_Image: self.a_index.popLast()!, b_Image: self.b_index.popLast()!, c_Image: self.c_index.popLast()!, d_Image: self.d_index.popLast()!, e_Image: self.e_index.popLast()!, f_Image: self.f_index.popLast()!, g_Image: self.g_index.popLast()!, h_Image: self.h_index.popLast()!)
+                collageObjects.append(newCollageObject)
+            } else {
+                print("ERROR! Can't make ARRefImg or CollageObject! Raw RefImg was nil!")
+            }
             
-            collageObjects[index].ARAnchor = ARRefImg
-            collageObjects[index].UIAnchor = anchors[index]
-            collageObjects[index].a_Image = a_index[index]
-            collageObjects[index].b_Image = b_index[index]
-            collageObjects[index].c_Image = c_index[index]
-            collageObjects[index].d_Image = d_index[index]
-            collageObjects[index].e_Image = e_index[index]
-            collageObjects[index].f_Image = f_index[index]
-            collageObjects[index].g_Image = g_index[index]
-            collageObjects[index].h_Image = h_index[index]
-            
-            index += 1
+            //Prints the number of collage objects in the master array, per itteration
+            print("CollageObject Array Count: \(self.collageObjects.count)")
         }
-        
-            self.setupImageDetection()
-            
-            if let configuration = imageConfiguration {
-                sceneView.session.run(configuration)
-                
-        
-            } //END if let
-       // } //END for anchor
-    } //END supplyClustersToAR()
+    }
+    
+//    // passes Anchor image array as well as collage arrays
+//    func supplyClustersToAR() {
+//        var index = 0
+//
+//        // laod into collageOIbjects class
+//
+//        //for anchor in anchors {
+//           // var anchorImage = anchor
+//           // var aImage = a[index]
+//        //var counter = 0
+//
+//        for anchor in anchors{
+//
+//            guard let cgImg = anchors[index].cgImage else { return }
+//            let ARRefImg = ARReferenceImage(cgImg, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762) //3 inches in meters
+//
+//            //collageObjects[index].ARAnchor = ARRefImg
+//            collageObjects[index].UIAnchor = anchors[index]
+//            collageObjects[index].a_Image = a_index[index]
+//            collageObjects[index].b_Image = b_index[index]
+//            collageObjects[index].c_Image = c_index[index]
+//            collageObjects[index].d_Image = d_index[index]
+//            collageObjects[index].e_Image = e_index[index]
+//            collageObjects[index].f_Image = f_index[index]
+//            collageObjects[index].g_Image = g_index[index]
+//            collageObjects[index].h_Image = h_index[index]
+//
+//            index += 1
+//        }
+//
+//            self.setupImageDetection()
+//
+//            if let configuration = imageConfiguration {
+//                sceneView.session.run(configuration)
+//
+//
+//            } //END if let
+//       // } //END for anchor
+//    } //END supplyClustersToAR()
     
     //Handles a found IMAGE
-    func handleFoundImage(_ imageAnchor: ARImageAnchor, _ node: SCNNode, anchorIndex: Int, collageName: String) {
-        let name = imageAnchor.referenceImage.name!
+    func handleFoundImage(_ imageAnchor: ARImageAnchor, _ node: SCNNode, collageName: String) {
+        //let name = imageAnchor.referenceImage.name!
         var topRowPopulated = false //Used for title positioning above collage
-        print("Found image: \(name)")
+        //print("Found image: \(name)")
+        var collageIndex = -1
+        var collageCount = 0
         
         let size = imageAnchor.referenceImage.physicalSize
         let sizeBig = CGSize(width: size.width * 1.25, height: size.height * 1.25)
@@ -300,53 +344,92 @@ class ARViewController: UIViewController {
             node.opacity = 1
             //print("Image matches size")
             
-            
-            if a_index[anchorIndex] != nil {
-                //Currently working on telling if a collage image exists at the location of
-                //the Anchor index
+            for _ in collageObjects {
+                if collageObjects[collageCount].ARAnchor == imageAnchor.referenceImage {
+                    collageIndex = collageCount
+                    print("IMAGE MATCHED WITH COLLAGEOBJECTS ARRAY!")
+                }
+                collageCount += 1
             }
             
+            let name = collageObjects[collageIndex].title
             
             //Adds any applicable collage images
-            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 0) {
+            if let collageNode = makeCollageImage(image: collageObjects[collageIndex].a_Image, size: size, name: name, positionIndex: 0) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
                 topRowPopulated = true //Will shift the title up later
             }
-            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 1) {
+            if let collageNode = makeCollageImage(image: collageObjects[collageIndex].b_Image, size: size, name: name, positionIndex: 1) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
                 topRowPopulated = true //Will shift the title up later
             }
-            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 2) {
+            if let collageNode = makeCollageImage(image: collageObjects[collageIndex].c_Image, size: size, name: name, positionIndex: 2) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
                 topRowPopulated = true //Will shift the title up later
             }
-            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 3) {
+            if let collageNode = makeCollageImage(image: collageObjects[collageIndex].d_Image, size: size, name: name, positionIndex: 3) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
             }
-            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 4) {
+            if let collageNode = makeCollageImage(image: collageObjects[collageIndex].e_Image, size: size, name: name, positionIndex: 4) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
             }
-            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 5) {
+            if let collageNode = makeCollageImage(image: collageObjects[collageIndex].f_Image, size: size, name: name, positionIndex: 5) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
             }
-            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 6) {
+            if let collageNode = makeCollageImage(image: collageObjects[collageIndex].g_Image, size: size, name: name, positionIndex: 6) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
             }
-            if let collageNode = makeCollageImage(size: size, name: name, collageIndex: 7) {
+            if let collageNode = makeCollageImage(image: collageObjects[collageIndex].h_Image, size: size, name: name, positionIndex: 7) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
             }
             
+
+//            if let collageNode = makeCollageImage(size: size, name: name, positionIndex: 0) {
+//                imageNode.addChildNode(collageNode)
+//                imageNode.opacity = 1
+//                topRowPopulated = true //Will shift the title up later
+//            }
+//            if let collageNode = makeCollageImage(size: size, name: name, positionIndex: 1) {
+//                imageNode.addChildNode(collageNode)
+//                imageNode.opacity = 1
+//                topRowPopulated = true //Will shift the title up later
+//            }
+//            if let collageNode = makeCollageImage(size: size, name: name, positionIndex: 2) {
+//                imageNode.addChildNode(collageNode)
+//                imageNode.opacity = 1
+//                topRowPopulated = true //Will shift the title up later
+//            }
+//            if let collageNode = makeCollageImage(size: size, name: name, positionIndex: 3) {
+//                imageNode.addChildNode(collageNode)
+//                imageNode.opacity = 1
+//            }
+//            if let collageNode = makeCollageImage(size: size, name: name, positionIndex: 4) {
+//                imageNode.addChildNode(collageNode)
+//                imageNode.opacity = 1
+//            }
+//            if let collageNode = makeCollageImage(size: size, name: name, positionIndex: 5) {
+//                imageNode.addChildNode(collageNode)
+//                imageNode.opacity = 1
+//            }
+//            if let collageNode = makeCollageImage(size: size, name: name, positionIndex: 6) {
+//                imageNode.addChildNode(collageNode)
+//                imageNode.opacity = 1
+//            }
+//            if let collageNode = makeCollageImage(size: size, name: name, positionIndex: 7) {
+//                imageNode.addChildNode(collageNode)
+//                imageNode.opacity = 1
+//            }
+            
             //Adds title text
-            //NOTE: The name string will be pulled from parse later - Travis
-            let text = SCNText(string: imageAnchor.referenceImage.name, extrusionDepth: 0.001)
+            let text = SCNText(string: name, extrusionDepth: 0.001)
             text.font = UIFont.systemFont(ofSize: 1.0)
             text.flatness = 0.005
             text.firstMaterial?.diffuse.contents = UIColor.white
@@ -354,19 +437,24 @@ class ARViewController: UIViewController {
             let fontScale = Float(0.04)
             textNode.scale = SCNVector3(fontScale, fontScale, fontScale)
             
-            //Offsets the text y position based on collage image placements
-            if topRowPopulated {
-                textNode.position.y += Float(fontScale) + Float(0.03)
-            } else {
-                textNode.position.y += Float(fontScale) + Float(0.06)
-            }
-            
             //Centers the Text
             let (min, max) = textNode.boundingBox
             let dx = min.x + 0.5 * (max.x - min.x)
             let dy = min.y + 0.5 * (max.y - min.y)
             let dz = min.z + 0.5 * (max.z - min.z)
             textNode.pivot = SCNMatrix4MakeTranslation(dx, dy, dz)
+            
+//            //Creates a copy of what the top title position would be
+//            var topTitlePos = textNode.position.y
+//            topTitlePos += Float(fontScale) + Float(0.10)
+//            print("\(topTitlePos))")
+            
+            //Offsets the text y position based on collage image placements
+            if topRowPopulated {
+                textNode.position.y = Float(0.15)
+            } else {
+                textNode.position.y = Float(0.06)
+            }
             
             //let (_, max) = textNode.boundingBox
             //textNode.position.x -= (Float(max.x) / 2.0)
@@ -394,7 +482,7 @@ class ARViewController: UIViewController {
         func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
             DispatchQueue.main.async {} //Hide things callback
             if let imageAnchor = anchor as? ARImageAnchor {
-                handleFoundImage(imageAnchor, node, anchorIndex: -1, collageName: "anchor")
+                handleFoundImage(imageAnchor, node, collageName: "anchor")
                 /*
             } else if let objectAnchor = anchor as? ARObjectAnchor { //This is for finding objects, which probably we won't need
                 //handleFoundObject(ObjectAnchor, node)
@@ -420,7 +508,7 @@ class ARViewController: UIViewController {
             
         }
         
-        private func makeCollageImage(size: CGSize, name: String, collageIndex: Int) -> SCNNode? {
+private func makeCollageImage(image: UIImage, size: CGSize, name: String, positionIndex: Int) -> SCNNode? {
             
             //Set the box size to the length
             var boxSize = size.width
@@ -431,19 +519,19 @@ class ARViewController: UIViewController {
             
             //print("Preparing size: width: \(size.width) height: \(size.height)")
             let newImage = SCNPlane(width: boxSize, height: boxSize)
-            let tempImage = UIImage(named: name + "_" + String(collageIndex))
-            if (tempImage == nil) {
-                return nil
-            }
-            
+//            let tempImage = UIImage(named: name + "_" + String(positionIndex))
+//            if (tempImage == nil) {
+//                return nil
+//            }
+    
             //Going to need a switch statement to determine which letter index array to look in for the UIImage
             
             //name paramater will be changed to array index location
             //index location will be specifying collageIndex
             
             //newImage.firstMaterial?.diffuse.contents = //Gets image associated with anchor image  - NEW LINE
-            //newImage.firstMaterial?.diffuse.contents = UIImage(named: name + "_" + String(index)) - OLD LINE
-            print("Adding Collage Image: \(name + "_" + String(collageIndex))")
+            newImage.firstMaterial?.diffuse.contents = image
+            print("Adding Collage Image...")
             newImage.firstMaterial?.lightingModel = .constant
             let newImageNode = SCNNode(geometry: newImage)
             newImageNode.eulerAngles.x = -.pi / 2
@@ -451,44 +539,44 @@ class ARViewController: UIViewController {
             let spacing = 0.01
             
             //Based on the index, find the relative offset position
-            switch collageIndex {
+            switch positionIndex {
             case 0:
-                //newImageNode.rotation.w = 0.0
+                newImageNode.rotation.w = 0.0
                 newImageNode.position.x -= Float(boxSize) + Float(spacing)
                 newImageNode.position.y += Float(boxSize) + Float(spacing)
                 //newImageNode.position.z = 0.0
             case 1:
-                //newImageNode.rotation.w = 0.0
+                newImageNode.rotation.w = 0.0
                 //newImageNode.position.x = 0.0
                 newImageNode.position.y += Float(boxSize) + Float(spacing)
                 //newImageNode.position.z = 0.0
             case 2:
-                //newImageNode.rotation.w = 0.0
+                newImageNode.rotation.w = 0.0
                 newImageNode.position.x += Float(boxSize) + Float(spacing)
                 newImageNode.position.y += Float(boxSize) + Float(spacing)
                 //newImageNode.position.z = 0.0
             case 3:
-                //newImageNode.rotation.w = 0.0
+                newImageNode.rotation.w = 0.0
                 newImageNode.position.x += Float(boxSize) + Float(spacing)
                 //newImageNode.position.y = 0.0
                 //newImageNode.position.z = 0.0
             case 4:
-                //newImageNode.rotation.w = 0.0
+                newImageNode.rotation.w = 0.0
                 newImageNode.position.x += Float(boxSize) + Float(spacing)
                 newImageNode.position.y -= Float(boxSize) + Float(spacing)
                 //newImageNode.position.z = 0.0
             case 5:
-                //newImageNode.rotation.w = 0.0
+                newImageNode.rotation.w = 0.0
                 //newImageNode.position.x = 0.0
                 newImageNode.position.y -= Float(boxSize) + Float(spacing)
                 //newImageNode.position.z = 0.0
             case 6:
-                //newImageNode.rotation.w = 0.0
+                newImageNode.rotation.w = 0.0
                 newImageNode.position.x -= Float(boxSize) + Float(spacing)
                 newImageNode.position.y -= Float(boxSize) + Float(spacing)
                 //newImageNode.position.z = 0.0
             case 7:
-                //newImageNode.rotation.w = 0.0
+                newImageNode.rotation.w = 0.0
                 newImageNode.position.x -= Float(boxSize) + Float(spacing)
                 //newImageNode.position.y = 0.0
                 //newImageNode.position.z = 0.0
@@ -503,18 +591,6 @@ class ARViewController: UIViewController {
             
         } //END makeCollageImage()
 
-    /*
-    func letterIndexToInt() {
-        var conv = -1
-        
-        switch <#value#> {
-        case <#pattern#>:
-            <#code#>
-        default:
-            <#code#>
-        }
-    } //END letterIndexToInt()
- */
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user

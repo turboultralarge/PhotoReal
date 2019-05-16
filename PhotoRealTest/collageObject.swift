@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//import UIKit
 import ARKit
 
 
@@ -24,7 +25,7 @@ class collageObject {
     var g_Image: UIImage
     var h_Image: UIImage
     
-    init(title: String, ARAnchor: ARReferenceImage, UIAnchor: UIImage, a_Image: UIImage, b_Image: UIImage, c_Image: UIImage, d_Image: UIImage, e_Image: UIImage, f_Image: UIImage, g_Image: UIImage, h_Image: UIImage)
+    init(title: String = "DefaultTitle", ARAnchor: ARReferenceImage, UIAnchor: UIImage, a_Image: UIImage, b_Image: UIImage, c_Image: UIImage, d_Image: UIImage, e_Image: UIImage, f_Image: UIImage, g_Image: UIImage, h_Image: UIImage)
     {
         self.title = title
         self.ARAnchor = ARAnchor
