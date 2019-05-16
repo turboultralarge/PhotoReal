@@ -147,8 +147,6 @@ class ARViewController: UIViewController {
     func getData(){
         for objects in self.clusters{
             
-            
-            
             // Get Anchor
             if let userPicture = objects.value(forKey: "AnchorImage") as? PFFileObject {
                 userPicture.getDataInBackground(block: {
