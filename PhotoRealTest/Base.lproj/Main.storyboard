@@ -403,42 +403,59 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R4j-3D-Wdi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="614"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JL6-4p-4Wf">
-                                            <size key="itemSize" width="182" height="178"/>
+                                            <size key="itemSize" width="180" height="180"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="100"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="B1O-zZ-Jgd" customClass="LibraryCollectionViewCell" customModule="PhotoReal" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="182" height="178"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="182" height="178"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="highlight_purple" translatesAutoresizingMaskIntoConstraints="NO" id="DJN-TF-m8G">
-                                                            <rect key="frame" x="0.0" y="0.0" width="182" height="178"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_loading" translatesAutoresizingMaskIntoConstraints="NO" id="DJN-TF-m8G">
+                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <gestureRecognizers/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="180" id="eXR-lA-b6r"/>
+                                                                <constraint firstAttribute="width" constant="180" id="krv-0w-02l"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="25"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                             <connections>
                                                                 <outletCollection property="gestureRecognizers" destination="fB9-VD-MZj" appends="YES" id="QCK-Rp-Srj"/>
                                                             </connections>
                                                         </imageView>
                                                     </subviews>
                                                 </view>
+                                                <constraints>
+                                                    <constraint firstItem="DJN-TF-m8G" firstAttribute="centerY" secondItem="B1O-zZ-Jgd" secondAttribute="centerY" id="Csv-eo-yb8"/>
+                                                    <constraint firstItem="DJN-TF-m8G" firstAttribute="centerX" secondItem="B1O-zZ-Jgd" secondAttribute="centerX" id="j4P-Oc-ybQ"/>
+                                                </constraints>
                                                 <connections>
                                                     <outlet property="anchorView" destination="DJN-TF-m8G" id="VdF-wt-1fe"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Qw9-z7-LJo">
+                                            <rect key="frame" x="0.0" y="180" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionReusableView>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -451,6 +468,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="LibraryCollection" destination="R4j-3D-Wdi" id="RjL-IK-Zc3"/>
                     </connections>
@@ -486,6 +504,7 @@
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="A_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="T8L-OV-ur1" userLabel="A_Index">
                                 <rect key="frame" x="28" y="91" width="100" height="100"/>
+                                <color key="backgroundColor" red="1" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -657,7 +676,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" restorationIdentifier="Anchor" image="anchor_image" translatesAutoresizingMaskIntoConstraints="NO" id="RoV-f0-c7k" userLabel="Anchor">
-                                <rect key="frame" x="137.5" y="275" width="100" height="132"/>
+                                <rect key="frame" x="137.5" y="243" width="100" height="100"/>
                                 <color key="tintColor" red="0.14901960780000001" green="0.78039215689999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -667,7 +686,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="A_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="UrV-Hs-CeN" userLabel="A_Index">
-                                <rect key="frame" x="29" y="137" width="100" height="132"/>
+                                <rect key="frame" x="29" y="137" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -677,7 +696,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="G_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="LlJ-lX-XLM" userLabel="H_Index">
-                                <rect key="frame" x="29" y="275" width="100" height="132"/>
+                                <rect key="frame" x="29" y="243" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -687,7 +706,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="H_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="N0f-8b-D7S" userLabel="F_Index">
-                                <rect key="frame" x="137.5" y="418" width="100" height="132"/>
+                                <rect key="frame" x="137.5" y="354" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -697,7 +716,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="D_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="row-V2-PDb" userLabel="D_Index">
-                                <rect key="frame" x="247.5" y="275" width="100" height="132"/>
+                                <rect key="frame" x="247.5" y="243" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -707,7 +726,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="C_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="jaT-pf-Mzz" userLabel="C_Index">
-                                <rect key="frame" x="247.5" y="137" width="100" height="132"/>
+                                <rect key="frame" x="247.5" y="137" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -717,7 +736,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="E_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="9jB-t2-6ky" userLabel="E_Index">
-                                <rect key="frame" x="247.5" y="417" width="100" height="132"/>
+                                <rect key="frame" x="247.5" y="353" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -727,7 +746,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="B_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="atx-5a-n79" userLabel="B_Index">
-                                <rect key="frame" x="137.5" y="137" width="100" height="132"/>
+                                <rect key="frame" x="137.5" y="137" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -737,7 +756,7 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="F_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="lqH-cb-fmk" userLabel="G_Index">
-                                <rect key="frame" x="29" y="417" width="100" height="132"/>
+                                <rect key="frame" x="29" y="353" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -1100,6 +1119,6 @@
         <image name="add_image" width="300" height="300"/>
         <image name="anchor" width="240" height="240"/>
         <image name="anchor_image" width="300" height="300"/>
-        <image name="highlight_purple" width="1024" height="1024"/>
+        <image name="static_loading" width="512" height="512"/>
     </resources>
 </document>
