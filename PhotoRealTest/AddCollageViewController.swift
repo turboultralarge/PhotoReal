@@ -64,7 +64,7 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
         let F = F_Image.image!.pngData()
         let F_file = PFFileObject(data: F!)
         
-        let G = A_Image.image!.pngData()
+        let G = G_Image.image!.pngData()
         let G_file = PFFileObject(data: G!)
         
         let H = H_Image.image!.pngData()
