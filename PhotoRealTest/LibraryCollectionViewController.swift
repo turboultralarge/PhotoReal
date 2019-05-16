@@ -84,10 +84,10 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //detailsViewController.collageID = collageID.text
         let destinationVC = segue.destination as! detailsViewController
         destinationVC.collageID = collageID
-    }
+    }*/
   }
 

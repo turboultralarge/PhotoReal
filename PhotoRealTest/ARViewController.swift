@@ -73,7 +73,7 @@ class ARViewController: UIViewController {
         }
         
         // 1
-        let delayInSeconds = 2.0
+        let delayInSeconds = 3.0
         
         // 2  waits for query to finish before running code
         DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) { [weak self] in
@@ -151,8 +151,8 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let a = UIImage(data:imageData)
                                     self.a_index.append(a!)
-                                    // print("a_index accepted")
-                                    //   print("Number of A_Index loaded: \(self.a_index.count)" )
+                                    print("a_index accepted")
+                                    print("Number of A_Index loaded: \(self.a_index.count)" )
                                 }
                             })
                         }
@@ -163,8 +163,8 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let b = UIImage(data:imageData)
                                     self.b_index.append(b!)
-                                    //print("b_index accepted")
-                                    //print("Number of B_Index loaded: \(self.b_index.count)" )
+                                    print("b_index accepted")
+                                    print("Number of B_Index loaded: \(self.b_index.count)" )
                                 }
                             })
                         }
@@ -175,8 +175,8 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let c = UIImage(data:imageData)
                                     self.c_index.append(c!)
-                                    // print("c_index accepted")
-                                    // print("Number of C_Index loaded: \(self.c_index.count)" )
+                                    print("c_index accepted")
+                                    print("Number of C_Index loaded: \(self.c_index.count)" )
                                 }
                             })
                         }
@@ -187,8 +187,8 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let d = UIImage(data:imageData)
                                     self.d_index.append(d!)
-                                    // print("d_index accepted")
-                                    //print("Number of D_Index loaded: \(self.d_index.count)" )
+                                    print("d_index accepted")
+                                    print("Number of D_Index loaded: \(self.d_index.count)" )
                                 }
                             })
                         }
@@ -199,8 +199,8 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let e = UIImage(data:imageData)
                                     self.e_index.append(e!)
-                                    // print("e_index accepted")
-                                    //print("Number of E_Index loaded: \(self.e_index.count)" )
+                                    print("e_index accepted")
+                                    print("Number of E_Index loaded: \(self.e_index.count)" )
                                 }
                             })
                         }
@@ -211,8 +211,8 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let f = UIImage(data:imageData)
                                     self.f_index.append(f!)
-                                    // print("f_index accepted")
-                                    //    print("Number of F_Index loaded: \(self.f_index.count)" )
+                                    print("f_index accepted")
+                                    print("Number of F_Index loaded: \(self.f_index.count)" )
                                 }
                             })
                         }
@@ -223,8 +223,8 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let g = UIImage(data:imageData)
                                     self.g_index.append(g!)
-                                    //print("g_index accepted")
-                                    //    print("Number of G_Index loaded: \(self.g_index.count)" )
+                                    print("g_index accepted")
+                                    print("Number of G_Index loaded: \(self.g_index.count)" )
                                 }
                             })
                         }
@@ -235,8 +235,8 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let h = UIImage(data:imageData)
                                     self.h_index.append(h!)
-                                    //print("h_index accepted")
-                                    // print("Number of H_Index loaded: \(self.h_index.count)" )
+                                    print("h_index accepted")
+                                    print("Number of H_Index loaded: \(self.h_index.count)" )
                                 }
                             })
                         }
