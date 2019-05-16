@@ -502,7 +502,7 @@
                                     <constraint firstAttribute="height" constant="100" id="tqS-ul-Atq"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="A_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="T8L-OV-ur1" userLabel="A_Index">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="A_Index" image="alpha" translatesAutoresizingMaskIntoConstraints="NO" id="T8L-OV-ur1" userLabel="A_Index">
                                 <rect key="frame" x="28" y="91" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.17647352814674377" green="0.17646530270576477" blue="0.17647087574005127" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -513,7 +513,7 @@
                                     <constraint firstAttribute="width" secondItem="T8L-OV-ur1" secondAttribute="height" multiplier="1:1" id="VKW-CI-A3D"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="G_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="Qnu-67-YeW" userLabel="H_Index">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="G_Index" image="alpha" translatesAutoresizingMaskIntoConstraints="NO" id="Qnu-67-YeW" userLabel="H_Index">
                                 <rect key="frame" x="28" y="207" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
@@ -523,7 +523,7 @@
                                     <constraint firstAttribute="height" constant="100" id="FZf-xu-5kk"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="H_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="50B-cy-js1" userLabel="F_Index">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="H_Index" image="alpha" translatesAutoresizingMaskIntoConstraints="NO" id="50B-cy-js1" userLabel="F_Index">
                                 <rect key="frame" x="137" y="324" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
@@ -533,7 +533,7 @@
                                     <constraint firstAttribute="height" constant="100" id="w3v-NB-Nym"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="D_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="3r9-D2-3b5" userLabel="D_Index">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="D_Index" image="alpha" translatesAutoresizingMaskIntoConstraints="NO" id="3r9-D2-3b5" userLabel="D_Index">
                                 <rect key="frame" x="247" y="207" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
@@ -543,7 +543,7 @@
                                     <constraint firstAttribute="height" constant="100" id="p1g-m6-fLU"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="C_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="KBn-dm-xRY" userLabel="C_Index">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="C_Index" image="alpha" translatesAutoresizingMaskIntoConstraints="NO" id="KBn-dm-xRY" userLabel="C_Index">
                                 <rect key="frame" x="247" y="91" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
@@ -553,7 +553,7 @@
                                     <constraint firstAttribute="width" constant="100" id="boU-zh-p1j"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="E_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="LGO-32-kKj" userLabel="E_Index">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="E_Index" image="alpha" translatesAutoresizingMaskIntoConstraints="NO" id="LGO-32-kKj" userLabel="E_Index">
                                 <rect key="frame" x="247" y="323" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
@@ -563,7 +563,7 @@
                                     <constraint firstAttribute="width" constant="100" id="p06-ii-1Np"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="B_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="Mrc-kW-wpw" userLabel="B_Index">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="B_Index" image="alpha" translatesAutoresizingMaskIntoConstraints="NO" id="Mrc-kW-wpw" userLabel="B_Index">
                                 <rect key="frame" x="137" y="91" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
@@ -573,7 +573,7 @@
                                     <constraint firstAttribute="width" constant="100" id="twU-ka-QUE"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="F_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="hth-yK-HhN" userLabel="G_Index">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="F_Index" image="alpha" translatesAutoresizingMaskIntoConstraints="NO" id="hth-yK-HhN" userLabel="G_Index">
                                 <rect key="frame" x="28" y="323" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
@@ -951,6 +951,7 @@
     <resources>
         <image name="PhotoReal_logo_temp" width="2048" height="2048"/>
         <image name="add_image" width="300" height="300"/>
+        <image name="alpha" width="32" height="32"/>
         <image name="anchor" width="240" height="240"/>
         <image name="anchor_image" width="300" height="300"/>
         <image name="static_loading" width="512" height="512"/>
