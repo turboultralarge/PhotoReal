@@ -17,6 +17,7 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
    // let reuseIdentifier = "cell"
     var clusters = [PFObject]()
     var cellImage = [UIImage]()
+    var collageID = String()
     
     
     override func viewDidLoad() {
@@ -65,6 +66,8 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
         let urlString = imageFile.url!
         let url = URL(string: urlString)!
         
+        collageID = cluster.objectId!
+        
         cell.anchorView.af_setImage(withURL: url)
      
         return cell
@@ -73,12 +76,16 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
     func getData(){
         let query = PFQuery(className: "collage")
         
-        query.includeKeys(["AnchorImage"])
+        query.includeKeys(["AnchorImage", ])
         query.limit = 20
         
         do {clusters = try query.findObjects()}
         catch {}
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        detailsViewController.collageID = collageID.text
     }
   }
 

@@ -10,6 +10,8 @@ import UIKit
 import Parse
 
 class detailsViewController: UIViewController {
+    
+    var collageID = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()

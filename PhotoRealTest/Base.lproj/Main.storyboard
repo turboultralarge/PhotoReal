@@ -104,11 +104,11 @@
             <objects>
                 <viewController restorationIdentifier="AddCollageViewController" storyboardIdentifier="AddCollageViewController" title="AddCollageViewController" id="vfu-U8-Grw" customClass="AddCollageViewController" customModule="PhotoReal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="AddCollageViewController" id="nRE-K3-cnQ" customClass="CreationView" customModule="PhotoReal" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLS-P5-qDR">
-                                <rect key="frame" x="38" y="456" width="300" height="72"/>
+                                <rect key="frame" x="38" y="572" width="300" height="72"/>
                                 <color key="backgroundColor" red="0.56862745098039214" green="0.18431372549019609" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="fhb-U3-d4d"/>
@@ -127,14 +127,14 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oac-fq-60a">
-                                <rect key="frame" x="27" y="49" width="320" height="42"/>
+                                <rect key="frame" x="27" y="69" width="320" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" restorationIdentifier="Anchor" image="anchor_image" translatesAutoresizingMaskIntoConstraints="NO" id="WGc-rl-rqA" userLabel="Anchor">
-                                <rect key="frame" x="139" y="217" width="100" height="100"/>
+                                <rect key="frame" x="140" y="282" width="100" height="100"/>
                                 <color key="tintColor" red="0.14901960784313725" green="0.7803921568627451" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -147,7 +147,7 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="A_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="xl0-KM-R88" userLabel="A_Index">
-                                <rect key="frame" x="29" y="112" width="100" height="100"/>
+                                <rect key="frame" x="30" y="177" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -160,7 +160,7 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="G_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="QAx-fk-i4x" userLabel="G_Index">
-                                <rect key="frame" x="29" y="325" width="100" height="100"/>
+                                <rect key="frame" x="30" y="390" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -173,7 +173,7 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="H_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="7Ip-w3-BlO" userLabel="H_Index">
-                                <rect key="frame" x="29" y="217" width="100" height="100"/>
+                                <rect key="frame" x="30" y="282" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -186,7 +186,7 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="D_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="gZk-XU-D9n" userLabel="D_Index">
-                                <rect key="frame" x="245" y="217" width="100" height="100"/>
+                                <rect key="frame" x="246" y="282" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -199,7 +199,7 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="C_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="WVe-M5-EDE" userLabel="C_Index">
-                                <rect key="frame" x="245" y="112" width="100" height="100"/>
+                                <rect key="frame" x="246" y="177" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -212,7 +212,7 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="E_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="dVR-Np-su1" userLabel="E_Index">
-                                <rect key="frame" x="245" y="325" width="100" height="100"/>
+                                <rect key="frame" x="246" y="390" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -225,7 +225,7 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="B_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="yvk-Tw-rXf" userLabel="B_Index">
-                                <rect key="frame" x="137" y="112" width="100" height="100"/>
+                                <rect key="frame" x="138" y="177" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -238,7 +238,7 @@
                                 </connections>
                             </imageView>
                             <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="F_Index" image="add_image" translatesAutoresizingMaskIntoConstraints="NO" id="9Lh-Co-dHy" userLabel="F_Index">
-                                <rect key="frame" x="137" y="325" width="100" height="100"/>
+                                <rect key="frame" x="138" y="390" width="100" height="100"/>
                                 <color key="tintColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -253,7 +253,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="QAx-fk-i4x" firstAttribute="width" secondItem="xl0-KM-R88" secondAttribute="width" id="0Y5-RR-10k"/>
-                            <constraint firstItem="oac-fq-60a" firstAttribute="centerX" secondItem="yvk-Tw-rXf" secondAttribute="centerX" id="34R-hI-zRd"/>
+                            <constraint firstItem="oac-fq-60a" firstAttribute="centerX" secondItem="yvk-Tw-rXf" secondAttribute="centerX" constant="-1" id="34R-hI-zRd"/>
                             <constraint firstItem="3uU-hQ-fwU" firstAttribute="trailing" secondItem="MLS-P5-qDR" secondAttribute="trailing" constant="37" id="3EJ-me-v95"/>
                             <constraint firstItem="xl0-KM-R88" firstAttribute="centerY" secondItem="yvk-Tw-rXf" secondAttribute="centerY" id="4AZ-le-lJL"/>
                             <constraint firstItem="9Lh-Co-dHy" firstAttribute="leading" secondItem="QAx-fk-i4x" secondAttribute="trailing" constant="8" id="4wi-eH-Qee"/>
@@ -271,28 +271,28 @@
                             <constraint firstItem="QAx-fk-i4x" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="EAj-l9-hfo"/>
                             <constraint firstItem="QAx-fk-i4x" firstAttribute="width" secondItem="xl0-KM-R88" secondAttribute="width" id="Equ-Xp-nDP"/>
                             <constraint firstItem="dVR-Np-su1" firstAttribute="width" secondItem="xl0-KM-R88" secondAttribute="width" id="Fcw-GG-NAd"/>
-                            <constraint firstItem="MLS-P5-qDR" firstAttribute="top" secondItem="QAx-fk-i4x" secondAttribute="bottom" constant="31" id="GQv-Ce-2c9"/>
+                            <constraint firstItem="MLS-P5-qDR" firstAttribute="top" secondItem="QAx-fk-i4x" secondAttribute="bottom" constant="82" id="GQv-Ce-2c9"/>
                             <constraint firstItem="WVe-M5-EDE" firstAttribute="width" secondItem="xl0-KM-R88" secondAttribute="width" id="JIV-WP-9ff"/>
                             <constraint firstItem="yvk-Tw-rXf" firstAttribute="centerY" secondItem="WVe-M5-EDE" secondAttribute="centerY" id="JxI-RP-AsS"/>
-                            <constraint firstItem="WVe-M5-EDE" firstAttribute="top" secondItem="oac-fq-60a" secondAttribute="bottom" constant="21" id="KtS-vA-toM"/>
+                            <constraint firstItem="WVe-M5-EDE" firstAttribute="top" secondItem="oac-fq-60a" secondAttribute="bottom" constant="48" id="KtS-vA-toM"/>
                             <constraint firstItem="QAx-fk-i4x" firstAttribute="top" secondItem="7Ip-w3-BlO" secondAttribute="bottom" constant="8" id="KtV-W2-uss"/>
-                            <constraint firstItem="QAx-fk-i4x" firstAttribute="leading" secondItem="3uU-hQ-fwU" secondAttribute="leading" constant="29" id="L7P-i9-9sT"/>
+                            <constraint firstItem="QAx-fk-i4x" firstAttribute="leading" secondItem="3uU-hQ-fwU" secondAttribute="leading" constant="30" id="L7P-i9-9sT"/>
                             <constraint firstItem="dVR-Np-su1" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="Mxx-rV-QAw"/>
                             <constraint firstItem="gZk-XU-D9n" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="Nb5-SC-HeV"/>
                             <constraint firstItem="WGc-rl-rqA" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="ODf-qp-vG7"/>
                             <constraint firstItem="yvk-Tw-rXf" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="OPq-VQ-4Af"/>
                             <constraint firstItem="gZk-XU-D9n" firstAttribute="leading" secondItem="WGc-rl-rqA" secondAttribute="trailing" constant="6" id="OWF-Mc-4sW"/>
-                            <constraint firstItem="3uU-hQ-fwU" firstAttribute="bottom" secondItem="oac-fq-60a" secondAttribute="bottom" constant="460" id="Obc-ox-Luh"/>
+                            <constraint firstItem="3uU-hQ-fwU" firstAttribute="bottom" secondItem="oac-fq-60a" secondAttribute="bottom" constant="538" id="Obc-ox-Luh"/>
                             <constraint firstItem="dVR-Np-su1" firstAttribute="leading" secondItem="9Lh-Co-dHy" secondAttribute="trailing" constant="8" id="Phw-MQ-hmc"/>
-                            <constraint firstItem="xl0-KM-R88" firstAttribute="leading" secondItem="3uU-hQ-fwU" secondAttribute="leading" constant="29" id="Q75-xt-Yp8"/>
+                            <constraint firstItem="xl0-KM-R88" firstAttribute="leading" secondItem="3uU-hQ-fwU" secondAttribute="leading" constant="30" id="Q75-xt-Yp8"/>
                             <constraint firstItem="gZk-XU-D9n" firstAttribute="top" secondItem="WVe-M5-EDE" secondAttribute="bottom" constant="5" id="REo-rr-PQJ"/>
                             <constraint firstItem="WGc-rl-rqA" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="RUE-zT-iS0"/>
                             <constraint firstItem="gZk-XU-D9n" firstAttribute="width" secondItem="xl0-KM-R88" secondAttribute="width" id="TJe-uS-Xug"/>
                             <constraint firstItem="9Lh-Co-dHy" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="TJi-LV-cxM"/>
                             <constraint firstItem="7Ip-w3-BlO" firstAttribute="top" secondItem="xl0-KM-R88" secondAttribute="bottom" constant="5" id="Uzl-lC-bLu"/>
-                            <constraint firstItem="yvk-Tw-rXf" firstAttribute="top" secondItem="oac-fq-60a" secondAttribute="bottom" constant="21" id="XES-l5-E2J"/>
-                            <constraint firstItem="3uU-hQ-fwU" firstAttribute="trailing" secondItem="dVR-Np-su1" secondAttribute="trailing" constant="30" id="XlE-hr-Ki8"/>
-                            <constraint firstItem="7Ip-w3-BlO" firstAttribute="leading" secondItem="3uU-hQ-fwU" secondAttribute="leading" constant="29" id="Y4M-fM-pwt"/>
+                            <constraint firstItem="yvk-Tw-rXf" firstAttribute="top" secondItem="oac-fq-60a" secondAttribute="bottom" constant="48" id="XES-l5-E2J"/>
+                            <constraint firstItem="3uU-hQ-fwU" firstAttribute="trailing" secondItem="dVR-Np-su1" secondAttribute="trailing" constant="29" id="XlE-hr-Ki8"/>
+                            <constraint firstItem="7Ip-w3-BlO" firstAttribute="leading" secondItem="3uU-hQ-fwU" secondAttribute="leading" constant="30" id="Y4M-fM-pwt"/>
                             <constraint firstItem="yvk-Tw-rXf" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="aeF-eq-g1w"/>
                             <constraint firstItem="dVR-Np-su1" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="bC3-y7-ds0"/>
                             <constraint firstItem="oac-fq-60a" firstAttribute="top" secondItem="3uU-hQ-fwU" secondAttribute="top" constant="49" id="bYc-2u-877"/>
@@ -309,11 +309,11 @@
                             <constraint firstItem="9Lh-Co-dHy" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="jOu-de-KUa"/>
                             <constraint firstItem="QAx-fk-i4x" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="jbw-sa-LiU"/>
                             <constraint firstItem="gZk-XU-D9n" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="kY4-0i-nnx"/>
-                            <constraint firstItem="3uU-hQ-fwU" firstAttribute="trailing" secondItem="gZk-XU-D9n" secondAttribute="trailing" constant="30" id="l32-dm-dSq"/>
+                            <constraint firstItem="3uU-hQ-fwU" firstAttribute="trailing" secondItem="gZk-XU-D9n" secondAttribute="trailing" constant="29" id="l32-dm-dSq"/>
                             <constraint firstItem="WVe-M5-EDE" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="lY0-TZ-Rgf"/>
-                            <constraint firstItem="3uU-hQ-fwU" firstAttribute="trailing" secondItem="WVe-M5-EDE" secondAttribute="trailing" constant="30" id="lq1-rS-pEY"/>
+                            <constraint firstItem="3uU-hQ-fwU" firstAttribute="trailing" secondItem="WVe-M5-EDE" secondAttribute="trailing" constant="29" id="lq1-rS-pEY"/>
                             <constraint firstItem="7Ip-w3-BlO" firstAttribute="height" secondItem="xl0-KM-R88" secondAttribute="height" id="p9t-BH-7j0"/>
-                            <constraint firstItem="xl0-KM-R88" firstAttribute="top" secondItem="oac-fq-60a" secondAttribute="bottom" constant="21" id="pTw-oa-xG4"/>
+                            <constraint firstItem="xl0-KM-R88" firstAttribute="top" secondItem="oac-fq-60a" secondAttribute="bottom" constant="48" id="pTw-oa-xG4"/>
                             <constraint firstItem="WVe-M5-EDE" firstAttribute="leading" secondItem="yvk-Tw-rXf" secondAttribute="trailing" constant="8" id="qk3-gB-gVG"/>
                             <constraint firstItem="dVR-Np-su1" firstAttribute="width" secondItem="xl0-KM-R88" secondAttribute="width" id="sOS-XC-xFz"/>
                             <constraint firstItem="9Lh-Co-dHy" firstAttribute="centerY" secondItem="QAx-fk-i4x" secondAttribute="centerY" id="spW-oM-vgg"/>
@@ -447,7 +447,7 @@
                     <navigationItem key="navigationItem" title="Library" id="DAJ-GF-Tlj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GYF-We-a0r">
                             <connections>
-                                <segue destination="vfu-U8-Grw" kind="show" id="Ejh-uh-U3e"/>
+                                <segue destination="vfu-U8-Grw" kind="presentation" id="Ejh-uh-U3e"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
