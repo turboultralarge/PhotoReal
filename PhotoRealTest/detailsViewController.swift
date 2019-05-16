@@ -13,7 +13,6 @@ import AlamofireImage
 class detailsViewController: UIViewController {
     
     var collageID = String()
-    var cluster = PFObject()
     
     // OUTLETS
 
@@ -33,19 +32,21 @@ class detailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let query = PFQuery(className: "collage")
-        query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index", "Title" ])
-
-        do { cluster = try query.getObjectWithId(collageID)}
-        catch {}
+        print(" collage ID : \(collageID)")
         
-               DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
-        //collageTitle.text = cluster.value(forKey:"Title") as? String
-        let imageFile = self?.cluster["AnchorImage"] as! PFFileObject
-        let urlString = imageFile.url!
-        let url = URL(string: urlString)!
-                self?.anchor.af_setImage(withURL: url)
-        }
+        let query = PFQuery(className: "collage")
+        query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index" ])
+        do { let cluster = try query.getObjectWithId(collageID)
+            
+            let imageFile = cluster["AnchorImage"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            anchor.af_setImage(withURL: url)
+            
+            
+        } catch {}
+        
+        
 
     }
 

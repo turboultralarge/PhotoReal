@@ -24,6 +24,7 @@
 		BD0772452257021600698241 /* AddCollageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0772442257021600698241 /* AddCollageViewController.swift */; };
 		BDA77239228B9CD6007C7F8F /* collageObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA77238228B9CD5007C7F8F /* collageObject.swift */; };
 		BDA7723D228D053D007C7F8F /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7723C228D053D007C7F8F /* detailsViewController.swift */; };
+		BDA7723F228D60CE007C7F8F /* collageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA7723E228D60CE007C7F8F /* collageDetailsViewController.swift */; };
 		C68E5B0932A69C3C1EF2DD83 /* Pods_PhotoReal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CFC69CF5339CC5A443ABB /* Pods_PhotoReal.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		BD0772442257021600698241 /* AddCollageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollageViewController.swift; sourceTree = "<group>"; };
 		BDA77238228B9CD5007C7F8F /* collageObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collageObject.swift; sourceTree = "<group>"; };
 		BDA7723C228D053D007C7F8F /* detailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
+		BDA7723E228D60CE007C7F8F /* collageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collageDetailsViewController.swift; sourceTree = "<group>"; };
 		EA5B86B3370BBE2F991C0283 /* Pods-PhotoRealUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoRealUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoRealUITests/Pods-PhotoRealUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F16CFC69CF5339CC5A443ABB /* Pods_PhotoReal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoReal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -135,6 +137,7 @@
 				24D09662225556D900AFA230 /* ARViewController.swift */,
 				BDA77238228B9CD5007C7F8F /* collageObject.swift */,
 				24D09664225556D900AFA230 /* Main.storyboard */,
+				BDA7723E228D60CE007C7F8F /* collageDetailsViewController.swift */,
 				BDA7723C228D053D007C7F8F /* detailsViewController.swift */,
 				24D09669225556DA00AFA230 /* LaunchScreen.storyboard */,
 				24D09667225556DA00AFA230 /* Assets.xcassets */,
@@ -431,6 +434,7 @@
 				24D0965F225556D900AFA230 /* AppDelegate.swift in Sources */,
 				BDA7723D228D053D007C7F8F /* detailsViewController.swift in Sources */,
 				5071537722603C8900FD6E97 /* SettingsViewController.swift in Sources */,
+				BDA7723F228D60CE007C7F8F /* collageDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,14 +611,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47KAJSV75C;
+				DEVELOPMENT_TEAM = 85MRBN9339;
 				INFOPLIST_FILE = PhotoRealTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = core.travis.TurboUltraLarge.PhotoRealTest;
+				PRODUCT_BUNDLE_IDENTIFIER = core.TurboUltraLarge.PhotoRealTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -627,14 +631,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 47KAJSV75C;
+				DEVELOPMENT_TEAM = 85MRBN9339;
 				INFOPLIST_FILE = PhotoRealTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = core.travis.TurboUltraLarge.PhotoRealTest;
+				PRODUCT_BUNDLE_IDENTIFIER = core.TurboUltraLarge.PhotoRealTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

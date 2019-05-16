@@ -14,6 +14,18 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
     
     @IBOutlet var LibraryCollection: UICollectionView!
     
+    @IBOutlet var onTap: UITapGestureRecognizer!
+    
+    @IBAction func onImage(_ sender: Any) {
+        
+        //let vc = detailsViewController()
+        //vc.collageID = clusters[1].objectId!
+        print("ow!")
+        
+        performSegue(withIdentifier: "showDetails", sender: Any?.self)
+        
+    }
+    
    // let reuseIdentifier = "cell"
     var clusters = [PFObject]()
     var cellImage = [UIImage]()
@@ -89,5 +101,17 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
         let destinationVC = segue.destination as! detailsViewController
         destinationVC.collageID = collageID
     }*/
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.destination is detailsViewController
+        {
+            let vc = segue.destination as? detailsViewController
+            //vc?.collageID = collageID
+            vc?.collageID = clusters[0].objectId!
+        }
+    }
+
   }
+
 
