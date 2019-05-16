@@ -282,7 +282,7 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
         picker.allowsEditing = true
         
         if UIImagePickerController.isSourceTypeAvailable(.camera){
-            picker.sourceType = .camera
+            picker.sourceType = .photoLibrary
             
         }else {
             picker.sourceType = .photoLibrary
