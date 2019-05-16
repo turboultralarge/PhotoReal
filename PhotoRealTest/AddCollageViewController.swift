@@ -274,6 +274,8 @@ class AddCollageViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func callPicker(){
+        
+        
         //  Allow user to select or take a picture
         let picker = UIImagePickerController()
         picker.delegate = self

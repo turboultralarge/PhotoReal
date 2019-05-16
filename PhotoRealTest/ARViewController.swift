@@ -148,7 +148,7 @@ class ARViewController: UIViewController {
         for objects in self.clusters{
             
             
-            
+            DispatchQueue.main.syncAfter(deadline: .now() + 0.02) {
             // Get Anchor
             if let userPicture = objects.value(forKey: "AnchorImage") as? PFFileObject {
                 userPicture.getDataInBackground(block: {
@@ -156,7 +156,7 @@ class ARViewController: UIViewController {
                     if (error == nil) {
                         let anchor = UIImage(data:imageData)
                         self.anchors.append(anchor!)
-                        
+                    }
                         
                         
                         // Get A
