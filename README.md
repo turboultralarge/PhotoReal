@@ -3,9 +3,9 @@ An AR Photo Library App
 
 ## Final Walkthrough MileStone:
 
-[![IMAGE ALT TEXT HERE](https://github.com/turboultralarge/PhotoReal/blob/master/PhotoReal%20Icon%20v3.png)](https://www.youtube.com/watch?v=https://youtu.be/y-SPBTSgcIM)
+Click Logo to watch:
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/https://youtu.be/y-SPBTSgcIM/0.jpg)](https://www.youtube.com/watch?v=https://youtu.be/y-SPBTSgcIM)
+[![IMAGE ALT TEXT HERE](https://github.com/turboultralarge/PhotoReal/blob/master/PhotoReal%20Icon%20v3.png)](https://youtu.be/y-SPBTSgcIM)
 
 
 https://youtu.be/y-SPBTSgcIM
