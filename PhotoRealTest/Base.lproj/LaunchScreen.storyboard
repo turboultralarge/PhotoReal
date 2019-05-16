@@ -18,29 +18,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoReal_logo_temp" translatesAutoresizingMaskIntoConstraints="NO" id="sIr-iE-Kxp">
-                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoReal Logo Alpha" translatesAutoresizingMaskIntoConstraints="NO" id="sIr-iE-Kxp">
+                                <rect key="frame" x="37.5" y="56.5" width="300" height="227"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="FXF-jp-8in"/>
-                                    <constraint firstAttribute="height" constant="375" id="PnJ-yB-50R"/>
+                                    <constraint firstAttribute="width" constant="300" id="JvM-hN-Ppi"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TurboExtraLarge_logo_color_halfres" translatesAutoresizingMaskIntoConstraints="NO" id="m6f-nB-FLW">
-                                <rect key="frame" x="0.0" y="532" width="375" height="115"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="turbo_ultra_large_logo_translucent" translatesAutoresizingMaskIntoConstraints="NO" id="m6f-nB-FLW">
+                                <rect key="frame" x="137.5" y="567" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="gUP-KY-fap"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="115" id="iGY-zw-Qs5"/>
-                                    <constraint firstAttribute="height" constant="115" id="ppc-JU-bna"/>
-                                    <constraint firstAttribute="width" constant="375" id="tiJ-3x-3cR"/>
+                                    <constraint firstAttribute="width" constant="100" id="KCw-oy-XWT"/>
+                                    <constraint firstAttribute="height" constant="100" id="d6c-cf-ggt"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoReal Icon v3 Alpha" translatesAutoresizingMaskIntoConstraints="NO" id="xNq-im-yBy">
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Vs2-fh-1v1"/>
+                                    <constraint firstAttribute="height" constant="300" id="a86-Z4-TSo"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.56862745100000001" green="0.1843137255" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="m6f-nB-FLW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6Hs-qx-D9h"/>
-                            <constraint firstItem="sIr-iE-Kxp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="AQT-9e-8gE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m6f-nB-FLW" secondAttribute="bottom" constant="20" id="RIR-4E-qFM"/>
-                            <constraint firstItem="sIr-iE-Kxp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UfZ-K5-hEo"/>
+                            <constraint firstItem="xNq-im-yBy" firstAttribute="top" secondItem="sIr-iE-Kxp" secondAttribute="bottom" constant="-100" id="KQD-GK-yte"/>
+                            <constraint firstItem="xNq-im-yBy" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NwW-bY-rsv"/>
+                            <constraint firstItem="xNq-im-yBy" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="VKc-LL-4YE"/>
+                            <constraint firstItem="sIr-iE-Kxp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bjG-kP-V85"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="m6f-nB-FLW" secondAttribute="bottom" id="lhD-Jf-Zb4"/>
+                            <constraint firstItem="m6f-nB-FLW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="x7o-Bt-teX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -51,7 +57,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PhotoReal_logo_temp" width="2048" height="2048"/>
-        <image name="TurboExtraLarge_logo_color_halfres" width="1140" height="751"/>
+        <image name="PhotoReal Icon v3 Alpha" width="2048" height="2048"/>
+        <image name="PhotoReal Logo Alpha" width="1293" height="227"/>
+        <image name="turbo_ultra_large_logo_translucent" width="1140" height="751"/>
     </resources>
 </document>

@@ -287,7 +287,7 @@ class ARViewController: UIViewController {
         //let name = imageAnchor.referenceImage.name!
         var topRowPopulated = false //Used for title positioning above collage
         //print("Found image: \(name)")
-        var collageIndex = -1
+        var collageIndex = 0
         var collageCount = 0
         
         let size = imageAnchor.referenceImage.physicalSize
