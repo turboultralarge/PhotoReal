@@ -43,7 +43,7 @@ class LibraryCollectionViewController: UIViewController, UICollectionViewDataSou
         let layout = LibraryCollection.collectionViewLayout as! UICollectionViewFlowLayout
         
         layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
+        layout.minimumInteritemSpacing = 5
         
         let width = ( view.frame.size.width - layout.minimumInteritemSpacing * 2 ) / 2
         layout.itemSize = CGSize(width: width, height: width * 2 / 2)
