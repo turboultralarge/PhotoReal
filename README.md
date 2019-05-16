@@ -8,7 +8,7 @@ Click Logo to watch:
 [![IMAGE ALT TEXT HERE](https://github.com/turboultralarge/PhotoReal/blob/master/PhotoReal%20Icon%20v3.png)](https://youtu.be/y-SPBTSgcIM)
 
 
-https://youtu.be/y-SPBTSgcIM
+
 
 ## USER STORIES Ver - 1.0
 
