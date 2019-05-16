@@ -286,6 +286,7 @@ class ARViewController: UIViewController {
     func handleFoundImage(_ imageAnchor: ARImageAnchor, _ node: SCNNode, collageName: String) {
         //let name = imageAnchor.referenceImage.name!
         var topRowPopulated = false //Used for title positioning above collage
+        print("Assuming top row is NOT populated")
         //print("Found image: \(name)")
         var collageIndex = 0
         var collageCount = 0
@@ -311,17 +312,35 @@ class ARViewController: UIViewController {
             if let collageNode = makeCollageImage(image: collageObjects[collageIndex].a_Image, size: size, name: name, positionIndex: 0) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
-                topRowPopulated = true //Will shift the title up later
+                //Will shift the title up later if the top row is clear
+//                if collageObjects[collageIndex].a_Image.pngData() != UIImage(named: "add_image.png")!.pngData() {
+//                    topRowPopulated = true
+//                    print("A IS populated")
+//                } else {
+//                    print("A is NOT populated")
+//                }
             }
             if let collageNode = makeCollageImage(image: collageObjects[collageIndex].b_Image, size: size, name: name, positionIndex: 1) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
-                topRowPopulated = true //Will shift the title up later
+                //Will shift the title up later if the top row is clear
+//                if collageObjects[collageIndex].a_Image.pngData() != UIImage(named: "add_image.png")!.pngData() {
+//                    topRowPopulated = true
+//                    print("B IS populated")
+//                } else {
+//                    print("B is NOT populated")
+//                }
             }
             if let collageNode = makeCollageImage(image: collageObjects[collageIndex].c_Image, size: size, name: name, positionIndex: 2) {
                 imageNode.addChildNode(collageNode)
                 imageNode.opacity = 1
-                topRowPopulated = true //Will shift the title up later
+                //Will shift the title up later if the top row is clear
+//                if collageObjects[collageIndex].a_Image.pngData() != UIImage(named: "add_image.png")!.pngData() {
+//                    topRowPopulated = true
+//                    print("C IS populated")
+//                } else {
+//                    print("C is NOT populated")
+//                }
             }
             if let collageNode = makeCollageImage(image: collageObjects[collageIndex].d_Image, size: size, name: name, positionIndex: 3) {
                 imageNode.addChildNode(collageNode)
@@ -361,20 +380,12 @@ class ARViewController: UIViewController {
             let dz = min.z + 0.5 * (max.z - min.z)
             textNode.pivot = SCNMatrix4MakeTranslation(dx, dy, dz)
             
-            //            //Creates a copy of what the top title position would be
-            //            var topTitlePos = textNode.position.y
-            //            topTitlePos += Float(fontScale) + Float(0.10)
-            //            print("\(topTitlePos))")
-            
             //Offsets the text y position based on collage image placements
-            if topRowPopulated {
+//            if topRowPopulated {
                 textNode.position.y = Float(0.15)
-            } else {
-                textNode.position.y = Float(0.06)
-            }
-            
-            //let (_, max) = textNode.boundingBox
-            //textNode.position.x -= (Float(max.x) / 2.0)
+//            } else {
+//                textNode.position.y = Float(0.06)
+//            }
             
             imageNode.addChildNode(textNode)
             
@@ -426,6 +437,7 @@ private func makeImage(size: CGSize) -> SCNNode? {
 }
 
 private func makeCollageImage(image: UIImage, size: CGSize, name: String, positionIndex: Int) -> SCNNode? {
+    var localImg = image;
     
     //Set the box size to the length
     var boxSize = size.width
@@ -437,9 +449,17 @@ private func makeCollageImage(image: UIImage, size: CGSize, name: String, positi
     //print("Preparing size: width: \(size.width) height: \(size.height)")
     let newImage = SCNPlane(width: boxSize, height: boxSize)
     
+    //Replaces the passed "empty" image with a true transparent image
+    if (image.pngData() == UIImage(named: "add_image.png")!.pngData()) {
+        //print("[MCI]: Making image transparent!")
+        localImg = UIImage(named: "alpha.png")!
+    } else {
+        //print("[MCI]: Image should not be transparent")
+    }
+    
     //newImage.firstMaterial?.diffuse.contents = //Gets image associated with anchor image  - NEW LINE
-    newImage.firstMaterial?.diffuse.contents = image
-    print("Adding Collage Image...")
+    newImage.firstMaterial?.diffuse.contents = localImg
+    //print("Adding Collage Image...")
     newImage.firstMaterial?.lightingModel = .constant
     let newImageNode = SCNNode(geometry: newImage)
     newImageNode.eulerAngles.x = -.pi / 2
