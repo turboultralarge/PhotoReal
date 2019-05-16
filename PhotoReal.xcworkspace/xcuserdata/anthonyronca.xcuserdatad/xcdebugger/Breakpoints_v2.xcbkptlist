@@ -86,23 +86,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoRealTest/ARViewController.swift"
-            timestampString = "579572504.5970809"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "getData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoRealTest/ARViewController.swift"
-            timestampString = "579667857.806675"
+            timestampString = "579668981.748191"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
@@ -118,7 +102,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoRealTest/detailsViewController.swift"
-            timestampString = "579668081.582103"
+            timestampString = "579668981.748692"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7"

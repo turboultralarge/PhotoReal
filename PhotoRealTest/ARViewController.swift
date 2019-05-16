@@ -148,7 +148,7 @@ class ARViewController: UIViewController {
         for objects in self.clusters{
             
             
-            DispatchQueue.main.syncAfter(deadline: .now() + 0.02) {
+            
             // Get Anchor
             if let userPicture = objects.value(forKey: "AnchorImage") as? PFFileObject {
                 userPicture.getDataInBackground(block: {
@@ -156,7 +156,7 @@ class ARViewController: UIViewController {
                     if (error == nil) {
                         let anchor = UIImage(data:imageData)
                         self.anchors.append(anchor!)
-                    }
+                        
                         
                         
                         // Get A
@@ -166,7 +166,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let a = UIImage(data:imageData)
                                     self.a_index.append(a!)
-                                   // print("a_index accepted")
+                                    // print("a_index accepted")
                                     //   print("Number of A_Index loaded: \(self.a_index.count)" )
                                 }
                             })
@@ -190,7 +190,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let c = UIImage(data:imageData)
                                     self.c_index.append(c!)
-                                   // print("c_index accepted")
+                                    // print("c_index accepted")
                                     // print("Number of C_Index loaded: \(self.c_index.count)" )
                                 }
                             })
@@ -202,7 +202,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let d = UIImage(data:imageData)
                                     self.d_index.append(d!)
-                                   // print("d_index accepted")
+                                    // print("d_index accepted")
                                     //print("Number of D_Index loaded: \(self.d_index.count)" )
                                 }
                             })
@@ -214,7 +214,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let e = UIImage(data:imageData)
                                     self.e_index.append(e!)
-                                   // print("e_index accepted")
+                                    // print("e_index accepted")
                                     //print("Number of E_Index loaded: \(self.e_index.count)" )
                                 }
                             })
@@ -226,7 +226,7 @@ class ARViewController: UIViewController {
                                 if (error == nil) {
                                     let f = UIImage(data:imageData)
                                     self.f_index.append(f!)
-                                   // print("f_index accepted")
+                                    // print("f_index accepted")
                                     //    print("Number of F_Index loaded: \(self.f_index.count)" )
                                 }
                             })
@@ -289,45 +289,45 @@ class ARViewController: UIViewController {
         }
     }
     
-//    // passes Anchor image array as well as collage arrays
-//    func supplyClustersToAR() {
-//        var index = 0
-//
-//        // laod into collageOIbjects class
-//
-//        //for anchor in anchors {
-//           // var anchorImage = anchor
-//           // var aImage = a[index]
-//        //var counter = 0
-//
-//        for anchor in anchors{
-//
-//            guard let cgImg = anchors[index].cgImage else { return }
-//            let ARRefImg = ARReferenceImage(cgImg, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762) //3 inches in meters
-//
-//            //collageObjects[index].ARAnchor = ARRefImg
-//            collageObjects[index].UIAnchor = anchors[index]
-//            collageObjects[index].a_Image = a_index[index]
-//            collageObjects[index].b_Image = b_index[index]
-//            collageObjects[index].c_Image = c_index[index]
-//            collageObjects[index].d_Image = d_index[index]
-//            collageObjects[index].e_Image = e_index[index]
-//            collageObjects[index].f_Image = f_index[index]
-//            collageObjects[index].g_Image = g_index[index]
-//            collageObjects[index].h_Image = h_index[index]
-//
-//            index += 1
-//        }
-//
-//            self.setupImageDetection()
-//
-//            if let configuration = imageConfiguration {
-//                sceneView.session.run(configuration)
-//
-//
-//            } //END if let
-//       // } //END for anchor
-//    } //END supplyClustersToAR()
+    //    // passes Anchor image array as well as collage arrays
+    //    func supplyClustersToAR() {
+    //        var index = 0
+    //
+    //        // laod into collageOIbjects class
+    //
+    //        //for anchor in anchors {
+    //           // var anchorImage = anchor
+    //           // var aImage = a[index]
+    //        //var counter = 0
+    //
+    //        for anchor in anchors{
+    //
+    //            guard let cgImg = anchors[index].cgImage else { return }
+    //            let ARRefImg = ARReferenceImage(cgImg, orientation: CGImagePropertyOrientation.up, physicalWidth: 0.0762) //3 inches in meters
+    //
+    //            //collageObjects[index].ARAnchor = ARRefImg
+    //            collageObjects[index].UIAnchor = anchors[index]
+    //            collageObjects[index].a_Image = a_index[index]
+    //            collageObjects[index].b_Image = b_index[index]
+    //            collageObjects[index].c_Image = c_index[index]
+    //            collageObjects[index].d_Image = d_index[index]
+    //            collageObjects[index].e_Image = e_index[index]
+    //            collageObjects[index].f_Image = f_index[index]
+    //            collageObjects[index].g_Image = g_index[index]
+    //            collageObjects[index].h_Image = h_index[index]
+    //
+    //            index += 1
+    //        }
+    //
+    //            self.setupImageDetection()
+    //
+    //            if let configuration = imageConfiguration {
+    //                sceneView.session.run(configuration)
+    //
+    //
+    //            } //END if let
+    //       // } //END for anchor
+    //    } //END supplyClustersToAR()
     
     //Handles a found IMAGE
     func handleFoundImage(_ imageAnchor: ARImageAnchor, _ node: SCNNode, collageName: String) {

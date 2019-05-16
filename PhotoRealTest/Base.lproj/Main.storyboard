@@ -231,6 +231,17 @@
                                     <constraint firstAttribute="width" constant="100" id="oU4-OI-YeM"/>
                                 </constraints>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title:" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oac-fq-60a">
+                                <rect key="frame" x="27" y="69" width="320" height="42"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="0ug-hS-JBs"/>
+                                    <constraint firstAttribute="width" constant="320" id="4h0-gA-R1c"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -250,10 +261,14 @@
                             <constraint firstItem="yvk-Tw-rXf" firstAttribute="centerX" secondItem="nRE-K3-cnQ" secondAttribute="centerX" constant="-0.5" id="Vyc-zj-gUY"/>
                             <constraint firstItem="yvk-Tw-rXf" firstAttribute="leading" secondItem="xl0-KM-R88" secondAttribute="trailing" constant="10" id="YbP-4p-rdL"/>
                             <constraint firstItem="gZk-XU-D9n" firstAttribute="top" secondItem="WVe-M5-EDE" secondAttribute="bottom" constant="10" id="bOa-t7-Ip6"/>
+                            <constraint firstItem="oac-fq-60a" firstAttribute="leading" secondItem="3uU-hQ-fwU" secondAttribute="leading" constant="27" id="cKt-Nv-8B8"/>
                             <constraint firstItem="7Ip-w3-BlO" firstAttribute="leading" secondItem="9Lh-Co-dHy" secondAttribute="trailing" constant="-208" id="djm-5Y-nbD"/>
+                            <constraint firstItem="xl0-KM-R88" firstAttribute="top" secondItem="oac-fq-60a" secondAttribute="bottom" constant="30" id="euF-Au-yqI"/>
                             <constraint firstItem="7Ip-w3-BlO" firstAttribute="top" secondItem="WGc-rl-rqA" secondAttribute="bottom" constant="-100" id="hjV-2L-c4t"/>
                             <constraint firstItem="WVe-M5-EDE" firstAttribute="leading" secondItem="yvk-Tw-rXf" secondAttribute="trailing" constant="10" id="i43-Sy-Wox"/>
+                            <constraint firstItem="oac-fq-60a" firstAttribute="top" secondItem="3uU-hQ-fwU" secondAttribute="top" constant="49" id="k0T-HB-Sd3"/>
                             <constraint firstItem="dVR-Np-su1" firstAttribute="leading" secondItem="7Ip-w3-BlO" secondAttribute="trailing" constant="120" id="l8i-o2-oxv"/>
+                            <constraint firstItem="3uU-hQ-fwU" firstAttribute="trailing" secondItem="oac-fq-60a" secondAttribute="trailing" constant="28" id="nX3-EN-l9M"/>
                             <constraint firstItem="QAx-fk-i4x" firstAttribute="top" secondItem="xl0-KM-R88" secondAttribute="bottom" constant="120" id="qTL-42-Ej5"/>
                             <constraint firstItem="WGc-rl-rqA" firstAttribute="leading" secondItem="QAx-fk-i4x" secondAttribute="trailing" constant="10" id="tWu-ne-2af"/>
                         </constraints>

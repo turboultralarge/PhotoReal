@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import Parse
 
 class detailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let query = PFQuery(className: "collage")
+        query.includeKeys(["AnchorImage", "A_Index", "B_Index", "C_Index", "D_Index", "E_Index", "F_Index", "G_Index", "H_Index" ])
 
         // Do any additional setup after loading the view.
     }
