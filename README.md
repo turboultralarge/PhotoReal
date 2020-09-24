@@ -15,8 +15,8 @@ Click Logo to watch:
 
 # Youtube Link Here: :-)
 
-prototype of AR Image tracking of a static image.
-https://youtu.be/7zWyM_eDVSA.jpg
+PhotoReal Walkthrough
+https://www.youtube.com/watch?v=xx5vY6jOYeI&feature=youtu.be
 
 
 
